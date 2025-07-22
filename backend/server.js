@@ -45,5 +45,23 @@ app.delete('/api/dinner/:id', async(req,res)=>{
     }
 })
 
+app.get('/api/dinner', async(req,res)=>{
+    try{
+        const allDinnerItems = await DinnerMenuItem.find().sort({sequence:1})
+        res.json(allDinnerItems)
+    }catch(err){
+        console.log(err)
+    }
+})
+app.get('/api/dinner/:id', async(req,res)=>{
+    try{
+        const dinnerItem = await DinnerMenuItem.findById(req.params.id)
+        console.log(dinnerItem)
+        res.json(dinnerItem)
+    }catch(err){
+        console.log(err)
+    }
+})
+
 const PORT = process.env.PORT || 1435 
 app.listen(PORT, ()=> console.log(`Server Listening on Port: ${PORT}`))
