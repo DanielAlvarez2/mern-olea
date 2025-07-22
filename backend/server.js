@@ -63,5 +63,20 @@ app.get('/api/dinner/:id', async(req,res)=>{
     }
 })
 
+app.put('/api/dinner/:id', async(req,res)=>{
+    try{
+        await DinnerMenuItem.findByIdAndUpdate({_id:req.params.id},{
+            section:req.body.section,
+            name:req.body.name,
+            description:req.body.description,
+            price:req.body.price
+        })
+        console.log(`Updated in Database: ${req.body.name}`)
+        res.json(`Updated in Databse: ${req.body.name}`)
+    }catch(err){
+        console.log(err)
+    }
+})
+
 const PORT = process.env.PORT || 1435 
 app.listen(PORT, ()=> console.log(`Server Listening on Port: ${PORT}`))
