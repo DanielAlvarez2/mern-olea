@@ -383,4 +383,7 @@ Netlify: wait for deploy to go live
 navigate to Netlify URL/test  
 
   
-LESS THAN 3 HOURS TO COMPLETE  
+LESS THAN 3 HOURS TO COMPLETE   
+  
+Print README.md from GitHub Repo URL in PrintFriendly.com  
+
