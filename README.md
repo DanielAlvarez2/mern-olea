@@ -387,3 +387,29 @@ LESS THAN 3 HOURS TO COMPLETE
   
 Print README.md from GitHub Repo URL in PrintFriendly.com  
 
+
+FONTS:  
+/frontend/src/assets/ $ mkdir fonts  
+save fonts to this folder  
+/frontend/src/index.css:  
+```
+@font-face{
+  font-family: 'FuturaLight';
+  src:url('./assets/fonts/FuturaLight.otf') format(opentype);
+}
+@media print{
+  .no-print{
+      display:none !important;
+      height:0;
+      width:0;
+  }
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  font-family: FuturaLight;
+}
+```
