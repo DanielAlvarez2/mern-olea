@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function App() {
+export default function Menu() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
                     'https://mern-olea.onrender.com' : 
                     'http://localhost:1435'
@@ -17,6 +17,7 @@ export default function App() {
 
   return (
     <>
+        <h1>Menu Page</h1>
       {dinnerItems.map(data=>{
         return(
           <div>
