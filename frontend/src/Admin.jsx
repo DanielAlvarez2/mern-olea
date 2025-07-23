@@ -15,14 +15,16 @@ export default function Admin() {
   }
 
   async function addDinnerItem(formData){
-    await fetch('/api/dinner',{ method:'POST',
+    alert(BASE_URL)
+    await fetch(`${BASE_URL}/api/dinner`,{ method:'POST',
+                                headers:{'Content-Type':'application/json'},
                                 body: JSON.stringify({
                                   section: formData.get('section'),
                                   name: formData.get('name'),
                                   allergies: formData.get('allergies'),
                                   preDescription: formData.get('preDescription'),
                                   description: formData.get('description'),
-                                  price: formData.get(price)
+                                  price: formData.get('price')
                                 })
     }).then(console.log(`Added to Database: ${formData.get('name')}`))
       .then(async ()=> await getDinnerItems())
@@ -98,7 +100,7 @@ export default function Admin() {
                 <input type='file' name='image' /><br/><br/>
               </label>
 
-              <button className='admin-form-btn'>Add Item</button>
+              <button type='submit' className='admin-form-btn'>Add Item</button>
 
               <div className='admin-form-btn'>Clear Form</div>
 
