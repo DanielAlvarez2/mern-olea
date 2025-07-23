@@ -1,0 +1,57 @@
+@font-face{
+  font-family:'FuturaLight';
+  src:url('./assets/fonts/FuturaLight.otf') format(opentype);
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+#admin-page-wrapper-dinner-menu{
+  width:100%;
+  min-height:100vh;
+  min-height:100svh;
+  border:1px solid red;
+  background:lightgrey;
+}
+#admin-dinner-menu{
+  width:8.5in;
+  height:14in;
+  background:white;
+  margin:0 auto;
+  font-family: FuturaLight;
+}
+#admin-form{
+  width:300px;
+  border:1px solid green;
+}
+.admin-form-btn{
+  width:120px;
+  height:50px;
+  border:1px solid black;
+  font-family:serif;
+  font-size:20px;
+  border-radius: 10px;
+  margin:10px auto;
+  display:grid;
+  align-items: center;
+  text-align: center;
+  cursor:pointer;
+}
+#admin-form-outer-wrapper{
+  width:100%;
+}
+#admin-form-inner-wrapper{
+  width:8.5in;
+  margin:0 auto;
+}
+form{
+  margin:0 auto;
+}
+form h2{
+  text-align: center;
+}
+form input,
+form textarea{
+  width:100%;
+}

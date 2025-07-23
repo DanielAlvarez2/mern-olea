@@ -24,6 +24,8 @@ app.post('/api/dinner', async(req,res)=>{
         await DinnerMenuItem.create({
             section:req.body.section,
             name:req.body.name,
+            allergies:req.body.allergies,
+            preDescription:req.body.preDescription,
             description:req.body.description,
             price:req.body.price,
             sequence: maxSequence ? maxSequence.sequence + 1 : 1
@@ -68,6 +70,8 @@ app.put('/api/dinner/:id', async(req,res)=>{
         await DinnerMenuItem.findByIdAndUpdate({_id:req.params.id},{
             section:req.body.section,
             name:req.body.name,
+            allergies:req.body.allergies,
+            preDescription:req.body.preDescription,
             description:req.body.description,
             price:req.body.price
         })
