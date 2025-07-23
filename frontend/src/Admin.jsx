@@ -15,7 +15,6 @@ export default function Admin() {
   }
 
   async function addDinnerItem(formData){
-    alert(BASE_URL)
     await fetch(`${BASE_URL}/api/dinner`,{ method:'POST',
                                 headers:{'Content-Type':'application/json'},
                                 body: JSON.stringify({
@@ -44,14 +43,57 @@ export default function Admin() {
         <div id='admin-dinner-menu'>
           <h1>olea</h1>
           <hr />
-          {dinnerItems.map(data=>{
-            return(
-              <div>
-                {data.name}
-              </div>
-            )
-          })}
 
+          <div id='admin-dinner-menu-top'>
+            <div id='admin-dinner-menu-top-left'>
+              <div id='admin-dinner-menu-meats'>
+                {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
+                  return(
+                    <div key={data._id}>
+                      <span className='name'>{data.name}</span>&nbsp;
+                      {data.allergies && <span className='allergies'>{data.allergies}</span>}<br/>
+                      <span className='pre-description'>{data.preDescription}</span>
+                      <span className='description'>{data.description}</span>&nbsp;&nbsp;
+                      <span className='price'>{data.price}</span>
+                    </div>
+                  )
+                })}
+              </div>{/* #admin-dinner-menu-meats */}
+              
+              <div id='admin-dinner-menu-appetizers'>
+                {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
+                  return(
+                    <div key={data._id}>
+                      {data.name}
+                    </div>
+                  )
+                })}
+                
+              </div>{/* #admin-dinner-menu-appetizers */}
+            </div>{/* #admin-dinner-menu-top-left */}
+
+            <div id='admin-dinner-menu-top-right'>
+              {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
+                  return(
+                    <div key={data._id}>
+                      {data.name}
+                    </div>
+                  )
+                })}
+            </div>{/* #admin-dinner-menu-top-right */}
+
+          </div>{/* #admin-dinner-menu-top */}
+
+          <div id='admin-dinner-menu-sides'>
+             {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
+                  return(
+                    <div key={data._id}>
+                      {data.name}
+                    </div>
+                  )
+              })}
+          </div>{/* #admin-dinner-menu-sides */}
+          
         </div>{/* #admin-dinner-menu */}
 
         <div id='admin-form-outer-wrapper'>
@@ -87,12 +129,12 @@ export default function Admin() {
 
               <label>
                 Main Description:<br/>
-                <textarea name='description'>Description</textarea><br/><br/>
+                <textarea name='description'></textarea><br/><br/>
               </label>
 
               <label>
                 Price:<br/>
-                <input type='text' name='price' /><br/><br/>
+                <input type='text' name='price' autoComplete='off' /><br/><br/>
               </label>
 
               <label>

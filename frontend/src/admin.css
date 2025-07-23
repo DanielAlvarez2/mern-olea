@@ -15,11 +15,26 @@
   background:lightgrey;
 }
 #admin-dinner-menu{
+  padding-top:20px;
+  padding-left:40px;
+  padding-right:40px;
   width:8.5in;
   height:14in;
   background:white;
   margin:0 auto;
+  font-family: serif;
+}
+#admin-dinner-menu h1{
+  font-size:50px;
+  font-weight:100;
   font-family: FuturaLight;
+}
+#admin-dinner-menu-top{
+  display:flex;
+}
+#admin-dinner-menu-top-left,
+#admin-dinner-menu-top-right{
+  width:50%;
 }
 #admin-form{
   width:300px;
@@ -54,4 +69,24 @@ form h2{
 form input,
 form textarea{
   width:100%;
+}
+.name{
+  font-weight:900;
+  font-size:18px;
+  font-family: FuturaLight;
+}
+.allergies{
+  font-family:serif;
+  font-size: 14px;
+}
+.pre-description{
+  font-size: 15px;
+  font-style: italic;
+}
+.description{
+  font-size:15px;
+}
+.price{
+  font-weight: 900;
+  font-size: 14px;
 }
