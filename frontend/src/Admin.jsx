@@ -52,7 +52,7 @@ export default function Admin() {
                     <div className='menu-item' key={data._id}>
                       {data.name == 'jamón ibérico' ? 
                       <>
-                        <span className='name'>{data.name}</span>
+                        <span className='name'>{data.name}</span>&nbsp;&nbsp;
                         <span className='price'>{data.price}</span>
                         <br/>{data.sequence}
                       </>
