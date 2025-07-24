@@ -54,6 +54,7 @@ export default function Admin() {
                       <>
                         <span className='name'>{data.name}</span>
                         <span className='price'>{data.price}</span>
+                        <br/>{data.sequence}
                       </>
                       :  
                       <>
@@ -62,6 +63,7 @@ export default function Admin() {
                         {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
                         <span className='description'>{data.description}</span>&nbsp;&nbsp;
                         <span className='price'>{data.price}</span>
+                        <br/>{data.sequence}
                       </>
                       }
                     </div>
@@ -78,6 +80,7 @@ export default function Admin() {
                       {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
                       <span className='description'>{data.description}</span>&nbsp;&nbsp;
                       <span className='price'>{data.price}</span>
+                      <br/>{data.sequence}
                     </div>
                   )
                 })}
@@ -95,6 +98,7 @@ export default function Admin() {
                       <span className='description'>{data.description}</span>&nbsp;&nbsp;
                       <span className='price'>{data.price}</span>
                       {data.name == 'cochinillo' && <div id='cochinillo'>(Please allow 40 minutes cooking time)</div>}
+                      <br/>{data.sequence}
                     </div>
                   )
                 })}
@@ -112,6 +116,7 @@ export default function Admin() {
                       {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
                       <span className='description'>{data.description}</span>&nbsp;&nbsp;
                       <span className='price'>{data.price}</span>
+                      <br/>{data.sequence}
                     </div>
                   )
               })}
