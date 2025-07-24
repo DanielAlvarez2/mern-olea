@@ -14,6 +14,9 @@
   border:1px solid red;
   background:lightgrey;
 }
+#admin-header{
+  background:green;
+}
 #admin-dinner-menu{
   padding-top:20px;
   padding-left:40px;
