@@ -175,7 +175,7 @@ export default function Admin() {
 
               <label>
                 Main Description:<br/>
-                <textarea name='description'></textarea><br/><br/>
+                <textarea name='description' rows='5'></textarea><br/><br/>
               </label>
 
               <label>
