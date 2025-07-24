@@ -16,6 +16,8 @@
 }
 #admin-header{
   background:green;
+  min-width:8.5in;
+  width:100%;
 }
 #admin-dinner-menu{
   padding-top:20px;
