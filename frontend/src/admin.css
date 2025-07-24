@@ -36,6 +36,20 @@
 #admin-dinner-menu-top-right{
   width:50%;
 }
+#cochinillo{
+  font-style: italic;
+}
+#admin-dinner-menu h2{
+  font-family: FuturaLight;
+  font-weight: 900;
+}
+#admin-dinner-menu-sides{
+  display:flex;
+  flex-wrap:wrap;
+}
+#admin-dinner-menu-sides .menu-item{
+  width:50%;
+}
 #admin-form{
   width:300px;
   border:1px solid green;
