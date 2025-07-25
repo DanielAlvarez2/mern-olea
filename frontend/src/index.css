@@ -3,3 +3,7 @@
     padding:0;
     box-sizing: border-box;
 }
+.icon{
+    max-width: 175px;
+    max-height: 175px;
+}

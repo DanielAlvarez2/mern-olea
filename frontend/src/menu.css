@@ -2,14 +2,8 @@
     width:100%;
     min-height:100vh;
 }
-#menu-page-menu{
+#menu-page-content{
     max-width:8.5in;
+    margin:0 auto;
     background-image:url('menu-background.jpg');
-}
-#menu-page-menu svg{
-    height:20px !important;
-}
-.camera-icon{
-    width:20px !important;
-    height:20px !important;
 }

@@ -2,13 +2,19 @@
     font-family: 'FuturaLight';
     src: url(./assets/fonts/FuturaLight.otf);
 }
-#pics-page-wrapper *,
-#root-page-wrapper *{
+#pics-page-wrapper,
+#root-page-wrapper{
+    width:100%;
+    background:grey;
+}
+#root-page-content,
+#pics-page-content{
+    max-width:1060px;
+    min-height:100vh;
     background:black;
     color:white;
     font-family: FuturaLight;
-    width:100%;
-    min-height:100vh;
+    margin:0 auto;
 }
 li{
     list-style-type: none;

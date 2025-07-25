@@ -19,7 +19,8 @@ export default function Menu() {
   return (
     <>
       <div id='menu-page-wrapper'>
-        <div id='menu-page-menu'>
+        <div id='menu-page-content'>
+        
           <h1>Menu Page</h1>
             {dinnerItems.map(data=>{
               return(
@@ -28,7 +29,9 @@ export default function Menu() {
                 </div>
               )
             })}          
-        </div>{/* #menu-page-menu */}
+        
+        </div>{/* #menu-page-content */}
+        
       </div>{/* #menu-page-wrapper */}
     </>
   )

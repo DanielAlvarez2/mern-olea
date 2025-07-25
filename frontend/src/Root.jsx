@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import './root.css'
+import { FaFacebookF } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 export default function Root() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -19,28 +22,36 @@ export default function Root() {
   return (
     <>
       <div id='root-page-wrapper'>
-        <nav style={{display:'flex'}}>
-          <h1>olea</h1>
-          <div id='nav-links'>
-            <ul style={{display:'flex'}}>
-              <li key='home'>home</li>
-              <li key='info'>info</li>
-              <li key='menus'>menus</li>
-              <li key='press'>press</li>
-              <li key='gift-cards'>gift cards</li>
-              <li key='newsletter'>newsletter</li>
-              <li key='reservations'>reservations</li>
-            </ul>  
-          </div>{/* #nav-links */}
-        </nav>
+        <div id='root-page-content'>
+          <nav style={{display:'flex',width:'100%',border:'1px solid red',justifyContent:'space-between'}}>
+            <h1>olea</h1>
+            <div id='nav-links' style={{width:'100%',border:'1px solid green'}}>
+              <ul style={{width:'100%',display:'flex',justifyContent:'space-between'}}>
+                <li key='home'>home</li>
+                <li key='info'>info</li>
+                <li key='menus'>menus</li>
+                <li key='press'>press</li>
+                <li key='gift-cards'>gift cards</li>
+                <li key='newsletter'>newsletter</li>
+                <li key='reservations'>reservations</li>
+              </ul>  
+            </div>{/* #nav-links */}
+            <div id='socials' style={{display:'flex'}}>
+              <FaFacebookF className='icon' />
+              <FaTwitter className='icon' />
+              <FaInstagram className='icon' />
+            </div>{/* #socials */}
+          </nav>
+          <hr/>
+          {dinnerItems.map(data=>{
+            return(
+              <div>
+                {data.name}
+              </div>
+            )
+          })}
+        </div>{/* #root-page-content */}
         
-        {dinnerItems.map(data=>{
-          return(
-            <div>
-              {data.name}
-            </div>
-          )
-        })}
       </div>{/* #root-page-wrapper */}
       
     </>
