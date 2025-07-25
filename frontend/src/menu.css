@@ -1,0 +1,15 @@
+#menu-page-wrapper{
+    width:100%;
+    min-height:100vh;
+}
+#menu-page-menu{
+    max-width:8.5in;
+    background-image:url('menu-background.jpg');
+}
+#menu-page-menu svg{
+    height:20px !important;
+}
+.camera-icon{
+    width:20px !important;
+    height:20px !important;
+}

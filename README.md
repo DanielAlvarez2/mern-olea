@@ -395,7 +395,7 @@ save fonts to this folder
 ```
 @font-face{
   font-family: 'FuturaLight';
-  src:url('./assets/fonts/FuturaLight.otf') format(opentype);
+  src:url('./assets/fonts/FuturaLight.otf');
 }
 @media print{
   .no-print{

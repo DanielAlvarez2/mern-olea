@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import './menu.css'
 
 export default function Menu() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -17,14 +18,18 @@ export default function Menu() {
 
   return (
     <>
-        <h1>Menu Page</h1>
-      {dinnerItems.map(data=>{
-        return(
-          <div>
-            {data.name}
-          </div>
-        )
-      })}
+      <div id='menu-page-wrapper'>
+        <div id='menu-page-menu'>
+          <h1>Menu Page</h1>
+            {dinnerItems.map(data=>{
+              return(
+                <div key={data._id}>
+                  {data.name}
+                </div>
+              )
+            })}          
+        </div>{/* #menu-page-menu */}
+      </div>{/* #menu-page-wrapper */}
     </>
   )
 }

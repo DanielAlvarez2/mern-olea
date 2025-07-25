@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'FuturaLight';
+    src: url(./assets/fonts/FuturaLight.otf);
+}
+#pics-page-wrapper *,
+#root-page-wrapper *{
+    background:black;
+    color:white;
+    font-family: FuturaLight;
+    width:100%;
+    min-height:100vh;
+}
+li{
+    list-style-type: none;
+}
+h1{
+    font-size: 55px;
+    font-weight: 100;
+}
+
+

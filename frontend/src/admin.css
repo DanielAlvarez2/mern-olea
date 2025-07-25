@@ -2,11 +2,6 @@
   font-family:'FuturaLight';
   src:url('./assets/fonts/FuturaLight.otf') format(opentype);
 }
-*{
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-}
 #admin-page-wrapper-dinner-menu{
   width:100%;
   min-height:100vh;
