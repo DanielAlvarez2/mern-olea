@@ -28,7 +28,7 @@ export default function Root() {
             <nav style={{display:'flex',width:'100%',border:'1px solid red',justifyContent:'space-between'}}>
               <h1><span id='logo'>olea</span></h1>
               <div id='nav-links' style={{width:'100%',border:'1px solid green'}}>
-                <ul style={{width:'100%',display:'flex',justifyContent:'space-between'}}>
+                <ul style={{width:'100%',display:'flex',justifyContent:'space-between',alignItems:'center',height:'100%'}}>
                   <li key='home'>home</li>
                   <li key='info'>info</li>
                   <li key='menus'>menus</li>
@@ -38,20 +38,99 @@ export default function Root() {
                   <li key='reservations'>reservations</li>
                 </ul>  
               </div>{/* #nav-links */}
-              <div id='socials' style={{display:'flex'}}>
+              <div id='socials' style={{display:'flex',gap:'10px',alignItems:'center'}}>
                 <FaFacebookF className='icon' />
                 <FaTwitter className='icon' />
                 <FaInstagram className='icon' />
               </div>{/* #socials */}
             </nav>
             <hr/>
-            {dinnerItems.map(data=>{
+            <h2>dinner hours</h2>
+            Tuesday - Saturday, 5 - 10pm<br/>
+            last reservation is at 8:30pm<br/>
+            closed Sunday and Monday<br/><br/>
+
+            <h2>takeout and curbside pickup</h2>
+            Our dinner menu below is avilable for takeout and curbside pickup. Please preorder if possible by phone (203.780.8925). <br/>
+            During special days we can only take a limited number of takeout orders due to volume.<br/><br/>
+
+            <h2>CHEF'S TASING MENU <span>$98 / person</span></h2>
+            <h2>no substitutions or modifications</h2>
+            <h2>A minimum of two days notice is required</h2>
+            six courses / reservations and full table participation required<br/>
+            optional wine pairing available $52 / person<br/>
+            available Tuesday through Thursday<br/>
+            Please let us know in advance about any food restrictions or allergies.<br/>
+            Tax and gratuity not included.<br/><br/>
+
+            <h2>DINNER MENU</h2>
+
+            <div style={{textAlign:'center'}}>appetizers</div>
+
+            {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
               return(
-                <div>
-                  {data.name}
-                </div>
+                <>
+                  <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
+                    <span className='name'>{data.name}</span>
+                    <span className='price'>{data.price}</span>
+                  </div>
+                    {data.preDescription} 
+                    {data.description}
+                </>
               )
             })}
+
+            {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
+              return(
+                <>
+                  <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
+                    <span className='name'>{data.name}</span>
+                    <span className='price'>{data.price}</span>
+                  </div>
+                    <span className='pre-description'>{data.preDescription};&nbsp;</span>  
+                    <span className='description'>{data.description}</span>
+                </>
+              )
+            })}
+
+            <div style={{textAlign:'center'}}>main courses</div>
+
+            {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
+              return(
+                <>
+                  <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
+                    <span className='name'>{data.name}</span>
+                    <span className='price'>{data.price}</span>
+                  </div>
+                    <span className='pre-description'>{data.preDescription};&nbsp;</span>  
+                    <span className='description'>{data.description}</span>
+                </>
+              )
+            })}
+
+            <div style={{textAlign:'center'}}>sides</div>
+
+            {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
+              return(
+                <>
+                  <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
+                    <span className='name'>{data.name}</span>
+                    <span className='price'>{data.price}</span>
+                  </div>
+                    <span className='pre-description'>{data.preDescription};&nbsp;</span>  
+                    <span className='description'>{data.description}</span>
+                </>
+              )
+            })}       
+
+            <br/><br/><br/>
+            we do our best to keep this information accurate and up to date, but because we make frequent adjustmants, based on season and availability, our menus are subject to change<br/><br/>
+            <hr/>
+            <div id='socials-bottom' style={{marginTop:'10px',display:'flex',gap:'10px',justifyContent:'center'}}>
+              <FaFacebookF className='icon' />
+              <FaTwitter className='icon' />
+              <FaInstagram className='icon' />
+            </div>{/* #socials-bottom */}                 
           </div>{/* #footer-flexbox-top */}
           <PageFooter color='red' />
           
