@@ -42,7 +42,7 @@ export default function Admin() {
         </div>{/* #admin-header */}
         
         <div id='admin-dinner-menu'>
-          <h1>olea</h1>
+          <h1><span id='logo'>olea</span></h1>
           <hr />
 
           <div id='admin-dinner-menu-top'>

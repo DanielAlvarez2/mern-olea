@@ -1,3 +1,7 @@
+@font-face{
+    font-family: 'FuturaLight';
+    src: url('./assets/fonts/FuturaLight.otf')
+}
 *{
     margin:0;
     padding:0;
@@ -6,4 +10,9 @@
 .icon{
     max-width: 175px;
     max-height: 175px;
+}
+#logo{
+    font-size: 50px;
+    font-weight: 100;
+    font-family: FuturaLight;
 }

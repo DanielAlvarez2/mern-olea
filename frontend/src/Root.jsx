@@ -26,7 +26,7 @@ export default function Root() {
         <div id='root-page-content'>
           <div id='footer-flexbox-top'>
             <nav style={{display:'flex',width:'100%',border:'1px solid red',justifyContent:'space-between'}}>
-              <h1>olea</h1>
+              <h1><span id='logo'>olea</span></h1>
               <div id='nav-links' style={{width:'100%',border:'1px solid green'}}>
                 <ul style={{width:'100%',display:'flex',justifyContent:'space-between'}}>
                   <li key='home'>home</li>

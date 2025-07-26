@@ -1,3 +1,7 @@
+@font-face{
+    font-family: 'FuturaLight';
+    src: url(./assets/fonts/FuturaLight.otf);
+}
 #menu-page-wrapper{
     width:100%;
     min-height:100vh;
@@ -5,7 +9,11 @@
     flex-direction: column;
 }
 #menu-page-content{
+    font-family: FuturaLight;
     width:8.5in;
     margin:0 auto;
     background-image:url('menu-background.jpg');
+}
+h1{
+    font-weight:100;
 }

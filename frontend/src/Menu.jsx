@@ -22,7 +22,7 @@ export default function Menu() {
       <div id='menu-page-wrapper'>
         <div id='menu-page-content'>
           <div id='footer-flexbox-top'>
-            <h1>Menu Page</h1>
+            <h1><span id='logo'>olea</span></h1>
               {dinnerItems.map(data=>{
                 return(
                   <div key={data._id}>

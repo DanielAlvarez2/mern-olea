@@ -9,7 +9,7 @@ export default function Pics(){
                 <div id='pics-page-content'>
                     <FaCamera className='icon' />
                     <nav>
-                        <h1 style={{display:'flex'}}>olea</h1>
+                        <h1 style={{display:'flex'}}><span id='logo'>olea</span></h1>
                     </nav>       
                     <hr/>           
                     <PageFooter color='green' />  
