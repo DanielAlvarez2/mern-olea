@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './admin.css'
+import PageFooter from './components/PageFooter.jsx'
 
 export default function Admin() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -120,8 +121,7 @@ export default function Admin() {
                     </div>
                   )
               })}
-          </div>{/* #admin-dinner-menu-sides */}
-          
+          </div>{/* #admin-dinner-menu-sides */}          
         </div>{/* #admin-dinner-menu */}
 
 
@@ -195,6 +195,7 @@ export default function Admin() {
             </form>{/* #admin-form */}
           </div>{/* #admin-form-inner-wrapper */}
         </div>{/* #admin-form-outer-wrapper */}      
+        <PageFooter color='blue' />
       </div>{/* #page-wrapper-admin-dinner-menu */}
     </>
   )

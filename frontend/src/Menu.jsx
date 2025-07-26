@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './menu.css'
+import PageFooter from './components/PageFooter.jsx'
 
 export default function Menu() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -20,17 +21,18 @@ export default function Menu() {
     <>
       <div id='menu-page-wrapper'>
         <div id='menu-page-content'>
-        
-          <h1>Menu Page</h1>
-            {dinnerItems.map(data=>{
-              return(
-                <div key={data._id}>
-                  {data.name}
-                </div>
-              )
-            })}          
-        
+          <div id='footer-flexbox-top'>
+            <h1>Menu Page</h1>
+              {dinnerItems.map(data=>{
+                return(
+                  <div key={data._id}>
+                    {data.name}
+                  </div>
+                )
+              })}                    
+          </div>{/* #footer-flexbox-top */}        
         </div>{/* #menu-page-content */}
+          <PageFooter color='grey' />
         
       </div>{/* #menu-page-wrapper */}
     </>

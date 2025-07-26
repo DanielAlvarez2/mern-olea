@@ -1,5 +1,6 @@
 import { FaCamera } from "react-icons/fa";
 import './menu.css'
+import PageFooter from './components/PageFooter.jsx'
 
 export default function Pics(){
     return(
@@ -10,7 +11,8 @@ export default function Pics(){
                     <nav>
                         <h1 style={{display:'flex'}}>olea</h1>
                     </nav>       
-                    <hr/>             
+                    <hr/>           
+                    <PageFooter color='green' />  
                 </div>{/* #pics-page-content */}
             </div>{/* #pics-page-wrapper */}
         </>
