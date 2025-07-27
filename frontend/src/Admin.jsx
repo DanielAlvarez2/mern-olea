@@ -48,8 +48,10 @@ export default function Admin() {
 
           <div id='admin-dinner-menu-top'>
             <div id='admin-dinner-menu-top-left'>
+
               <div id='admin-dinner-menu-meats'>
                 {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
+                  return <AdminDinnerMenuItem data={data} key={data._id} />                  
                   return(
                     <div className='menu-item' key={data._id}>
                       {data.name == 'jamón ibérico' ? 
@@ -76,16 +78,6 @@ export default function Admin() {
               <div id='admin-dinner-menu-appetizers'>
                 {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
                   return <AdminDinnerMenuItem data={data} key={data._id} />
-                //   return(
-                //          <div className='menu-item' key={data._id}>
-                // <span className='name'>{data.name}</span>&nbsp;
-                // {data.allergies && <span className='allergies'>({data.allergies})</span>}<br/>
-                // {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
-                // <span className='description'>{data.description}</span>&nbsp;&nbsp;
-                // <span className='price'>{data.price}</span>
-                // <br/>{data.sequence}
-            // </div>
-                  // )
                 })}
                 
               </div>{/* #admin-dinner-menu-appetizers */}
@@ -93,17 +85,7 @@ export default function Admin() {
 
             <div id='admin-dinner-menu-top-right'>
               {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
-                  return(
-                    <div className='menu-item' key={data._id}>
-                      <span className='name'>{data.name}</span>&nbsp;
-                      {data.allergies && <span className='allergies'>({data.allergies})</span>}<br/>
-                      {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
-                      <span className='description'>{data.description}</span>&nbsp;&nbsp;
-                      <span className='price'>{data.price}</span>
-                      {data.name == 'cochinillo' && <div id='cochinillo'>(Please allow 40 minutes cooking time)</div>}
-                      <br/>{data.sequence}
-                    </div>
-                  )
+                  return <AdminDinnerMenuItem data={data} key={data._id} />
                 })}
             </div>{/* #admin-dinner-menu-top-right */}
 
@@ -111,17 +93,8 @@ export default function Admin() {
 
           <h2>sides</h2>
           <div id='admin-dinner-menu-sides'>
-             {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
-                  return(
-                    <div className='menu-item' key={data._id}>
-                      <span className='name'>{data.name}</span>&nbsp;
-                      {data.allergies && <span className='allergies'>({data.allergies})</span>}<br/>
-                      {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
-                      <span className='description'>{data.description}</span>&nbsp;&nbsp;
-                      <span className='price'>{data.price}</span>
-                      <br/>{data.sequence}
-                    </div>
-                  )
+              {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
+                  return <AdminDinnerMenuItem data={data} key={data._id} /> 
               })}
           </div>{/* #admin-dinner-menu-sides */}          
         </div>{/* #admin-dinner-menu */}
