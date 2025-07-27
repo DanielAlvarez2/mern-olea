@@ -52,26 +52,6 @@ export default function Admin() {
               <div id='admin-dinner-menu-meats'>
                 {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
                   return <AdminDinnerMenuItem data={data} key={data._id} />                  
-                  return(
-                    <div className='menu-item' key={data._id}>
-                      {data.name == 'jamón ibérico' ? 
-                      <>
-                        <span className='name'>{data.name}</span>&nbsp;&nbsp;
-                        <span className='price'>{data.price}</span>
-                        <br/>{data.sequence}
-                      </>
-                      :  
-                      <>
-                        <span className='name'>{data.name}</span>&nbsp;
-                        {data.allergies && <span className='allergies'>({data.allergies})</span>}<br/>
-                        {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
-                        <span className='description'>{data.description}</span>&nbsp;&nbsp;
-                        <span className='price'>{data.price}</span>
-                        <br/>{data.sequence}
-                      </>
-                      }
-                    </div>
-                  )
                 })}
               </div>{/* #admin-dinner-menu-meats */}
               
