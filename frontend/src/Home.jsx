@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './root.css'
+import './Home.css'
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";

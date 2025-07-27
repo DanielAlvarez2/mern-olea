@@ -1,0 +1,15 @@
+export default function AdminDinnerMenuItem(props){
+    return (
+       
+            <div className='menu-item'>
+                <span className='name'>{props.data.name}</span>&nbsp;
+                {props.data.allergies && <span className='allergies'>({props.data.allergies})</span>}<br/>
+                {props.data.preDescription && <span className='pre-description'>{props.data.preDescription}; </span>}
+                <span className='description'>{props.data.description}</span>&nbsp;&nbsp;
+                <span className='price'>{props.data.price}</span>
+                <br/>{props.data.sequence}
+            </div>
+        
+    )
+
+}

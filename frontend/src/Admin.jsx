@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './admin.css'
 import PageFooter from './components/PageFooter.jsx'
+import AdminDinnerMenuItem from './components/AdminDinnerMenuItem.jsx'
 
 export default function Admin() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -74,16 +75,17 @@ export default function Admin() {
               
               <div id='admin-dinner-menu-appetizers'>
                 {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
-                  return(
-                    <div className='menu-item' key={data._id}>
-                      <span className='name'>{data.name}</span>&nbsp;
-                      {data.allergies && <span className='allergies'>({data.allergies})</span>}<br/>
-                      {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
-                      <span className='description'>{data.description}</span>&nbsp;&nbsp;
-                      <span className='price'>{data.price}</span>
-                      <br/>{data.sequence}
-                    </div>
-                  )
+                  return <AdminDinnerMenuItem data={data} key={data._id} />
+                //   return(
+                //          <div className='menu-item' key={data._id}>
+                // <span className='name'>{data.name}</span>&nbsp;
+                // {data.allergies && <span className='allergies'>({data.allergies})</span>}<br/>
+                // {data.preDescription && <span className='pre-description'>{data.preDescription}; </span>}
+                // <span className='description'>{data.description}</span>&nbsp;&nbsp;
+                // <span className='price'>{data.price}</span>
+                // <br/>{data.sequence}
+            // </div>
+                  // )
                 })}
                 
               </div>{/* #admin-dinner-menu-appetizers */}
