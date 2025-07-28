@@ -1,11 +1,9 @@
 export default function AdminDinnerMenuItem(props){
 
-        function DeleteDinnerMenuItem(id){
-            fetch(`${BASE_URL}/api/dinner/id`,{method:'DELETE'})
-                .then(res=>res.json(`Item Deleted from Database`))
-                .then(()=>getDinnerItems())
-                .catch(err=>console.log(err))      
-        }
+     const BASE_URL =  (process.env.NODE_ENV == 'production') ?
+                    'https://mern-olea.onrender.com' : 
+                    'http://localhost:1435'
+
 
                   return(
                     <div className='menu-item'>
@@ -27,7 +25,7 @@ export default function AdminDinnerMenuItem(props){
                       </>
                       }
                       <div className='menu-item-buttons'>
-                        <button onClick={()=>DeleteDinnerMenuItem(props.data._id)} style={{background:'red',color:'white'}}>Delete</button>
+                        <button onClick={()=>props.onDeleteClick(props.data._id)} style={{background:'red',color:'white'}}>Delete</button>
                       </div>
                     </div>
                   )
