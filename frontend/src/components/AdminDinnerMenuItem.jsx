@@ -24,9 +24,13 @@ export default function AdminDinnerMenuItem(props){
                         <br/>{props.data.sequence}
                       </>
                       }
-                      <div className='menu-item-buttons'>
-                        <button onClick={()=>props.onDeleteClick(props.data._id)} style={{background:'red',color:'white'}}>Delete</button>
-                      </div>
+                      {props.editMode &&   <>                                    
+                                        <div className='menu-item-buttons'>
+                                            <button onClick={()=>props.onDeleteClick(props.data._id)} style={{background:'red',color:'white'}}>Delete</button>
+                                            <button>Archive</button>
+                                        </div>
+                                    </>
+                        } 
                     </div>
                   )
 

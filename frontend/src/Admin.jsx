@@ -48,12 +48,12 @@ export default function Admin() {
     if(!editMode){
       document.querySelector('#toggle-switch').style.transform = 'rotate(180deg)'
       setEditMode(prev=>!prev)
+      getDinnerItems()
     }else{
       document.querySelector('#toggle-switch').style.transform = 'rotate(0deg)' 
       setEditMode(prev=>!prev)
+      getDinnerItems()
     } 
-              
-
   }
 
   useEffect(()=>getDinnerItems(),[])
@@ -82,13 +82,18 @@ export default function Admin() {
 
               <div id='admin-dinner-menu-meats'>
                 {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
-                  return <AdminDinnerMenuItem data={data} onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} key={data._id} />                  
+                  return <AdminDinnerMenuItem data={data} 
+                                              onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} 
+                                              key={data._id} 
+                                              editMode = {editMode} />                  
                 })}
               </div>{/* #admin-dinner-menu-meats */}
               
               <div id='admin-dinner-menu-appetizers'>
                 {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
-                  return <AdminDinnerMenuItem data={data} onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} key={data._id} />
+                  return <AdminDinnerMenuItem data={data} 
+                                              onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} 
+                                              key={data._id} />
                 })}
                 
               </div>{/* #admin-dinner-menu-appetizers */}
@@ -96,7 +101,9 @@ export default function Admin() {
 
             <div id='admin-dinner-menu-top-right'>
               {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
-                  return <AdminDinnerMenuItem data={data} onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} key={data._id} />
+                  return <AdminDinnerMenuItem data={data} 
+                                              onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} 
+                                              key={data._id} />
                 })}
             </div>{/* #admin-dinner-menu-top-right */}
 
@@ -105,7 +112,9 @@ export default function Admin() {
           <h2>sides</h2>
           <div id='admin-dinner-menu-sides'>
               {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
-                  return <AdminDinnerMenuItem data={data} onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} key={data._id} /> 
+                  return <AdminDinnerMenuItem data={data} 
+                                              onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} 
+                                              key={data._id} /> 
               })}
           </div>{/* #admin-dinner-menu-sides */}          
         </div>{/* #admin-dinner-menu */}
