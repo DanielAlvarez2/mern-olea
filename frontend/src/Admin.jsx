@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import './admin.css'
 import PageFooter from './components/PageFooter.jsx'
 import AdminDinnerMenuItem from './components/AdminDinnerMenuItem.jsx'
+import { FaToggleOff } from "react-icons/fa6"
 
 export default function Admin() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
                     'https://mern-olea.onrender.com' : 
                     'http://localhost:1435'
   const [dinnerItems, setDinnerItems] = useState([])
-  
+      
   const getDinnerItems = ()=>{
     fetch(`${BASE_URL}/api/dinner`)
       .then(res=>res.json())
@@ -39,7 +40,14 @@ export default function Admin() {
       <div id='admin-page-wrapper-dinner-menu'>
         
         <div id='admin-header'>
-          <h2>Admin Page</h2>
+          <span id='admin-page'>Admin Page</span>
+          <span id='admin-page-toggle-menu'>
+            Print Preview 
+            <FaToggleOff size={30} style={{cursor:'pointer'}} /> 
+            Edit Mode
+          </span>
+          
+          <button>Print</button>
         </div>{/* #admin-header */}
         
         <div id='admin-dinner-menu'>

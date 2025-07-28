@@ -1,4 +1,12 @@
 export default function AdminDinnerMenuItem(props){
+
+        function DeleteDinnerMenuItem(id){
+            fetch(`${BASE_URL}/api/dinner/id`,{method:'DELETE'})
+                .then(res=>res.json(`Item Deleted from Database`))
+                .then(()=>getDinnerItems())
+                .catch(err=>console.log(err))      
+        }
+
                   return(
                     <div className='menu-item'>
                       {props.data.name == 'jamón ibérico' ? 
@@ -18,6 +26,9 @@ export default function AdminDinnerMenuItem(props){
                         <br/>{props.data.sequence}
                       </>
                       }
+                      <div className='menu-item-buttons'>
+                        <button onClick={()=>DeleteDinnerMenuItem(props.data._id)} style={{background:'red',color:'white'}}>Delete</button>
+                      </div>
                     </div>
                   )
 

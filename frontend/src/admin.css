@@ -13,6 +13,24 @@
   background:green;
   min-width:8.5in;
   width:100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:5px 20px;
+}
+#admin-page{
+  font-size: 30px;
+  font-weight: 900;
+}
+#admin-page-toggle-menu{
+  display:flex;
+  align-items: center;
+  gap:5px;
+}
+#admin-header button{
+  padding:5px;
+  font-size: 15px;
+  cursor:pointer;
 }
 #admin-dinner-menu{
   padding-top:20px;
@@ -98,4 +116,10 @@ form textarea{
 .price{
   font-weight: 900;
   font-size: 14px;
+}
+.menu-item-buttons button{
+  padding:5px;
+  border-radius:10px;
+  font-size: 16px;
+  cursor:pointer;
 }
