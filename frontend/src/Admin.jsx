@@ -42,6 +42,20 @@ export default function Admin() {
       .catch(err=>console.log(err))
   }
 
+  const [editMode, setEditMode] = useState(false)
+
+  function flipToggle(){
+    if(!editMode){
+      document.querySelector('#toggle-switch').style.transform = 'rotate(180deg)'
+      setEditMode(prev=>!prev)
+    }else{
+      document.querySelector('#toggle-switch').style.transform = 'rotate(0deg)' 
+      setEditMode(prev=>!prev)
+    } 
+              
+
+  }
+
   useEffect(()=>getDinnerItems(),[])
 
   return (
@@ -52,7 +66,7 @@ export default function Admin() {
           <span id='admin-page'>Admin Page</span>
           <span id='admin-page-toggle-menu'>
             Print Preview 
-            <FaToggleOff size={30} style={{cursor:'pointer'}} /> 
+            <FaToggleOff id='toggle-switch' onClick={flipToggle} size={30} style={{cursor:'pointer'}} /> 
             Edit Mode
           </span>
           
