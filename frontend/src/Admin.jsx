@@ -48,11 +48,15 @@ export default function Admin() {
     if(!editMode){
       document.querySelector('#toggle-switch').style.transform = 'rotate(180deg)'
       document.querySelector('#admin-dinner-menu').style.height = 'auto'
+      document.querySelector('#admin-page-print-button').style.zIndex = '-10'
+      document.querySelector('#admin-page-print-button').style.visibility = 'hidden'
       setEditMode(prev=>!prev)
       getDinnerItems()
     }else{
       document.querySelector('#toggle-switch').style.transform = 'rotate(0deg)' 
       document.querySelector('#admin-dinner-menu').style.height = '14in'
+      document.querySelector('#admin-page-print-button').style.zIndex = '10'
+      document.querySelector('#admin-page-print-button').style.visibility = 'visible'
       setEditMode(prev=>!prev)
       getDinnerItems()
     } 
@@ -65,14 +69,17 @@ export default function Admin() {
       <div id='admin-page-wrapper-dinner-menu'>
         
         <div id='admin-header'>
-          <span id='admin-page'>Admin Page</span>
-          <span id='admin-page-toggle-menu'>
-            Print Preview 
-            <FaToggleOff id='toggle-switch' onClick={flipToggle} size={30} style={{cursor:'pointer'}} /> 
-            Edit Mode
-          </span>
-          
-          <button>Print</button>
+          <div id='admin-header-content'>
+            <span id='admin-page'>Admin Page</span>
+
+            <span id='admin-page-toggle-menu'>
+              Print Preview 
+              <FaToggleOff id='toggle-switch' onClick={flipToggle} size={30} style={{cursor:'pointer'}} /> 
+              Edit Mode
+            </span>
+            
+            <button id='admin-page-print-button'>Print</button>
+          </div>{/* #admin-header-content */}
         </div>{/* #admin-header */}
         
         <div id='admin-dinner-menu'>

@@ -39,6 +39,13 @@ app.post('/api/dinner', async(req,res)=>{
 
 app.delete('/api/dinner/:id', async(req,res)=>{
     try{
+
+        const target = await DinnerMenuItem.findById(req.params.id)
+        const max = await DinnerMenuItem.findOne({section:target.section}).sort({sequence:-1})
+        for(let i=target.sequence;i<=max.sequence;i++){
+            await DinnerMenuItem.findOneAndUpdate({section:target.section,sequence:i},{sequence:i-1})
+        }
+
         await DinnerMenuItem.findByIdAndDelete(req.params.id)
         console.log('Item Deleted from Database')
         res.json('Item Deleted from Database')
