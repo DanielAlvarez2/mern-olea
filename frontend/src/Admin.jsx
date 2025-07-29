@@ -11,6 +11,8 @@ export default function Admin() {
                     'http://localhost:1435'
   const [dinnerItems, setDinnerItems] = useState([])
   const [editForm,setEditForm] = useState(false)
+  const [whitespaceVertical, setWhitespaceVertical] = useState(0)
+  const [whitespaceHorizontal, setWhitespaceHorizontal] = useState(0)
       
   const getDinnerItems = ()=>{
     fetch(`${BASE_URL}/api/dinner`)
@@ -130,14 +132,15 @@ export default function Admin() {
           </div>{/* #admin-header-content */}
           <div id='whitespace-controls'>
             <span id='whitespace-vertical'>
-              <FaCaretSquareUp style={{transform:'rotate(0deg)',cursor:'pointer'}} />
-              <span>00</span>
+              <FaCaretSquareUp  onClick={increaseVerticalWhitespace} 
+                                style={{transform:'rotate(0deg)',cursor:'pointer'}} />
+              <span>{whitespaceVertical}</span>
               <FaCaretSquareUp style={{transform:'rotate(180deg)',cursor:'pointer'}} />
             </span>{/* #whitespace-vertical */}
             <span>WHITESPACE</span> 
             <span id='whitespace-horizontal'>
               <FaCaretSquareUp style={{transform:'rotate(270deg)',cursor:'pointer'}} />
-              <span>00</span>
+              <span>&nbsp;{whitespaceHorizontal}&nbsp;</span>
               <FaCaretSquareUp style={{transform:'rotate(90deg)',cursor:'pointer'}} />
             </span>{/* #whitespace-horizontal */}
           </div>{/* #whitespace-control */}
