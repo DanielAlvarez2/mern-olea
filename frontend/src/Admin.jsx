@@ -86,9 +86,11 @@ export default function Admin() {
       document.querySelector('#admin-dinner-menu').style.height = 'auto'
       document.querySelector('#admin-page-print-button').style.zIndex = '-10'
       document.querySelector('#admin-page-print-button').style.visibility = 'hidden'
+      document.querySelector('#whitespace-controls').style.visibility = 'hidden'
       setEditMode(prev=>!prev)
       getDinnerItems()
     }else{
+      document.querySelector('#whitespace-controls').style.visibility = 'visible'
       document.querySelector('#toggle-switch').style.transform = 'rotate(0deg)' 
       document.querySelector('#admin-dinner-menu').style.height = '14in'
       document.querySelector('#admin-page-print-button').style.zIndex = '10'
@@ -126,10 +128,18 @@ export default function Admin() {
             
             <button id='admin-page-print-button'>Print</button>
           </div>{/* #admin-header-content */}
-          <div id='whitespace-control'>
-            WHITESPACE 
-            <FaCaretSquareUp style={{transform:'rotate(270deg)'}} />00
-            <FaCaretSquareUp style={{transform:'rotate(90deg)'}} />
+          <div id='whitespace-controls'>
+            <span id='whitespace-vertical'>
+              <FaCaretSquareUp style={{transform:'rotate(0deg)',cursor:'pointer'}} />
+              <span>00</span>
+              <FaCaretSquareUp style={{transform:'rotate(180deg)',cursor:'pointer'}} />
+            </span>{/* #whitespace-vertical */}
+            <span>WHITESPACE</span> 
+            <span id='whitespace-horizontal'>
+              <FaCaretSquareUp style={{transform:'rotate(270deg)',cursor:'pointer'}} />
+              <span>00</span>
+              <FaCaretSquareUp style={{transform:'rotate(90deg)',cursor:'pointer'}} />
+            </span>{/* #whitespace-horizontal */}
           </div>{/* #whitespace-control */}
         </div>{/* #admin-header */}
         
@@ -251,7 +261,9 @@ export default function Admin() {
                 <input type='file' name='image' /><br/><br/>
               </label>
 
-              <button type='submit' className='admin-form-btn'>{editForm ? 'Edit' : 'Add'} Item</button>
+              <button type='submit' 
+                      style={{color:'white',background: editForm ? 'blue' : 'green'}}
+                      className='admin-form-btn'>{editForm ? 'Edit' : 'Add'} Item</button>
 
               <div onClick={clearForm} className='admin-form-btn'>Clear Form</div>
 
