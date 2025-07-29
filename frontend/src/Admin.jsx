@@ -17,12 +17,12 @@ export default function Admin() {
       .catch(err=>console.log(err))
   }
 
-          function DeleteDinnerMenuItem(id){
-            fetch(`${BASE_URL}/api/dinner/${id}`,{method:'DELETE'})
-                .then(res=>res.json(`Item Deleted from Database`))
-                .then(()=>getDinnerItems())
-                .catch(err=>console.log(err))      
-        }
+  function deleteDinnerMenuItem(id){
+    fetch(`${BASE_URL}/api/dinner/${id}`,{method:'DELETE'})
+      .then(res=>res.json(`Item Deleted from Database`))
+      .then(()=>getDinnerItems())
+      .catch(err=>console.log(err))      
+  }
 
 
 
@@ -83,7 +83,7 @@ export default function Admin() {
               <div id='admin-dinner-menu-meats'>
                 {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
-                                              onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} 
+                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               key={data._id} 
                                               editMode = {editMode} />                  
                 })}
@@ -92,8 +92,9 @@ export default function Admin() {
               <div id='admin-dinner-menu-appetizers'>
                 {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
-                                              onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} 
-                                              key={data._id} />
+                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                              key={data._id}
+                                              editMode = {editMode} />
                 })}
                 
               </div>{/* #admin-dinner-menu-appetizers */}
@@ -102,8 +103,9 @@ export default function Admin() {
             <div id='admin-dinner-menu-top-right'>
               {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
-                                              onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} 
-                                              key={data._id} />
+                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                              key={data._id}
+                                              editMode = {editMode} />
                 })}
             </div>{/* #admin-dinner-menu-top-right */}
 
@@ -113,8 +115,9 @@ export default function Admin() {
           <div id='admin-dinner-menu-sides'>
               {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
-                                              onDeleteClick={()=>DeleteDinnerMenuItem(data._id)} 
-                                              key={data._id} /> 
+                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                              key={data._id}
+                                              editMode = {editMode} /> 
               })}
           </div>{/* #admin-dinner-menu-sides */}          
         </div>{/* #admin-dinner-menu */}

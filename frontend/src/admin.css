@@ -124,5 +124,5 @@ form textarea{
   cursor:pointer;
 }
 .menu-item-buttons{
-  display:none;
+  /* display:none; */
 }
