@@ -64,7 +64,7 @@ export default function Admin() {
   }
 
   function increaseVerticalWhitespace(){
-    
+
   }
 
   async function populateForm(id){
@@ -272,7 +272,9 @@ export default function Admin() {
                       style={{color:'white',background: editForm ? 'blue' : 'green'}}
                       className='admin-form-btn'>{editForm ? 'Edit' : 'Add'} Item</button>
 
-              <div onClick={clearForm} className='admin-form-btn'>Clear Form</div>
+              <div  onClick={clearForm} 
+                    style={{background:'darkgrey'}}
+                    className='admin-form-btn'>Clear Form</div>
 
             </form>{/* #admin-form */}
           </div>{/* #admin-form-inner-wrapper */}
