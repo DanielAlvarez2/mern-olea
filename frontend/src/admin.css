@@ -117,12 +117,3 @@ form textarea{
   font-weight: 900;
   font-size: 14px;
 }
-.menu-item-buttons button{
-  padding:5px;
-  border-radius:10px;
-  font-size: 16px;
-  cursor:pointer;
-}
-.menu-item-buttons{
-  /* display:none; */
-}

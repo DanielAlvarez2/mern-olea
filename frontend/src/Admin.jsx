@@ -47,10 +47,12 @@ export default function Admin() {
   function flipToggle(){
     if(!editMode){
       document.querySelector('#toggle-switch').style.transform = 'rotate(180deg)'
+      document.querySelector('#admin-dinner-menu').style.height = 'auto'
       setEditMode(prev=>!prev)
       getDinnerItems()
     }else{
       document.querySelector('#toggle-switch').style.transform = 'rotate(0deg)' 
+      document.querySelector('#admin-dinner-menu').style.height = '14in'
       setEditMode(prev=>!prev)
       getDinnerItems()
     } 

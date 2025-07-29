@@ -1,3 +1,5 @@
+import './AdminDinnerMenuItem.css'
+
 export default function AdminDinnerMenuItem(props){
 
      const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -26,8 +28,10 @@ export default function AdminDinnerMenuItem(props){
                       }
                       {props.editMode &&   <>                                    
                                         <div className='menu-item-buttons'>
-                                            <button onClick={()=>props.onDeleteClick(props.data._id)} style={{background:'red',color:'white'}}>Delete</button>
-                                            <button>Archive</button>
+                                            <button onClick={()=>props.onDeleteClick(props.data._id)} 
+                                                    style={{background:'red',color:'white'}}>Delete</button>
+                                            <button style={{background:'yellow'}}>Archive</button>
+                                            <button style={{background:'blue',color:'white'}} >Edit</button>
                                         </div>
                                     </>
                         } 
