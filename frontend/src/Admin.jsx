@@ -55,6 +55,7 @@ export default function Admin() {
                                                                   price: formData.get('price')
                                                                 })
     }).then(console.log(`Updated ${formData.get('name')}`))
+      .then(setEditForm(false))
       .then(async()=>await getDinnerItems())
       .catch(err=>console.log(err))
   }
@@ -73,6 +74,7 @@ export default function Admin() {
     document.querySelector('#admin-page-pre-description-input').value = target.preDescription
     document.querySelector('#admin-page-main-description-input').value = target.description
     document.querySelector('#admin-page-price-input').value = target.price
+    document.querySelector('#admin-form').scrollIntoView({behavior:'smooth'})
   }
 
   const [editMode, setEditMode] = useState(false)
