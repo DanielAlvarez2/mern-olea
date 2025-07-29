@@ -23,6 +23,11 @@
   width:8.5in;
   margin:0 auto;
 }
+#whitespace-control{
+  width:8.5in;
+  margin:0 auto;
+  text-align: center;
+}
 #admin-page{
   font-size: 30px;
   font-weight: 900;

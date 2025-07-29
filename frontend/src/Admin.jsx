@@ -3,6 +3,7 @@ import './admin.css'
 import PageFooter from './components/PageFooter.jsx'
 import AdminDinnerMenuItem from './components/AdminDinnerMenuItem.jsx'
 import { FaToggleOff } from "react-icons/fa6"
+import { FaCaretSquareUp } from "react-icons/fa"
 
 export default function Admin() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -125,6 +126,11 @@ export default function Admin() {
             
             <button id='admin-page-print-button'>Print</button>
           </div>{/* #admin-header-content */}
+          <div id='whitespace-control'>
+            WHITESPACE 
+            <FaCaretSquareUp style={{transform:'rotate(270deg)'}} />00
+            <FaCaretSquareUp style={{transform:'rotate(90deg)'}} />
+          </div>{/* #whitespace-control */}
         </div>{/* #admin-header */}
         
         <div id='admin-dinner-menu'>
