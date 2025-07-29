@@ -63,6 +63,10 @@ export default function Admin() {
       .catch(err=>console.log(err))
   }
 
+  function increaseVerticalWhitespace(){
+    
+  }
+
   async function populateForm(id){
     let target
     setEditForm(true)
