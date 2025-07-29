@@ -9,6 +9,7 @@ export default function Admin() {
                     'https://mern-olea.onrender.com' : 
                     'http://localhost:1435'
   const [dinnerItems, setDinnerItems] = useState([])
+  const [editForm,setEditForm] = useState(false)
       
   const getDinnerItems = ()=>{
     fetch(`${BASE_URL}/api/dinner`)
@@ -42,6 +43,38 @@ export default function Admin() {
       .catch(err=>console.log(err))
   }
 
+  async function editDinnerItem(formData){
+    await fetch(`${BASE_URL}/api/dinner/${formData.get('id')}`,{method:'PUT',
+                                                                headers:{'Content-Type':'application/json'},
+                                                                body: JSON.stringify({
+                                                                  section: formData.get('section'),
+                                                                  name: formData.get('name'),
+                                                                  allergies: formData.get('allergies'),
+                                                                  preDescription: formData.get('preDescription'),
+                                                                  description: formData.get('description'),
+                                                                  price: formData.get('price')
+                                                                })
+    }).then(console.log(`Updated ${formData.get('name')}`))
+      .then(async()=>await getDinnerItems())
+      .catch(err=>console.log(err))
+  }
+
+  async function populateForm(id){
+    let target
+    setEditForm(true)
+    await fetch(`${BASE_URL}/api/dinner/${id}`)
+            .then(res=>res.json())
+            .then(json=> target = json)
+            .catch(err=>console.log(err))
+    document.querySelector('#admin-page-id-input').value = target._id
+    document.querySelector('#admin-page-section-input').value = target.section
+    document.querySelector('#admin-page-name-input').value = target.name
+    document.querySelector('#admin-page-allergies-input').value = target.allergies
+    document.querySelector('#admin-page-pre-description-input').value = target.preDescription
+    document.querySelector('#admin-page-main-description-input').value = target.description
+    document.querySelector('#admin-page-price-input').value = target.price
+  }
+
   const [editMode, setEditMode] = useState(false)
 
   function flipToggle(){
@@ -62,10 +95,12 @@ export default function Admin() {
     } 
   }
   function clearForm(){
+    setEditForm(false)
+    document.querySelector('#admin-page-id-input').value = ''
     document.querySelector('#admin-page-section-input').value = ''
     document.querySelector('#admin-page-name-input').value = ''
     document.querySelector('#admin-page-allergies-input').value = ''
-    document.querySelector('#admin-page-mini-description-input').value = ''
+    document.querySelector('#admin-page-pre-description-input').value = ''
     document.querySelector('#admin-page-main-description-input').value = ''
     document.querySelector('#admin-page-price-input').value = ''
   }
@@ -101,6 +136,7 @@ export default function Admin() {
                 {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                              onEditClick={()=>populateForm(data._id)}
                                               key={data._id} 
                                               editMode = {editMode} />                  
                 })}
@@ -110,6 +146,7 @@ export default function Admin() {
                 {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                              onEditClick={()=>populateForm(data._id)}
                                               key={data._id}
                                               editMode = {editMode} />
                 })}
@@ -121,6 +158,7 @@ export default function Admin() {
               {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                              onEditClick={()=>populateForm(data._id)}
                                               key={data._id}
                                               editMode = {editMode} />
                 })}
@@ -133,6 +171,7 @@ export default function Admin() {
               {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                              onEditClick={()=>populateForm(data._id)}
                                               key={data._id}
                                               editMode = {editMode} /> 
               })}
@@ -155,13 +194,14 @@ export default function Admin() {
 
 
 
-
+{/* FORM */}
 
         <div id='admin-form-outer-wrapper'>
           <div id='admin-form-inner-wrapper'>
-            <form action={addDinnerItem} id='admin-form'>
-              <h2>Create New Item</h2><br/>
+            <form action={ editForm ? editDinnerItem : addDinnerItem} id='admin-form'>
+              <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
+              <input type='hidden' name='id' id='admin-page-id-input' />
               <label>
                 Section:&nbsp;&nbsp; 
                 <select id='admin-page-section-input' name='section' defaultValue=''>
@@ -185,7 +225,7 @@ export default function Admin() {
 
               <label>
                 Mini-Description:<br/>
-                <input id='admin-page-mini-description-input' type='text' name='preDescription' /><br/><br/>
+                <input id='admin-page-pre-description-input' type='text' name='preDescription' /><br/><br/>
               </label>
 
               <label>
@@ -203,13 +243,14 @@ export default function Admin() {
                 <input type='file' name='image' /><br/><br/>
               </label>
 
-              <button type='submit' className='admin-form-btn'>Add Item</button>
+              <button type='submit' className='admin-form-btn'>{editForm ? 'Edit' : 'Add'} Item</button>
 
               <div onClick={clearForm} className='admin-form-btn'>Clear Form</div>
 
             </form>{/* #admin-form */}
           </div>{/* #admin-form-inner-wrapper */}
-        </div>{/* #admin-form-outer-wrapper */}      
+        </div>{/* #admin-form-outer-wrapper */}
+{/* END FORM */}      
         <PageFooter color='blue' />
       </div>{/* #page-wrapper-admin-dinner-menu */}
     </>
