@@ -61,6 +61,14 @@ export default function Admin() {
       getDinnerItems()
     } 
   }
+  function clearForm(){
+    document.querySelector('#admin-page-section-input').value = ''
+    document.querySelector('#admin-page-name-input').value = ''
+    document.querySelector('#admin-page-allergies-input').value = ''
+    document.querySelector('#admin-page-mini-description-input').value = ''
+    document.querySelector('#admin-page-main-description-input').value = ''
+    document.querySelector('#admin-page-price-input').value = ''
+  }
 
   useEffect(()=>getDinnerItems(),[])
 
@@ -156,8 +164,8 @@ export default function Admin() {
 
               <label>
                 Section:&nbsp;&nbsp; 
-                <select name='section'>
-                  <option>Section...</option>
+                <select id='admin-page-section-input' name='section' defaultValue=''>
+                  <option value='' disabled>Section...</option>
                   <option>Meats</option>
                   <option>Appetizers</option>
                   <option>Entrées</option>
@@ -167,27 +175,27 @@ export default function Admin() {
 
               <label>
                 Name:<br/>
-                <input type='text' name='name' /><br/><br/>
+                <input id='admin-page-name-input' type='text' name='name' /><br/><br/>
               </label>
 
               <label>
                 Allergies:<br/>
-                <input type='text' name='allergies' /><br/><br/>
+                <input id='admin-page-allergies-input' type='text' name='allergies' /><br/><br/>
               </label>
 
               <label>
                 Mini-Description:<br/>
-                <input type='text' name='preDescription' /><br/><br/>
+                <input id='admin-page-mini-description-input' type='text' name='preDescription' /><br/><br/>
               </label>
 
               <label>
                 Main Description:<br/>
-                <textarea name='description' rows='5'></textarea><br/><br/>
+                <textarea id='admin-page-main-description-input' name='description' rows='5'></textarea><br/><br/>
               </label>
 
               <label>
                 Price:<br/>
-                <input type='text' name='price' autoComplete='off' /><br/><br/>
+                <input id='admin-page-price-input' type='text' name='price' autoComplete='off' /><br/><br/>
               </label>
 
               <label>
@@ -197,7 +205,7 @@ export default function Admin() {
 
               <button type='submit' className='admin-form-btn'>Add Item</button>
 
-              <div className='admin-form-btn'>Clear Form</div>
+              <div onClick={clearForm} className='admin-form-btn'>Clear Form</div>
 
             </form>{/* #admin-form */}
           </div>{/* #admin-form-inner-wrapper */}
