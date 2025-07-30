@@ -78,6 +78,12 @@ export default function Admin() {
             .then(px=>setWhitespaceVertical(px))
             .catch(err=>console.log(err))
   }
+  async function decreaseVerticalWhitespace(){
+    await fetch(`${BASE_URL}/api/decreaseVertical`)
+            .then(res=>res.json())
+            .then(px=>setWhitespaceVertical(px))
+            .catch(err=>console.log(err))
+  }
 
   async function populateForm(id){
     let target
@@ -154,7 +160,8 @@ export default function Admin() {
               <FaCaretSquareUp  onClick={increaseVerticalWhitespace} 
                                 style={{transform:'rotate(0deg)',cursor:'pointer'}} />
               <span>{whitespaceVertical}</span>
-              <FaCaretSquareUp style={{transform:'rotate(180deg)',cursor:'pointer'}} />
+              <FaCaretSquareUp  onClick={decreaseVerticalWhitespace} 
+                                style={{transform:'rotate(180deg)',cursor:'pointer'}} />
             </span>{/* #whitespace-vertical */}
             <span>WHITESPACE</span> 
             <span id='whitespace-horizontal'>
@@ -177,6 +184,7 @@ export default function Admin() {
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
+                                              marginVertical={whitespaceVertical}
                                               key={data._id} 
                                               editMode = {editMode} />                  
                 })}
@@ -187,6 +195,7 @@ export default function Admin() {
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
+                                              marginVertical={whitespaceVertical}
                                               key={data._id}
                                               editMode = {editMode} />
                 })}
@@ -199,6 +208,7 @@ export default function Admin() {
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
+                                              marginVertical={whitespaceVertical}
                                               key={data._id}
                                               editMode = {editMode} />
                 })}
@@ -212,6 +222,7 @@ export default function Admin() {
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
+                                              marginVertical={whitespaceVertical}
                                               key={data._id}
                                               editMode = {editMode} /> 
               })}

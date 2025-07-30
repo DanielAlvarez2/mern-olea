@@ -102,6 +102,22 @@ app.get('/api/increaseVertical', async(req,res)=>{
         console.log(err)
     }
 })
+app.get('/api/decreaseVertical', async(req,res)=>{
+    try{
+        let target = await Pixel.findOne({name:'verticalWhitespace'})
+        if (target.pixels == 0){
+            res.json(0)
+        }else{
+            target  ? await Pixel.findByIdAndUpdate({_id:target._id},{pixels:target.pixels - 1}) 
+                    : await Pixel.create({name:'verticalWhitespace',pixels:1})
+            target = await Pixel.findOne({name:'verticalWhitespace'})
+            console.log(`Vertical Whitespace: ${target.pixels}px`)
+            res.json(target.pixels)
+        }
+    }catch(err){
+        console.log(err)
+    }
+})
 
 app.get('/api/verticalWhitespace',async(req,res)=>{
     try{

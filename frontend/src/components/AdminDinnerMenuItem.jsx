@@ -8,7 +8,10 @@ export default function AdminDinnerMenuItem(props){
 
 
                   return(
-                    <div className='menu-item'>
+                    <div  className='menu-item'
+                          style={{marginTop:props.marginVertical,
+                                  marginBottom:props.marginVertical
+                                }}>
                       {props.data.name == 'jamón ibérico' ? 
                       <>
                         <span className='name'>{props.data.name}</span>&nbsp;&nbsp;
