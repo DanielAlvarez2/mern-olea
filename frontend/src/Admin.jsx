@@ -63,8 +63,20 @@ export default function Admin() {
       .catch(err=>console.log(err))
   }
 
-  function increaseVerticalWhitespace(){
+  async function getVerticalWhitespace(){
+    const pixels = await fetch(`${BASE_URL}/api/verticalWhiteSpace`)
+                          .then(res=>res.json())
+                          .then(json=>json)
+                          .catch(err=>console.log(err))
+    setWhitespaceVertical(pixels)
+  }
+  getVerticalWhitespace()
 
+  async function increaseVerticalWhitespace(){
+    await fetch(`${BASE_URL}/api/increaseVertical`)
+            .then(res=>res.json())
+            .then(px=>setWhitespaceVertical(px))
+            .catch(err=>console.log(err))
   }
 
   async function populateForm(id){
@@ -128,7 +140,10 @@ export default function Admin() {
 
             <span id='admin-page-toggle-menu'>
               Print Preview 
-              <FaToggleOff id='toggle-switch' onClick={flipToggle} size={30} style={{cursor:'pointer'}} /> 
+              <FaToggleOff  id='toggle-switch' 
+                            onClick={flipToggle} 
+                            size={30} 
+                            style={{cursor:'pointer'}} /> 
               Edit Mode
             </span>
             

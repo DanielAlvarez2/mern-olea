@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const DinnerMenuItem = require('./models/DinnerMenuItem.js')
+const Pixel = require('./models/Pixel.js')
 
 const app = express()
 app.use(express.json())
@@ -84,6 +85,28 @@ app.put('/api/dinner/:id', async(req,res)=>{
         })
         console.log(`Updated in Database: ${req.body.name}`)
         res.json(`Updated in Databse: ${req.body.name}`)
+    }catch(err){
+        console.log(err)
+    }
+})
+
+app.get('/api/increaseVertical', async(req,res)=>{
+    try{
+        let target = await Pixel.findOne({name:'verticalWhitespace'})
+        target  ? await Pixel.findByIdAndUpdate({_id:target._id},{pixels:target.pixels + 1}) 
+                : await Pixel.create({name:'verticalWhitespace',pixels:1})
+        target = await Pixel.findOne({name:'verticalWhitespace'})
+        console.log(`Vertical Whitespace: ${target.pixels}px`)
+        res.json(target.pixels)
+    }catch(err){
+        console.log(err)
+    }
+})
+
+app.get('/api/verticalWhitespace',async(req,res)=>{
+    try{
+        let target = await Pixel.findOne({name:'verticalWhitespace'})
+        res.json(target ? target.pixels : 0)
     }catch(err){
         console.log(err)
     }
