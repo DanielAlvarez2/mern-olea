@@ -14,6 +14,7 @@ export default function Admin() {
   const [whitespaceVertical, setWhitespaceVertical] = useState(0)
   const [whitespaceHorizontal, setWhitespaceHorizontal] = useState(0)
   const [editMode, setEditMode] = useState(false)
+  const [archiveLength, setArchiveLength] = useState(0)
   useEffect(()=>getVerticalWhitespace(),[])
   useEffect(()=>getHorizontalWhitespace(),[])
   useEffect(()=>getDinnerItems(),[])
@@ -66,7 +67,9 @@ export default function Admin() {
       .then(res=>res.json())
       .then(json=>setDinnerItems(json))
       .catch(err=>console.log(err))
-  }
+    setArchiveLength(dinnerItems.filter(item=>item.sequence == 0).length)
+    }
+
 
   function deleteDinnerMenuItem(id){
     fetch(`${BASE_URL}/api/dinner/${id}`,{method:'DELETE'})
@@ -207,9 +210,9 @@ export default function Admin() {
             <div id='admin-dinner-menu-top-left'>
 
               <div id='admin-dinner-menu-meats'>
-                {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
+                {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
                   return <AdminDinnerMenuItem data={data} 
-                                              sectionLength={dinnerItems.filter(item=>item.section == 'Meats').length}
+                                              sectionLength={dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).length}
                                               getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
@@ -221,9 +224,9 @@ export default function Admin() {
               </div>{/* #admin-dinner-menu-meats */}
 
               <div id='admin-dinner-menu-appetizers'>
-                {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
+                {dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).map(data=>{
                   return <AdminDinnerMenuItem data={data} 
-                                              sectionLength={dinnerItems.filter(item=>item.section == 'Appetizers').length} 
+                                              sectionLength={dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).length} 
                                               getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
@@ -237,9 +240,9 @@ export default function Admin() {
             </div>{/* #admin-dinner-menu-top-left */}
 
             <div id='admin-dinner-menu-top-right'>
-              {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
+              {dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
                   return <AdminDinnerMenuItem data={data} 
-                                              sectionLength={dinnerItems.filter(item=>item.section == 'Entrées').length}
+                                              sectionLength={dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
                                               getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
@@ -254,9 +257,9 @@ export default function Admin() {
 
           <h2 style={{paddingLeft:whitespaceHorizontal}}>sides</h2>
           <div id='admin-dinner-menu-sides'>
-              {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
+              {dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
                   return <AdminDinnerMenuItem data={data} 
-                                              sectionLength={dinnerItems.filter(item=>item.section == 'Sides').length}
+                                              sectionLength={dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).length}
                                               getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
@@ -359,6 +362,21 @@ export default function Admin() {
           </div>{/* #admin-form-inner-wrapper */}
         </div>{/* #admin-form-outer-wrapper */}
 {/* END FORM */}      
+        {editMode && archiveLength && 
+          <>
+            <div id='archive-wrapper'>
+              <div id='archive-content'>
+                <div style={{textAlign:'center'}}><h2>Archived Items</h2></div>
+                {dinnerItems.filter(item=>item.sequence == 0).map(data=>{
+                  return <AdminDinnerMenuItem data={data} 
+                                              getDinnerItems={()=>getDinnerItems()}
+                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                              key={data._id} /> 
+              })}
+              </div>{/* #archive-content */}
+            </div>{/* #archive-wrapper */}
+          </>
+        }
         <PageFooter color='blue' />
       </div>{/* #page-wrapper-admin-dinner-menu */}
     </>

@@ -153,3 +153,10 @@ form textarea{
 #legal div{
   font-weight: 900;
 }
+#archive-wrapper{
+  width:100%;
+}
+#archive-content{
+  width:4.25in;
+  margin:0 auto;
+}

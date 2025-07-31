@@ -19,6 +19,13 @@ export default function AdminDinnerMenuItem(props){
               .catch(err=>console.log(err))
     }
 
+    async function archive(id){
+      await fetch(`${BASE_URL}/api/archive/${id}`)
+              .then()
+              .then()
+              .catch(err=>console.log(err))
+    }
+
                   return(
                     <div  className='menu-item'
                           style={{marginTop:props.marginVertical,
@@ -69,7 +76,8 @@ export default function AdminDinnerMenuItem(props){
                                         <div className='menu-item-buttons'>
                                             <button onClick={()=>props.onDeleteClick(props.data._id)} 
                                                     style={{background:'red',color:'white'}}>Delete</button>
-                                            <button style={{background:'yellow'}}>Archive</button>
+                                            <button onClick={()=>archive(props.data._id)} 
+                                                    style={{background:'yellow'}}>Archive</button>
                                             <button onClick={()=>props.onEditClick(props.data._id)}
                                                     style={{background:'blue',color:'white'}}>Edit</button>
                                         </div>

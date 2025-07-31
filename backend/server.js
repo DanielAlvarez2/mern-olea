@@ -187,5 +187,15 @@ app.get('/api/moveDown/:id', async(req,res)=>{
     res.json('Item Moved Down')
 })
 
+app.get('/api/archive/:id', async(req,res)=>{
+    const target = await DinnerMenuItem.findById(req.params.id)
+    const sectionLast = await DinnerMenuItem.findOne({section:target.section}).sort({sequence:-1})
+    for (let i=target.sequence+1;i<=sectionLast.sequence;i++){
+        await DinnerMenuItem.findOneAndUpdate({section:target.section,sequence:i},{sequence:i-1})
+    }
+    await DinnerMenuItem.findByIdAndUpdate({_id:target._id},{sequence:0})
+    res.json(`${target.name} has been Archived`)
+})
+
 const PORT = process.env.PORT || 1435 
 app.listen(PORT, ()=> console.log(`Server Listening on Port: ${PORT}`))
