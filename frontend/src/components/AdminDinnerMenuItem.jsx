@@ -21,8 +21,7 @@ export default function AdminDinnerMenuItem(props){
 
     async function archive(id){
       await fetch(`${BASE_URL}/api/archive/${id}`)
-              .then()
-              .then()
+              .then(()=>props.getDinnerItems())
               .catch(err=>console.log(err))
     }
 
