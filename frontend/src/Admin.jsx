@@ -209,6 +209,7 @@ export default function Admin() {
               <div id='admin-dinner-menu-meats'>
                 {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
+                                              sectionLength={dinnerItems.filter(item=>item.section == 'Meats').length}
                                               getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
@@ -218,10 +219,11 @@ export default function Admin() {
                                               editMode = {editMode} />                  
                 })}
               </div>{/* #admin-dinner-menu-meats */}
-              
+
               <div id='admin-dinner-menu-appetizers'>
                 {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
+                                              sectionLength={dinnerItems.filter(item=>item.section == 'Appetizers').length} 
                                               getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
@@ -237,6 +239,7 @@ export default function Admin() {
             <div id='admin-dinner-menu-top-right'>
               {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
+                                              sectionLength={dinnerItems.filter(item=>item.section == 'Entrées').length}
                                               getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}

@@ -53,7 +53,14 @@ export default function AdminDinnerMenuItem(props){
                                                     style={{background:'blue',color:'white'}}>Edit</button>
                                         </div>
                                     </>
-                        } 
+                      } 
+                     
+                      {(!(props.data.section == 'Sides' || props.data.sequence == props.sectionLength) && props.editMode) && 
+                        <div style={{width:'100%',textAlign:'center'}}>
+                          <BiSolidUpArrow onClick={()=>moveUp(props.data._id)} 
+                                          style={{transform:'rotate(180deg)',cursor:'pointer'}} />
+                        </div>
+                      }
                     </div>
                   )
 
