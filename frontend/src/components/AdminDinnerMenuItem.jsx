@@ -10,7 +10,9 @@ export default function AdminDinnerMenuItem(props){
                   return(
                     <div  className='menu-item'
                           style={{marginTop:props.marginVertical,
-                                  marginBottom:props.marginVertical
+                                  marginBottom:props.marginVertical,
+                                  paddingLeft:props.paddingHorizontal,
+                                  paddingRight:props.paddingHorizontal,
                                 }}>
                       {props.data.name == 'jamón ibérico' ? 
                       <>

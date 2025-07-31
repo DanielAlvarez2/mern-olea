@@ -200,7 +200,7 @@ export default function Admin() {
         </div>{/* #admin-header */}
         
         <div id='admin-dinner-menu'>
-          <h1><span id='logo'>olea</span></h1>
+          <h1><span style={{paddingLeft:whitespaceHorizontal}} id='logo'>olea</span></h1>
           <hr />
 
           <div id='admin-dinner-menu-top'>
@@ -212,6 +212,7 @@ export default function Admin() {
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
                                               marginVertical={whitespaceVertical}
+                                              paddingHorizontal={whitespaceHorizontal}
                                               key={data._id} 
                                               editMode = {editMode} />                  
                 })}
@@ -223,6 +224,7 @@ export default function Admin() {
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
                                               marginVertical={whitespaceVertical}
+                                              paddingHorizontal={whitespaceHorizontal}
                                               key={data._id}
                                               editMode = {editMode} />
                 })}
@@ -236,6 +238,7 @@ export default function Admin() {
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
                                               marginVertical={whitespaceVertical}
+                                              paddingHorizontal={whitespaceHorizontal}
                                               key={data._id}
                                               editMode = {editMode} />
                 })}
@@ -243,19 +246,21 @@ export default function Admin() {
 
           </div>{/* #admin-dinner-menu-top */}
 
-          <h2>sides</h2>
+          <h2 style={{paddingLeft:whitespaceHorizontal}}>sides</h2>
           <div id='admin-dinner-menu-sides'>
               {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
                                               marginVertical={whitespaceVertical}
+                                              paddingHorizontal={whitespaceHorizontal}
                                               key={data._id}
                                               editMode = {editMode} /> 
               })}
           </div>{/* #admin-dinner-menu-sides */}
               <hr style={{marginBottom:'10px'}} />
-          <div id='admin-dinner-menu-footer'>
+
+          <div style={{paddingLeft:whitespaceHorizontal,paddingRight:whitespaceHorizontal}} id='admin-dinner-menu-footer'>
               <div id='chef'>manuel romero, chef</div>
               <div id='qr'><img width='65px' src='./qrCode.jpg'/></div>
               <div id='legal'>
