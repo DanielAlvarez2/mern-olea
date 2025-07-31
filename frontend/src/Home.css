@@ -11,7 +11,7 @@
 #pics-page-content{
     max-width:1060px;
     min-height:100vh;
-    background:black;
+    background:#262626;
     color:white;
     font-family: FuturaLight;
     margin:0 auto;
@@ -21,6 +21,67 @@
 li{
     list-style-type: none;
 }
+#main{
+    display:flex;
+}
+#main-left,#main-right{
+    flex:1;
+}
+#main-left{
+    padding-left:0.5in;
+    padding-top: 0.5in;
+    color:#c1bebe;
+    line-height: 30px;
+}
+#main-right{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
 
-
-
+#open-table{
+    width:290px;
+    height:205px;
+    background:#00000080;
+    text-align: center;
+    color:#bfbfbf;
+    margin:0 auto;
+    padding-top: 40px;
+    margin-top: 50px;
+}
+#ot1{
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+#ot2{
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+#ot3{
+    color:white;
+    font-family: serif;
+    font-size:12px;
+    letter-spacing: 2px;
+    padding:10px 40px;
+    background: #00000080;
+    margin-top:180px;
+}
+#logo{
+    padding-left: 0.5in;
+    padding-right: 0.5in;
+    padding-top: 0.5in;
+}
+h2{
+    font-family: FuturaMedium;
+    font-size: 18px;
+}
+h2 span{
+    font-family: FuturaLight;
+    font-weight: 100;
+}
+.menu-section{
+    font-size:25px;
+    margin-top: 80px;
+}

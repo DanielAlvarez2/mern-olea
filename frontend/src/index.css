@@ -2,6 +2,10 @@
     font-family: 'FuturaLight';
     src: url('./assets/fonts/FuturaLight.otf')
 }
+@font-face{
+    font-family:'FuturaMedium';
+    src:url('./assets/fonts/FuturaMedium.otf')
+}
 *{
     margin:0;
     padding:0;

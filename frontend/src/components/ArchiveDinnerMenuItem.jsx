@@ -4,6 +4,12 @@ export default function ArchiveDinnerMenuItem(props){
    const BASE_URL =  (process.env.NODE_ENV == 'production') ?
                     'https://mern-olea.onrender.com' : 
                     'http://localhost:1435'
+
+    async function UNarchive(id){
+      await fetch(`${BASE_URL}/api/UNarchive/${id}`,{method:'PUT'})
+              .then(()=>props.getDinnerItems())
+              .catch(err=>console.log(err))
+    } 
  
     return(
         <>
@@ -29,7 +35,8 @@ export default function ArchiveDinnerMenuItem(props){
                                         <div className='menu-item-buttons'>
                                             <button onClick={()=>props.deleteArchivedMenuItem(props.data._id)} 
                                                     style={{background:'red',color:'white'}}>Delete</button>
-                                            <button style={{background:'yellow'}}>UN-Archive</button>
+                                            <button onClick={()=>UNarchive(props.data._id)} 
+                                                    style={{background:'yellow'}}>UN-Archive</button>
                                         </div>
                                     </>
                       }

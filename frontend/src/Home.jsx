@@ -45,86 +45,101 @@ export default function Root() {
               </div>{/* #socials */}
             </nav>
             <hr/>
-            <h2>dinner hours</h2>
-            Tuesday - Saturday, 5 - 10pm<br/>
-            last reservation is at 8:30pm<br/>
-            closed Sunday and Monday<br/><br/>
+            <div id='main'>
+              <div id='main-left'>
+                <h2>dinner hours</h2>
+                Tuesday - Saturday, 5 - 10pm<br/>
+                last reservation is at 8:30pm<br/>
+                closed Sunday and Monday<br/><br/>
 
-            <h2>takeout and curbside pickup</h2>
-            Our dinner menu below is avilable for takeout and curbside pickup. Please preorder if possible by phone (203.780.8925). <br/>
-            During special days we can only take a limited number of takeout orders due to volume.<br/><br/>
+                <h2>takeout and curbside pickup</h2>
+                Our dinner menu below is avilable for takeout and curbside pickup. Please preorder if possible by phone (203.780.8925). <br/>
+                During special days we can only take a limited number of takeout orders due to volume.<br/><br/>
 
-            <h2>CHEF'S TASING MENU <span>$98 / person</span></h2>
-            <h2>no substitutions or modifications</h2>
-            <h2>A minimum of two days notice is required</h2>
-            six courses / reservations and full table participation required<br/>
-            optional wine pairing available $52 / person<br/>
-            available Tuesday through Thursday<br/>
-            Please let us know in advance about any food restrictions or allergies.<br/>
-            Tax and gratuity not included.<br/><br/>
+                <h2>CHEF'S TASING MENU <span>$105 / person</span></h2>
+                <h2>no substitutions or modifications</h2>
+                <h2>A minimum of two days notice is required</h2>
+                six courses / reservations and full table participation required<br/>
+                optional wine pairing available $52 / person<br/>
+                available Tuesday through Thursday<br/>
+                Please let us know in advance about any food restrictions or allergies.<br/>
+                Tax and gratuity not included.<br/><br/>
 
-            <h2>DINNER MENU</h2>
+                <h2>DINNER MENU</h2>
 
-            <div style={{textAlign:'center'}}>appetizers</div>
+                <div className='menu-section' style={{textAlign:'center'}}>appetizers</div>
 
-            {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
-              return(
-                <>
-                  <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
-                    <span className='name'>{data.name}</span>
-                    <span className='price'>{data.price}</span>
-                  </div>
-                    {data.preDescription} 
-                    {data.description}
-                </>
-              )
-            })}
+                {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
+                  return(
+                    <>
+                      <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
+                        <span className='name'>{data.name}</span>
+                        <span className='price'>{data.price}</span>
+                      </div>
+                        {data.preDescription} 
+                        {data.description}
+                    </>
+                  )
+                })}
 
-            {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
-              return(
-                <>
-                  <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
-                    <span className='name'>{data.name}</span>
-                    <span className='price'>{data.price}</span>
-                  </div>
-                    <span className='pre-description'>{data.preDescription};&nbsp;</span>  
-                    <span className='description'>{data.description}</span>
-                </>
-              )
-            })}
+                {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
+                  return(
+                    <>
+                      <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
+                        <span className='name'>{data.name}</span>
+                        <span className='price'>{data.price}</span>
+                      </div>
+                        <span className='pre-description'>{data.preDescription};&nbsp;</span>  
+                        <span className='description'>{data.description}</span>
+                    </>
+                  )
+                })}
 
-            <div style={{textAlign:'center'}}>main courses</div>
+                <div className='menu-section' style={{textAlign:'center'}}>main courses</div>
 
-            {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
-              return(
-                <>
-                  <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
-                    <span className='name'>{data.name}</span>
-                    <span className='price'>{data.price}</span>
-                  </div>
-                    <span className='pre-description'>{data.preDescription};&nbsp;</span>  
-                    <span className='description'>{data.description}</span>
-                </>
-              )
-            })}
+                {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
+                  return(
+                    <>
+                      <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
+                        <span className='name'>{data.name}</span>
+                        <span className='price'>{data.price}</span>
+                      </div>
+                        <span className='pre-description'>{data.preDescription};&nbsp;</span>  
+                        <span className='description'>{data.description}</span>
+                    </>
+                  )
+                })}
 
-            <div style={{textAlign:'center'}}>sides</div>
+                <div className='menu-section' style={{textAlign:'center'}}>sides</div>
 
-            {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
-              return(
-                <>
-                  <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
-                    <span className='name'>{data.name}</span>
-                    <span className='price'>{data.price}</span>
-                  </div>
-                    <span className='pre-description'>{data.preDescription};&nbsp;</span>  
-                    <span className='description'>{data.description}</span>
-                </>
-              )
-            })}       
+                {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
+                  return(
+                    <>
+                      <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
+                        <span className='name'>{data.name}</span>
+                        <span className='price'>{data.price}</span>
+                      </div>
+                        <span className='pre-description'>{data.preDescription};&nbsp;</span>  
+                        <span className='description'>{data.description}</span>
+                    </>
+                  )
+                })}       
 
-            <br/><br/><br/>
-            we do our best to keep this information accurate and up to date, but because we make frequent adjustmants, based on season and availability, our menus are subject to change<br/><br/>
+                <br/><br/><br/>
+                we do our best to keep this information accurate and up to date, 
+                but because we make frequent adjustmants, based on season and availability, 
+                our menus are subject to change<br/><br/>              
+              </div>{/* #main-left */}
+              <div id='main-right'>
+                
+                <div id='open-table'>
+                  <div id='ot1'>make a reservation</div>
+                  <div id='ot2'>POWERED BY OPENTABLE</div><br/>
+                  <span id='ot3'>FIND A TABLE</span>
+                </div>{/* #open-table */}
+              
+              </div>{/* #main-right */}
+            </div>{/* #main */}
             <hr/>
             <div id='socials-bottom' style={{marginTop:'10px',display:'flex',gap:'10px',justifyContent:'center'}}>
               <FaFacebookF className='icon' />

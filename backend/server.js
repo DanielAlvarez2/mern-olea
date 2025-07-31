@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const DinnerMenuItem = require('./models/DinnerMenuItem.js')
 const Pixel = require('./models/Pixel.js')
+const {cloudinary} = require('./utils/cloudinary.js')
 
 const app = express()
 app.use(express.json())
@@ -37,7 +38,12 @@ app.post('/api/dinner', async(req,res)=>{
         console.log(err)
     }
 })
-
+app.put('/api/UNarchive/:id',async(req,res)=>{
+    target = await DinnerMenuItem.findById(req.params.id)
+    last = await DinnerMenuItem.findOne({section:target.section}).sort({sequence:-1})
+    await DinnerMenuItem.findByIdAndUpdate({_id:target._id},{sequence:last.sequence + 1})
+    res.json('Item UN-archived')
+})
 app.delete('/api/archive/:id',async(req,res)=>{
     try{
         await DinnerMenuItem.findByIdAndDelete(req.params.id)
