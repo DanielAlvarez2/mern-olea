@@ -1,6 +1,7 @@
 import './AdminDinnerMenuItem.css'
 
-     const BASE_URL =  (process.env.NODE_ENV == 'production') ?
+export default function ArchiveDinnerMenuItem(props){
+   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
                     'https://mern-olea.onrender.com' : 
                     'http://localhost:1435'
  
@@ -36,3 +37,5 @@ import './AdminDinnerMenuItem.css'
         </>
     )
 }
+
+  

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import './admin.css'
 import PageFooter from './components/PageFooter.jsx'
 import AdminDinnerMenuItem from './components/AdminDinnerMenuItem.jsx'
+import ArchiveDinnerMenuItem from './components/ArchiveDinnerMenuItem.jsx'
 import { FaToggleOff } from "react-icons/fa6"
 import { FaCaretSquareUp } from "react-icons/fa"
 
@@ -368,10 +369,11 @@ export default function Admin() {
               <div id='archive-content'>
                 <div style={{textAlign:'center'}}><h2>Archived Items</h2></div>
                 {dinnerItems.filter(item=>item.sequence == 0).map(data=>{
-                  return <AdminDinnerMenuItem data={data} 
-                                              getDinnerItems={()=>getDinnerItems()}
-                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
-                                              key={data._id} /> 
+                  return <ArchiveDinnerMenuItem data={data} 
+                                                getDinnerItems={()=>getDinnerItems()}
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                editMode = {editMode}
+                                                key={data._id} /> 
               })}
               </div>{/* #archive-content */}
             </div>{/* #archive-wrapper */}
