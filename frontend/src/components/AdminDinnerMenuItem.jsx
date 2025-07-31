@@ -31,7 +31,23 @@ export default function AdminDinnerMenuItem(props){
                           <BiSolidUpArrow onClick={()=>moveUp(props.data._id)} 
                                           style={{cursor:'pointer'}} />
                         </div>
-                      }            
+                      }      
+                      {(props.data.section == 'Sides' && props.editMode) &&
+                        <div style={{ display:'flex',
+                                      justifyContent:'space-between',
+                                      paddingRight:props.paddingHorizontal}}>
+                          <span>
+                            {props.data.sequence != 1 && <BiSolidUpArrow onClick={()=>moveUp(props.data._id)} 
+                                                                        style={{cursor:'pointer',
+                                                                                transform:'rotate(-90deg)'}} />}
+                          </span>
+                          <span>
+                            {props.data.sequence != props.sectionLength && <BiSolidUpArrow onClick={()=>moveDown(props.data._id)} 
+                                                                                            style={{cursor:'pointer',
+                                                                                                    transform:'rotate(90deg)'}} />}
+                          </span>
+                        </div>
+                      }      
                       {props.data.name == 'jamón ibérico' ? 
                       <>
                         <span className='name'>{props.data.name}</span>&nbsp;&nbsp;

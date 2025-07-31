@@ -256,6 +256,7 @@ export default function Admin() {
           <div id='admin-dinner-menu-sides'>
               {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
+                                              sectionLength={dinnerItems.filter(item=>item.section == 'Sides').length}
                                               getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
