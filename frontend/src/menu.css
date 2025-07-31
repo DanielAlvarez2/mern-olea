@@ -17,3 +17,22 @@
 h1{
     font-weight:100;
 }
+#menu-page-footer{
+    display: flex;
+    justify-content: space-between;
+}
+#menu-top{
+    display:flex;
+}
+#menu-top-left,
+#menu-top-right{
+    flex:1;
+}
+#sides{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+#sides>div{
+    width:50%;
+}
