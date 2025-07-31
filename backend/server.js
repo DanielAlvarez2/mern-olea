@@ -90,6 +90,18 @@ app.put('/api/dinner/:id', async(req,res)=>{
     }
 })
 
+app.get('/api/increaseHorizontal', async(req,res)=>{
+    try{
+        let target = await Pixel.findOne({name:'horizontalWhitespace'})
+        target  ? await Pixel.findByIdAndUpdate({_id:target._id},{pixels:target.pixels + 1}) 
+                : await Pixel.create({name:'horizontalWhitespace',pixels:1})
+        target = await Pixel.findOne({name:'horizontalWhitespace'})
+        console.log(`Horizontal Whitespace: ${target.pixels}px`)
+        res.json(target.pixels)
+    }catch(err){
+        console.log(err)
+    }
+})
 app.get('/api/increaseVertical', async(req,res)=>{
     try{
         let target = await Pixel.findOne({name:'verticalWhitespace'})
@@ -98,6 +110,22 @@ app.get('/api/increaseVertical', async(req,res)=>{
         target = await Pixel.findOne({name:'verticalWhitespace'})
         console.log(`Vertical Whitespace: ${target.pixels}px`)
         res.json(target.pixels)
+    }catch(err){
+        console.log(err)
+    }
+})
+app.get('/api/decreaseHorizontal', async(req,res)=>{
+    try{
+        let target = await Pixel.findOne({name:'horizontalWhitespace'})
+        if (target.pixels == 0){
+            res.json(0)
+        }else{
+            target  ? await Pixel.findByIdAndUpdate({_id:target._id},{pixels:target.pixels - 1}) 
+                    : await Pixel.create({name:'horizontalWhitespace',pixels:1})
+            target = await Pixel.findOne({name:'horizontalWhitespace'})
+            console.log(`Horizontal Whitespace: ${target.pixels}px`)
+            res.json(target.pixels)
+        }
     }catch(err){
         console.log(err)
     }
@@ -122,6 +150,15 @@ app.get('/api/decreaseVertical', async(req,res)=>{
 app.get('/api/verticalWhitespace',async(req,res)=>{
     try{
         let target = await Pixel.findOne({name:'verticalWhitespace'})
+        res.json(target ? target.pixels : 0)
+    }catch(err){
+        console.log(err)
+    }
+})
+
+app.get('/api/horizontalWhitespace',async(req,res)=>{
+    try{
+        let target = await Pixel.findOne({name:'horizontalWhitespace'})
         res.json(target ? target.pixels : 0)
     }catch(err){
         console.log(err)

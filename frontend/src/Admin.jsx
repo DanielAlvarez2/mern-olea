@@ -13,7 +13,54 @@ export default function Admin() {
   const [editForm,setEditForm] = useState(false)
   const [whitespaceVertical, setWhitespaceVertical] = useState(0)
   const [whitespaceHorizontal, setWhitespaceHorizontal] = useState(0)
-      
+  const [editMode, setEditMode] = useState(false)
+  useEffect(()=>getVerticalWhitespace(),[])
+  useEffect(()=>getHorizontalWhitespace(),[])
+  useEffect(()=>getDinnerItems(),[])
+
+  function getHorizontalWhitespace(){
+    const pixels = fetch(`${BASE_URL}/api/horizontalWhiteSpace`)
+                    .then(res=>res.json())
+                    .then(json=>json)
+                    .catch(err=>console.log(err))
+    setWhitespaceHorizontal(pixels)
+  }
+  
+  function getVerticalWhitespace(){
+    const pixels = fetch(`${BASE_URL}/api/verticalWhiteSpace`)
+                    .then(res=>res.json())
+                    .then(json=>json)
+                    .catch(err=>console.log(err))
+    setWhitespaceVertical(pixels)
+  }
+
+  async function increaseHorizontalWhitespace(){
+    await fetch(`${BASE_URL}/api/increaseHorizontal`)
+            .then(res=>res.json())
+            .then(px=>setWhitespaceHorizontal(px))
+            .catch(err=>console.log(err))
+  }
+
+  async function increaseVerticalWhitespace(){
+    await fetch(`${BASE_URL}/api/increaseVertical`)
+            .then(res=>res.json())
+            .then(px=>setWhitespaceVertical(px))
+            .catch(err=>console.log(err))
+  }
+
+  async function decreaseHorizontalWhitespace(){
+    await fetch(`${BASE_URL}/api/decreaseHorizontal`)
+            .then(res=>res.json())
+            .then(px=>setWhitespaceHorizontal(px))
+            .catch(err=>console.log(err))
+  }
+  async function decreaseVerticalWhitespace(){
+    await fetch(`${BASE_URL}/api/decreaseVertical`)
+            .then(res=>res.json())
+            .then(px=>setWhitespaceVertical(px))
+            .catch(err=>console.log(err))
+  }
+
   const getDinnerItems = ()=>{
     fetch(`${BASE_URL}/api/dinner`)
       .then(res=>res.json())
@@ -27,8 +74,6 @@ export default function Admin() {
       .then(()=>getDinnerItems())
       .catch(err=>console.log(err))      
   }
-
-
 
   async function addDinnerItem(formData){
     await fetch(`${BASE_URL}/api/dinner`,{ method:'POST',
@@ -63,28 +108,6 @@ export default function Admin() {
       .catch(err=>console.log(err))
   }
 
-  async function getVerticalWhitespace(){
-    const pixels = await fetch(`${BASE_URL}/api/verticalWhiteSpace`)
-                          .then(res=>res.json())
-                          .then(json=>json)
-                          .catch(err=>console.log(err))
-    setWhitespaceVertical(pixels)
-  }
-  getVerticalWhitespace()
-
-  async function increaseVerticalWhitespace(){
-    await fetch(`${BASE_URL}/api/increaseVertical`)
-            .then(res=>res.json())
-            .then(px=>setWhitespaceVertical(px))
-            .catch(err=>console.log(err))
-  }
-  async function decreaseVerticalWhitespace(){
-    await fetch(`${BASE_URL}/api/decreaseVertical`)
-            .then(res=>res.json())
-            .then(px=>setWhitespaceVertical(px))
-            .catch(err=>console.log(err))
-  }
-
   async function populateForm(id){
     let target
     setEditForm(true)
@@ -101,8 +124,6 @@ export default function Admin() {
     document.querySelector('#admin-page-price-input').value = target.price
     document.querySelector('#admin-form').scrollIntoView({behavior:'smooth'})
   }
-
-  const [editMode, setEditMode] = useState(false)
 
   function flipToggle(){
     if(!editMode){
@@ -123,6 +144,7 @@ export default function Admin() {
       getDinnerItems()
     } 
   }
+  
   function clearForm(){
     setEditForm(false)
     document.querySelector('#admin-page-id-input').value = ''
@@ -133,8 +155,6 @@ export default function Admin() {
     document.querySelector('#admin-page-main-description-input').value = ''
     document.querySelector('#admin-page-price-input').value = ''
   }
-
-  useEffect(()=>getDinnerItems(),[])
 
   return (
     <>
@@ -155,7 +175,9 @@ export default function Admin() {
             
             <button id='admin-page-print-button'>Print</button>
           </div>{/* #admin-header-content */}
+
           <div id='whitespace-controls'>
+          
             <span id='whitespace-vertical'>
               <FaCaretSquareUp  onClick={increaseVerticalWhitespace} 
                                 style={{transform:'rotate(0deg)',cursor:'pointer'}} />
@@ -163,12 +185,17 @@ export default function Admin() {
               <FaCaretSquareUp  onClick={decreaseVerticalWhitespace} 
                                 style={{transform:'rotate(180deg)',cursor:'pointer'}} />
             </span>{/* #whitespace-vertical */}
+          
             <span>WHITESPACE</span> 
+          
             <span id='whitespace-horizontal'>
-              <FaCaretSquareUp style={{transform:'rotate(270deg)',cursor:'pointer'}} />
+              <FaCaretSquareUp  onClick={decreaseHorizontalWhitespace} 
+                                style={{transform:'rotate(270deg)',cursor:'pointer'}} />
               <span>&nbsp;{whitespaceHorizontal}&nbsp;</span>
-              <FaCaretSquareUp style={{transform:'rotate(90deg)',cursor:'pointer'}} />
+              <FaCaretSquareUp  onClick={increaseHorizontalWhitespace} 
+                                style={{transform:'rotate(90deg)',cursor:'pointer'}} />
             </span>{/* #whitespace-horizontal */}
+          
           </div>{/* #whitespace-control */}
         </div>{/* #admin-header */}
         
