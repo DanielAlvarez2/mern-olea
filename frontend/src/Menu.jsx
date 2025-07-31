@@ -21,7 +21,7 @@ export default function Menu() {
   return (
     <>
       <div id='menu-page-wrapper'>
-        <div id='menu-page-content'>
+        <div id='menu-page-content' style={{backgroundImage: `url('./menu-background.jpg')`}}>
           <div id='footer-flexbox-top'>
             <h1><span id='logo'>olea</span></h1>
             <hr/>
