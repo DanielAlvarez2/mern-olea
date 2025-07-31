@@ -209,6 +209,7 @@ export default function Admin() {
               <div id='admin-dinner-menu-meats'>
                 {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
+                                              getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
                                               marginVertical={whitespaceVertical}
@@ -221,6 +222,7 @@ export default function Admin() {
               <div id='admin-dinner-menu-appetizers'>
                 {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
+                                              getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
                                               marginVertical={whitespaceVertical}
@@ -235,6 +237,7 @@ export default function Admin() {
             <div id='admin-dinner-menu-top-right'>
               {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
+                                              getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
                                               marginVertical={whitespaceVertical}
@@ -250,6 +253,7 @@ export default function Admin() {
           <div id='admin-dinner-menu-sides'>
               {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
                   return <AdminDinnerMenuItem data={data} 
+                                              getDinnerItems={()=>getDinnerItems()}
                                               onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
                                               onEditClick={()=>populateForm(data._id)}
                                               marginVertical={whitespaceVertical}
@@ -267,7 +271,8 @@ export default function Admin() {
                 consumer advisory: consumption of undercooked meat, poultry, eggs, or seafood may increase the risk of food-borne illnesses<br/>
                 all menu items are subject to change according to seasonality and avilability<br/>
                 <div>
-                  please alert your server if you have special dietary requirements before ordering: gl (gluten), d (dairy), n (nuts)
+                  please alert your server if you have special dietary requirements before ordering:<br/> 
+                  gl (gluten), d (dairy), n (nuts)
                 </div>
               </div>{/* #legal */}
           </div>{/* #admin-dinner-menu */}          

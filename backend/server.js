@@ -165,5 +165,15 @@ app.get('/api/horizontalWhitespace',async(req,res)=>{
     }
 })
 
+app.get('/api/moveUp/:id', async(req,res)=>{
+    const target = await DinnerMenuItem.findById(req.params.id)
+    const swap = await DinnerMenuItem.findOne({section:target.section, sequence:target.sequence - 1})
+    const targetSequence = target.sequence
+    const swapSequence = swap.sequence
+    await DinnerMenuItem.findByIdAndUpdate({_id:req.params.id},{sequence:swapSequence})
+    await DinnerMenuItem.findByIdAndUpdate({_id:swap._id},{sequence:targetSequence})
+    console.log('Item Moved Up')
+    res.json('Item Moved Up')
+})
 const PORT = process.env.PORT || 1435 
 app.listen(PORT, ()=> console.log(`Server Listening on Port: ${PORT}`))

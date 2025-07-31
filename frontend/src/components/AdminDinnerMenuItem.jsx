@@ -1,4 +1,5 @@
 import './AdminDinnerMenuItem.css'
+import { BiSolidUpArrow } from "react-icons/bi"
 
 export default function AdminDinnerMenuItem(props){
 
@@ -6,6 +7,12 @@ export default function AdminDinnerMenuItem(props){
                     'https://mern-olea.onrender.com' : 
                     'http://localhost:1435'
 
+    async function moveUp(id){
+      await fetch(`${BASE_URL}/api/moveUp/${id}`)
+              .then(()=>props.getDinnerItems())
+              .then()
+              .catch(err=>console.log(err))
+    }
 
                   return(
                     <div  className='menu-item'
@@ -14,6 +21,12 @@ export default function AdminDinnerMenuItem(props){
                                   paddingLeft:props.paddingHorizontal,
                                   paddingRight:props.paddingHorizontal,
                                 }}>
+                      {(!(props.data.section == 'Sides' || props.data.sequence == 1) && props.editMode) && 
+                        <div style={{width:'100%',textAlign:'center'}}>
+                          <BiSolidUpArrow onClick={()=>moveUp(props.data._id)} 
+                                          style={{cursor:'pointer'}} />
+                        </div>
+                      }            
                       {props.data.name == 'jamón ibérico' ? 
                       <>
                         <span className='name'>{props.data.name}</span>&nbsp;&nbsp;
