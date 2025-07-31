@@ -38,6 +38,14 @@ app.post('/api/dinner', async(req,res)=>{
     }
 })
 
+app.delete('/api/archive/:id',async(req,res)=>{
+    try{
+        await DinnerMenuItem.findByIdAndDelete(req.params.id)
+        res.json('Item Deleted from Archive')
+    }catch(err){    
+        console.log(err)
+    }
+})
 app.delete('/api/dinner/:id', async(req,res)=>{
     try{
 

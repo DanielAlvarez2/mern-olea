@@ -71,6 +71,12 @@ export default function Admin() {
     setArchiveLength(dinnerItems.filter(item=>item.sequence == 0).length)
     }
 
+  function deleteArchivedMenuItem(id){
+    fetch(`${BASE_URL}/api/archive/${id}`,{method:'DELETE'})
+      .then(res=>res.json('Item Deleted from Archive'))
+      .then(()=>getDinnerItems())
+      .catch(err=>console.log(err))
+  }
 
   function deleteDinnerMenuItem(id){
     fetch(`${BASE_URL}/api/dinner/${id}`,{method:'DELETE'})
@@ -371,7 +377,7 @@ export default function Admin() {
                 {dinnerItems.filter(item=>item.sequence == 0).map(data=>{
                   return <ArchiveDinnerMenuItem data={data} 
                                                 getDinnerItems={()=>getDinnerItems()}
-                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                deleteArchivedMenuItem={()=>deleteArchivedMenuItem(data._id)} 
                                                 editMode = {editMode}
                                                 key={data._id} /> 
               })}

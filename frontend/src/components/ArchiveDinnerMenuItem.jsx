@@ -27,7 +27,7 @@ export default function ArchiveDinnerMenuItem(props){
                       }
                       {props.editMode &&   <>                                    
                                         <div className='menu-item-buttons'>
-                                            <button onClick={()=>props.onDeleteClick(props.data._id)} 
+                                            <button onClick={()=>props.deleteArchivedMenuItem(props.data._id)} 
                                                     style={{background:'red',color:'white'}}>Delete</button>
                                             <button style={{background:'yellow'}}>UN-Archive</button>
                                         </div>
