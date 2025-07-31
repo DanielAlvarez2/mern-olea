@@ -10,7 +10,12 @@ export default function AdminDinnerMenuItem(props){
     async function moveUp(id){
       await fetch(`${BASE_URL}/api/moveUp/${id}`)
               .then(()=>props.getDinnerItems())
-              .then()
+              .catch(err=>console.log(err))
+    }
+
+    async function moveDown(id){
+      await fetch(`${BASE_URL}/api/moveDown/${id}`)
+              .then(()=>props.getDinnerItems())
               .catch(err=>console.log(err))
     }
 
@@ -57,7 +62,7 @@ export default function AdminDinnerMenuItem(props){
                      
                       {(!(props.data.section == 'Sides' || props.data.sequence == props.sectionLength) && props.editMode) && 
                         <div style={{width:'100%',textAlign:'center'}}>
-                          <BiSolidUpArrow onClick={()=>moveUp(props.data._id)} 
+                          <BiSolidUpArrow onClick={()=>moveDown(props.data._id)} 
                                           style={{transform:'rotate(180deg)',cursor:'pointer'}} />
                         </div>
                       }
