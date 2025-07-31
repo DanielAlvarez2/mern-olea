@@ -226,7 +226,19 @@ export default function Admin() {
                                               key={data._id}
                                               editMode = {editMode} /> 
               })}
-          </div>{/* #admin-dinner-menu-sides */}          
+          </div>{/* #admin-dinner-menu-sides */}
+              <hr style={{marginBottom:'10px'}} />
+          <div id='admin-dinner-menu-footer'>
+              <div id='chef'>manuel romero, chef</div>
+              <div id='qr'><img width='65px' src='./qrCode.jpg'/></div>
+              <div id='legal'>
+                consumer advisory: consumption of undercooked meat, poultry, eggs, or seafood may increase the risk of food-borne illnesses<br/>
+                all menu items are subject to change according to seasonality and avilability<br/>
+                <div>
+                  please alert your server if you have special dietary requirements before ordering: gl (gluten), d (dairy), n (nuts)
+                </div>
+              </div>{/* #legal */}
+          </div>{/* #admin-dinner-menu */}          
         </div>{/* #admin-dinner-menu */}
 
 

@@ -113,7 +113,7 @@ form input,
 form textarea{
   width:100%;
 }
-.name{
+.name, #chef{
   font-weight:900;
   font-size:18px;
   font-family: FuturaLight;
@@ -139,4 +139,17 @@ form textarea{
 }
 #whitespace-horizontal{
   display:flex;
+}
+#admin-dinner-menu-footer{
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+}
+#legal{
+  width:55%;
+  font-size: 10px;
+  font-family: serif;
+}
+#legal div{
+  font-weight: 900;
 }
