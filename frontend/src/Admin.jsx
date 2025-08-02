@@ -139,7 +139,9 @@ export default function Admin() {
                                                                   allergies: formData.get('allergies'),
                                                                   preDescription: formData.get('preDescription'),
                                                                   description: formData.get('description'),
-                                                                  price: formData.get('price')
+                                                                  price: formData.get('price'),
+                                                                  cloudinary_url: formData.get('admin-page-existing-cloudinary-url'),
+                                                                  cloudinary_public_id: formData.get('admin-page-existing-cloudinary-public-id')
                                                                 })
     }).then(console.log(`Updated ${formData.get('name')}`))
       .then(setEditForm(false))
@@ -161,6 +163,8 @@ export default function Admin() {
     document.querySelector('#admin-page-pre-description-input').value = target.preDescription
     document.querySelector('#admin-page-main-description-input').value = target.description
     document.querySelector('#admin-page-price-input').value = target.price
+    document.querySelector('#admin-page-existing-cloudinary-url').value = target.cloudinary_url
+    document.querySelector('#admin-page-existing-cloudinary-public-id').value = target.cloudinary_public_id
     document.querySelector('#admin-form').scrollIntoView({behavior:'smooth'})
   }
 
@@ -200,7 +204,7 @@ export default function Admin() {
     <>
       <div id='admin-page-wrapper-dinner-menu'>
         
-        <div id='admin-header'>
+        <div id='admin-header' className='no-print'>
           <div id='admin-header-content'>
             <span id='admin-page'>Admin Page</span>
 
@@ -241,7 +245,7 @@ export default function Admin() {
         
         <div id='admin-dinner-menu'>
           <h1><span style={{paddingLeft:whitespaceHorizontal}} id='logo'>olea</span></h1>
-          <hr />
+          <hr style={{marginBottom:'20px'}} />
 
           <div id='admin-dinner-menu-top'>
             <div id='admin-dinner-menu-top-left'>
@@ -288,11 +292,25 @@ export default function Admin() {
                                               key={data._id}
                                               editMode = {editMode} />
                 })}
+
+            <div id='tasting-menu' style={{ border:'1px solid black',
+                                            paddingTop:whitespaceVertical,
+                                            paddingBottom:whitespaceVertical,
+                                            paddingLeft:whitespaceHorizontal,
+                                            paddingRight:whitespaceHorizontal
+                                          }}>
+                <span style={{fontFamily:'FuturaLight',fontWeight:'900'}}>
+                  chef's tasting menu</span> six courses 105 /person<br/>
+                48-hours notice and reservation required<br/>
+                full table participation<br/>
+                available tuesday through thursday<br/>
+                optional wine pairing available 52 / person<br/>
+            </div>{/* #tasting-menu */}
             </div>{/* #admin-dinner-menu-top-right */}
 
           </div>{/* #admin-dinner-menu-top */}
 
-          <h2 style={{paddingLeft:whitespaceHorizontal}}>sides</h2>
+          <h2 style={{paddingLeft:whitespaceHorizontal,fontSize:'25px',fontWeight:'900'}}>sides</h2>
           <div id='admin-dinner-menu-sides'>
               {dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
                   return <AdminDinnerMenuItem data={data} 
@@ -306,7 +324,7 @@ export default function Admin() {
                                               editMode = {editMode} /> 
               })}
           </div>{/* #admin-dinner-menu-sides */}
-              <hr style={{marginBottom:'10px'}} />
+              
 
           <div style={{paddingLeft:whitespaceHorizontal,paddingRight:whitespaceHorizontal}} id='admin-dinner-menu-footer'>
               <div id='chef'>manuel romero, chef</div>
@@ -339,13 +357,20 @@ export default function Admin() {
 
 
 {/* FORM */}
-
+    {editMode && 
+      <>
         <div id='admin-form-outer-wrapper'>
           <div id='admin-form-inner-wrapper'>
             <form action={ editForm ? editDinnerItem : addDinnerItem} id='admin-form'>
               <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
               <input type='hidden' name='id' id='admin-page-id-input' />
+              <input  type='hidden' 
+                      name='admin-page-existing-cloudinary-url' 
+                      id='admin-page-existing-cloudinary-url' />
+              <input  type='hidden' 
+                      name='admin-page-existing-cloudinary-public-id' 
+                      id='admin-page-existing-cloudinary-public-id' />
               <label>
                 Section:&nbsp;&nbsp; 
                 <select id='admin-page-section-input' name='section' defaultValue=''>
@@ -410,7 +435,12 @@ export default function Admin() {
             </form>{/* #admin-form */}
           </div>{/* #admin-form-inner-wrapper */}
         </div>{/* #admin-form-outer-wrapper */}
-{/* END FORM */}      
+      </>
+    }
+{/* END FORM */}   
+
+
+
         {editMode && archiveLength && 
           <>
             <div id='archive-wrapper'>
@@ -427,7 +457,7 @@ export default function Admin() {
             </div>{/* #archive-wrapper */}
           </>
         }
-        <PageFooter color='blue' />
+        <PageFooter className='no-print' color='blue' />
       </div>{/* #page-wrapper-admin-dinner-menu */}
     </>
   )

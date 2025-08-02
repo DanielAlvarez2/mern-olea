@@ -88,7 +88,7 @@ export default function AdminDinnerMenuItem(props){
                       <>
                         <span className='name'>{props.data.name}</span>&nbsp;&nbsp;
                         <span className='price'>{props.data.price}</span>
-                        <br/>{props.data.sequence}
+                        
                       </>
                       :  
                       <>
@@ -98,7 +98,7 @@ export default function AdminDinnerMenuItem(props){
                         <span className='description'>{props.data.description}</span>&nbsp;&nbsp;
                         <span className='price'>{props.data.price}</span>
                         {props.data.name == 'cochinillo' && <><br/><span id='cochinillo'>(please allow 40 minutes cooking time)</span></>}
-                        <br/>{props.data.sequence}
+                        
                       </>
                       }
                       {props.editMode &&   <>                                    

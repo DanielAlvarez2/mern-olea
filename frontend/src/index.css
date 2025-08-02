@@ -6,6 +6,13 @@
     font-family:'FuturaMedium';
     src:url('./assets/fonts/FuturaMedium.otf')
 }
+@media print{
+    .no-print{
+        display:none !important;
+        height:0;
+        width:0;
+    }
+}
 *{
     margin:0;
     padding:0;
