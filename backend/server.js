@@ -56,6 +56,16 @@ app.put('/api/UNarchive/:id',async(req,res)=>{
 })
 app.delete('/api/archive/:id',async(req,res)=>{
     try{
+        const target = await DinnerMenuItem.findById(req.params.id)
+        if(target.cloudinary_public_id){
+            cloudinary.uploader.destroy(target.cloudinary_public_id,(err,result)=>{
+                if(err){
+                    console.log(err)
+                }else{
+                    console.log(result)
+                }
+            })
+        }
         await DinnerMenuItem.findByIdAndDelete(req.params.id)
         res.json('Item Deleted from Archive')
     }catch(err){    
@@ -64,13 +74,20 @@ app.delete('/api/archive/:id',async(req,res)=>{
 })
 app.delete('/api/dinner/:id', async(req,res)=>{
     try{
-
         const target = await DinnerMenuItem.findById(req.params.id)
         const max = await DinnerMenuItem.findOne({section:target.section}).sort({sequence:-1})
         for(let i=target.sequence;i<=max.sequence;i++){
             await DinnerMenuItem.findOneAndUpdate({section:target.section,sequence:i},{sequence:i-1})
         }
-
+        if (target.cloudinary_public_id){
+            cloudinary.uploader.destroy(target.cloudinary_public_id,(err,result)=>{
+                if(err){
+                    console.log(err)
+                }else{
+                    console.log(result)
+                }
+            })
+        }
         await DinnerMenuItem.findByIdAndDelete(req.params.id)
         console.log('Item Deleted from Database')
         res.json('Item Deleted from Database')
