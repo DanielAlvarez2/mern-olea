@@ -19,7 +19,15 @@ console.log(''); //SEMICOLON REQUIRED BEFORE IIFE!!!!
         console.log(err)
     }
 })()
-
+app.post('/api/upload-cloudinary',async(req,res)=>{
+    try{
+        const cloudinaryResponse = await cloudinary.uploader.upload(req.body.data)
+        res.json(cloudinaryResponse)
+    }catch(err){
+        console.log(err)
+        res.json('Something went wrong')
+    }
+})
 app.post('/api/dinner', async(req,res)=>{
     try{
         const maxSequence = await DinnerMenuItem.findOne({section:req.body.section}).sort({sequence:-1})
@@ -30,7 +38,9 @@ app.post('/api/dinner', async(req,res)=>{
             preDescription:req.body.preDescription,
             description:req.body.description,
             price:req.body.price,
-            sequence: maxSequence ? maxSequence.sequence + 1 : 1
+            sequence: maxSequence ? maxSequence.sequence + 1 : 1,
+            cloudinary_url:req.body.cloudinary_url,
+            cloudinary_public_id:req.body.cloudinary_public_id
         })
         console.log(`Added to Database:${req.body.name}`)
         res.json(`Added to Database: ${req.body.name}`)

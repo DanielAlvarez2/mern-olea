@@ -99,6 +99,18 @@ export default function Admin() {
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
+    if (previewSource){
+      await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
+                                                        body:JSON.stringify({data:previewSource}),
+                                                        headers:{'Content-Type':'application/json'}
+      }).then(async(res)=>await res.json())
+        .then(async(json)=>{
+          cloudinary_assigned_url = json.secure_url
+          cloudinary_assigned_public_id = json.public_id
+        })
+        .catch(err=>console.log(err))
+    }
+
     await fetch(`${BASE_URL}/api/dinner`,{ method:'POST',
                                 headers:{'Content-Type':'application/json'},
                                 body: JSON.stringify({
@@ -107,11 +119,14 @@ export default function Admin() {
                                   allergies: formData.get('allergies'),
                                   preDescription: formData.get('preDescription'),
                                   description: formData.get('description'),
-                                  price: formData.get('price')
+                                  price: formData.get('price'),
+                                  cloudinary_url:cloudinary_assigned_url,
+                                  cloudinary_public_id:cloudinary_assigned_public_id
                                 })
     }).then(console.log(`Added to Database: ${formData.get('name')}`))
       .then(async ()=> await getDinnerItems())
       .catch(err=>console.log(err))
+    clearForm()
   }
 
   async function editDinnerItem(formData){
@@ -170,6 +185,7 @@ export default function Admin() {
   
   function clearForm(){
     setEditForm(false)
+    setPreviewSource('')
     document.querySelector('#admin-page-id-input').value = ''
     document.querySelector('#admin-page-section-input').value = ''
     document.querySelector('#admin-page-name-input').value = ''
