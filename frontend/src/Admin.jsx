@@ -202,6 +202,7 @@ export default function Admin() {
 
   return (
     <>
+
       <div id='admin-page-wrapper-dinner-menu'>
         
         <div id='admin-header' className='no-print'>
@@ -242,7 +243,7 @@ export default function Admin() {
           
           </div>{/* #whitespace-control */}
         </div>{/* #admin-header */}
-        
+      <div className='no-print' style={{height:'120px',width:'100%'}}></div>        
         <div id='admin-dinner-menu'>
           <h1><span style={{paddingLeft:whitespaceHorizontal}} id='logo'>olea</span></h1>
           <hr style={{marginBottom:'20px'}} />
@@ -331,7 +332,7 @@ export default function Admin() {
               <div id='qr'><img width='65px' src='./qrCode.jpg'/></div>
               <div id='legal'>
                 consumer advisory: consumption of undercooked meat, poultry, eggs, or seafood may increase the risk of food-borne illnesses<br/>
-                all menu items are subject to change according to seasonality and avilability<br/>
+                all menu items are subject to change according to seasonality and availability<br/>
                 <div>
                   please alert your server if you have special dietary requirements before ordering:<br/> 
                   gl (gluten), d (dairy), n (nuts)
