@@ -16,9 +16,19 @@ export default function Admin() {
   const [whitespaceHorizontal, setWhitespaceHorizontal] = useState(0)
   const [editMode, setEditMode] = useState(false)
   const [archiveLength, setArchiveLength] = useState(0)
+  const [previewSource, setPreviewSource] = useState('')
+
   useEffect(()=>getVerticalWhitespace(),[])
   useEffect(()=>getHorizontalWhitespace(),[])
   useEffect(()=>getDinnerItems(),[])
+
+  function handleFileInputChange(e){
+    const file = e.target.files[0]
+    const reader = new FileReader()
+    reader.readAsDataURL(file) // converts binary image file to a string
+    reader.onloadend = ()=> setPreviewSource(reader.result)
+    console.log(previewSource)
+  }
 
   function getHorizontalWhitespace(){
     const pixels = fetch(`${BASE_URL}/api/horizontalWhiteSpace`)
@@ -86,6 +96,9 @@ export default function Admin() {
   }
 
   async function addDinnerItem(formData){
+    let cloudinary_assigned_url = ''
+    let cloudinary_assigned_public_id = ''
+
     await fetch(`${BASE_URL}/api/dinner`,{ method:'POST',
                                 headers:{'Content-Type':'application/json'},
                                 body: JSON.stringify({
@@ -354,8 +367,20 @@ export default function Admin() {
 
               <label>
                 Photo: (optional)<br/>
-                <input type='file' name='image' /><br/><br/>
+                <input  type='file' 
+                        onChange={handleFileInputChange}
+                        id='image-binary'
+                        name='imageBinary' /><br/><br/>
               </label>
+              {previewSource && <>
+                                  <div style={{width:'100%',textAlign:'center'}}>
+                                    <img  src={previewSource}
+                                        alt='Image File Upload Preview'
+                                        id='preview-upload'
+                                        style={{maxHeight:'175px',
+                                                maxWidth:'175px'}} />
+                                  </div>
+                                </>}
 
               <button type='submit' 
                       style={{color:'white',background: editForm ? 'blue' : 'green'}}
