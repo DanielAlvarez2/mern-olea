@@ -1,5 +1,7 @@
 import './AdminDinnerMenuItem.css'
 import { BiSolidUpArrow } from "react-icons/bi"
+import { FaCamera } from "react-icons/fa"
+import { AiTwotoneCloseCircle } from "react-icons/ai"
 
 export default function AdminDinnerMenuItem(props){
 
@@ -25,6 +27,12 @@ export default function AdminDinnerMenuItem(props){
               .catch(err=>console.log(err))
     }
 
+    function openPic(id){
+      document.querySelector(`#${id}`).style.display = 'block'
+    }
+    function closePic(id){
+      document.querySelector(`#${id}`).style.display = 'none'
+    }
                   return(
                     <div  className='menu-item'
                           style={{marginTop:props.marginVertical,
@@ -53,7 +61,29 @@ export default function AdminDinnerMenuItem(props){
                                                                                                     transform:'rotate(90deg)'}} />}
                           </span>
                         </div>
-                      }      
+                      }  
+                      {props.data.cloudinary_url && props.editMode && <div  style={{display:'none'}} 
+                                                                            id={props.data.cloudinary_public_id}>
+                                                                        <div style={{position:'relative',display:'inline-block'}}>
+                                                                          <AiTwotoneCloseCircle size='30px'
+                                                                                                onClick={()=>closePic(props.data.cloudinary_public_id)} 
+                                                                                                style={{position:'absolute',
+                                                                                                        top:'0',
+                                                                                                        right:'0',
+                                                                                                        cursor:'pointer'
+                                                                                                        }} />
+                                                                        <img  style={{maxWidth:'200px',
+                                                                                      maxHeight:'200px',
+                                                                                      
+                                                                                    }} 
+                                                                              src={props.data.cloudinary_url} /></div>
+                                                                          
+                                                                        
+                                                                      </div>}
+                      {props.data.cloudinary_url && props.editMode && <div>
+                                                                        <FaCamera onClick={()=>openPic(props.data.cloudinary_public_id)} 
+                                                                                  style={{cursor:'pointer'}} />
+                                                                      </div>}    
                       {props.data.name == 'jamón ibérico' ? 
                       <>
                         <span className='name'>{props.data.name}</span>&nbsp;&nbsp;
