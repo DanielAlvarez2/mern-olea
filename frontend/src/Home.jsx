@@ -25,10 +25,10 @@ export default function Root() {
       <div id='root-page-wrapper'>
         <div id='root-page-content'>
           <div id='footer-flexbox-top'>
-            <nav style={{display:'flex',width:'100%',border:'1px solid red',justifyContent:'space-between'}}>
+            <nav style={{display:'flex',width:'100%',paddingTop:'20px',justifyContent:'space-between'}}>
               <h1><span id='logo'>olea</span></h1>
-              <div id='nav-links' style={{width:'100%',border:'1px solid green'}}>
-                <ul style={{width:'100%',display:'flex',justifyContent:'space-between',alignItems:'center',height:'100%'}}>
+              <div id='nav-links' style={{width:'100%'}}>
+                <ul style={{width:'100%',display:'flex',gap:'20px',alignItems:'center',height:'100%'}}>
                   <li key='home'>home</li>
                   <li key='info'>info</li>
                   <li key='menus'>menus</li>
@@ -38,7 +38,7 @@ export default function Root() {
                   <li key='reservations'>reservations</li>
                 </ul>  
               </div>{/* #nav-links */}
-              <div id='socials' style={{display:'flex',gap:'10px',alignItems:'center'}}>
+              <div id='socials' style={{display:'flex',gap:'10px',alignItems:'center',paddingRight:'48px'}}>
                 <FaFacebookF className='icon' />
                 <FaTwitter className='icon' />
                 <FaInstagram className='icon' />
@@ -127,7 +127,7 @@ export default function Root() {
 
                 <br/><br/><br/>
                 we do our best to keep this information accurate and up to date, 
-                but because we make frequent adjustmants, based on season and availability, 
+                but because we make frequent adjustments, based on season and availability, 
                 our menus are subject to change<br/><br/>              
               </div>{/* #main-left */}
               <div id='main-right'>
