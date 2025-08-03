@@ -102,8 +102,9 @@ export default function Admin() {
 
     if (previewSource){
       await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
+                                                        headers:{'Content-Type':'application/json',
                                                         body:JSON.stringify({data:previewSource}),
-                                                        headers:{'Content-Type':'application/json'}
+                                                      }
       }).then(async(res)=>await res.json())
         .then(async(json)=>{
           cloudinary_assigned_url = json.secure_url
