@@ -301,11 +301,11 @@ export default function Admin() {
                                             paddingRight:whitespaceHorizontal
                                           }}>
                 <span style={{fontFamily:'FuturaLight',fontWeight:'900'}}>
-                  chef's tasting menu</span> six courses 105 /person<br/>
-                48-hours notice and reservation required<br/>
+                  chef's tasting menu</span> <span style={{fontStyle:'italic'}}>six courses <span style={{fontWeight:'900'}}>105</span> / person</span><br/>
+                <span style={{fontStyle:'italic',fontWeight:'900'}}>48-hours notice and reservation required</span><br/>
                 full table participation<br/>
                 available tuesday through thursday<br/>
-                optional wine pairing available 52 / person<br/>
+                <span style={{fontStyle:'italic'}}>optional wine pairing available <span style={{fontWeight:'900'}}>52</span> / person</span><br/>
             </div>{/* #tasting-menu */}
             </div>{/* #admin-dinner-menu-top-right */}
 

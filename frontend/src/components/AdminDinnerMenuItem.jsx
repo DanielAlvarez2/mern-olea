@@ -36,7 +36,9 @@ export default function AdminDinnerMenuItem(props){
                   return(
                     <div  className='menu-item'
                           style={{marginTop:props.marginVertical,
-                                  marginBottom:props.marginVertical,
+                                  marginBottom: !(props.data.section == 'Sides' && props.data.sequence == 1) && 
+                                                !(props.data.section == 'Sides' && props.data.sequence == 2) && 
+                                                props.marginVertical,
                                   paddingLeft:props.paddingHorizontal,
                                   paddingRight:props.paddingHorizontal,
                                 }}>
