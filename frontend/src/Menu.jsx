@@ -21,19 +21,22 @@ export default function Menu() {
   return (
     <>
       <div id='menu-page-wrapper'>
-        <div id='menu-page-content' style={{backgroundImage: `url('./menu-background.jpg')`}}>
+        <div  id='menu-page-content' 
+              style={{padding:'20px',backgroundImage: `url('./menu-background.jpg')`}}>
           <div id='footer-flexbox-top'>
             <h1><span id='logo'>olea</span></h1>
-            <hr/>
+            <hr style={{marginBottom:'20px'}} />
               <div id='menu-top'>
                 <div id='menu-top-left'>
-                  {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
-                    return(
-                      <div key={data._id}>
-                        <MenuPageItem data={data} />
-                      </div>
-                    )
-                  })}                    
+                  <div id='meats' style={{border:'1px solid black'}}>
+                    {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
+                      return(
+                        <div key={data._id}>
+                          <MenuPageItem data={data} />
+                        </div>
+                      )
+                    })}          
+                  </div>{/* #meats */}          
                   {dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).map(data=>{
                     return(
                       <div key={data._id}>
@@ -42,6 +45,7 @@ export default function Menu() {
                     )
                   })}                                    
                 </div>{/* #menu-top-left */}
+
                 <div id='menu-top-right'>
                   {dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
                     return(
@@ -49,10 +53,22 @@ export default function Menu() {
                         <MenuPageItem data={data} />
                       </div>
                     )
-                  })}                                    
+                  })}
+
+                  <div id='tasting-menu' style={{fontFamily:'serif',padding:'20px',border:'1px solid black'}}>
+                    <span style={{fontFamily:'FuturaLight',fontWeight:'900'}}>
+                      chef's tasting menu</span> <span style={{fontStyle:'italic'}}>six courses <span style={{fontWeight:'900'}}>105</span> / person</span><br/>
+                    <span style={{fontStyle:'italic',fontWeight:'900'}}>48-hours notice and reservation required</span><br/>
+                    full table participation<br/>
+                    available tuesday through thursday<br/>
+                    <span style={{fontStyle:'italic'}}>optional wine pairing available <span style={{fontWeight:'900'}}>52</span> / person</span><br/>                                                    
+                  </div>{/* #tasting-menu */}
+
                 </div>{/* #menu-top-right */}
+              
               </div>{/* #menu-top */}
-              <div id='sides'>
+                <h2 style={{fontSize:'30px',fontWeight:'100',paddingLeft:'20px'}}>sides</h2>
+              <div id='sides' style={{border:'1px solid black',marginBottom:'20px'}}>
                 {dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
                   return(
                     <div key={data._id}>
@@ -61,7 +77,7 @@ export default function Menu() {
                   )
                 })}                                  
               </div>{/* #sides */}
-              <hr/>
+              <hr style={{marginBottom:'20px'}} />
               <div id='menu-page-footer'>
                 <div>manuel romero, chef</div>  
                 <div id='legal'>
