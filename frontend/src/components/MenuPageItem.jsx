@@ -13,7 +13,7 @@ export default function MenuPageItem(props){
                         id={props.data.cloudinary_public_id}
                         style={{maxWidth:'300px',maxHeight:'300px',display:'none'}} />
                 <div className='name'>{props.data.name}</div>
-                <span className='pre-description'>{props.data.preDescription}; </span>
+                {props.data.preDescription && <span className='pre-description'>{props.data.preDescription}; </span>}
                 <span className='description'>{props.data.description}</span>
                 <span className='price'>&nbsp;&nbsp;&nbsp;{props.data.price}</span>
             </div>{/* .menu-page-item */}
