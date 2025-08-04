@@ -19,8 +19,8 @@ export default function Admin() {
   const [archiveLength, setArchiveLength] = useState(0)
   const [previewSource, setPreviewSource] = useState('')
 
-  useEffect(()=>getVerticalWhitespace(),[])
-  useEffect(()=>getHorizontalWhitespace(),[])
+  useEffect(()=>getVerticalWhitespace(),'')
+  useEffect(()=>getHorizontalWhitespace(),'')
   useEffect(()=>getDinnerItems(),[])
 
   function handleFileInputChange(e){
@@ -32,19 +32,17 @@ export default function Admin() {
   }
 
   function getHorizontalWhitespace(){
-    const pixels = fetch(`${BASE_URL}/api/horizontalWhiteSpace`)
-                    .then(res=>res.json())
-                    .then(json=>json)
-                    .catch(err=>console.log(err))
-    setWhitespaceHorizontal(pixels)
+    fetch(`${BASE_URL}/api/horizontalWhitespace`)
+      .then(res=>res.json())
+      .then(json=>setWhitespaceHorizontal(json))
+      .catch(err=>console.log(err))
   }
   
   function getVerticalWhitespace(){
-    const pixels = fetch(`${BASE_URL}/api/verticalWhiteSpace`)
-                    .then(res=>res.json())
-                    .then(json=>json)
-                    .catch(err=>console.log(err))
-    setWhitespaceVertical(pixels)
+    fetch(`${BASE_URL}/api/verticalWhitespace`)
+      .then(res=>res.json())
+      .then(json=>setWhitespaceVertical(json))
+      .catch(err=>console.log(err))
   }
 
   async function increaseHorizontalWhitespace(){

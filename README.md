@@ -397,6 +397,9 @@ webutility.io/favicon-extractor
 32x32px  
 96x96px  
 256x256px  
+  
+
+
 
 https://www.ionos.com/tools/favicon-generator  
 
