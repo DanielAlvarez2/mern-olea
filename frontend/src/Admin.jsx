@@ -101,6 +101,7 @@ export default function Admin() {
     let cloudinary_assigned_public_id = ''
 
 
+    alert(process.env.NODE_ENV)
     if (previewSource){
       await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
                                                         body:JSON.stringify({data:previewSource}),
