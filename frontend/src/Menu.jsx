@@ -24,7 +24,7 @@ export default function Menu() {
         <div  id='menu-page-content' 
               style={{padding:'20px',backgroundImage: `url('./menu-background.jpg')`}}>
           <div id='footer-flexbox-top'>
-            <h1><span id='logo'>olea</span></h1>
+            <h1><span id='logo' style={{paddingLeft:'20px'}}>olea</span></h1>
             <hr style={{marginBottom:'20px'}} />
               <div id='menu-top'>
                 <div id='menu-top-left'>

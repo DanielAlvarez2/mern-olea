@@ -36,3 +36,6 @@ h1{
 #sides>div{
     width:50%;
 }
+#logo{
+    padding-left: 0;
+}

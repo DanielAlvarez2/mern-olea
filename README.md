@@ -428,3 +428,26 @@ h1{
   font-family: FuturaLight;
 }
 ```
+  
+DNS Records:  
+  
+Netlify:  
+Domains > oleademo.com > Name Servers:  
+dns1.p08.nsone.net  
+dns2.p08.nsone.net  
+dns3.p08.nsone.net  
+dns4.p08.nsone.net  
+  
+Ionos:  
+Domains & SSL  
+oleademo.com  
+"Name Server" tab  
+Use custom name servers  
+fill in info from Netlify  
+Save  
+"Name server succesfully changed"  
+Works immediately  
+HTTPS takes a few minutes to kick in  
+
+
+
