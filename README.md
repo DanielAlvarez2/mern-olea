@@ -391,7 +391,14 @@ Save, rebuild, and redeploy
 LESS THAN 3 HOURS TO COMPLETE   
   
 Print README.md from GitHub Repo URL in PrintFriendly.com  
+  
+webutility.io/favicon-extractor  
+16x16px  
+32x32px  
+96x96px  
+256x256px  
 
+https://www.ionos.com/tools/favicon-generator  
 
 FONTS:  
 /frontend/src/assets/ $ mkdir fonts  
