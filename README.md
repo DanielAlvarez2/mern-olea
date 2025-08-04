@@ -381,20 +381,12 @@ $ git push
 
 Netlify: wait for deploy to go live  
 navigate to Netlify URL/test  
-  
-ADD ENVIRONMENT VARIABLES TO NETLIFY ACCOUNT:  
-Project Configuration > Environment Variables  > Add a variable > Import from a .env file  
-Command + C > Command + V    
-CLOUDINARY_CLOUD_NAME=dosst0owt  
-CLOUDINARY_API_KEY=131427865653845  
-CLOUDINARY_API_SECRET=   
-Check box "Contains secret values"  
-Import variables  
-  
-Add a single variable:  
-Key: NODE_ENV  
-Value: production  
-Create variable  
+     
+ADD ENVIRONMENT VARIABLES TO RENDER ACCOUNT:  
+Manage > Environment > Edit  > \+ Add > From .env  
+Command + C > Command + V  
+Add variables  
+Save, rebuild, and redeploy  
   
 LESS THAN 3 HOURS TO COMPLETE   
   
