@@ -391,6 +391,11 @@ CLOUDINARY_API_SECRET=
 Check box "Contains secret values"  
 Import variables  
   
+Add a single variable:  
+Key: NODE_ENV  
+Value: production  
+Create variable  
+  
 LESS THAN 3 HOURS TO COMPLETE   
   
 Print README.md from GitHub Repo URL in PrintFriendly.com  
