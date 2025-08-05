@@ -19,6 +19,7 @@ export default function Admin() {
   const [archiveLength, setArchiveLength] = useState(0)
   const [previewSource, setPreviewSource] = useState('')
   const [oldPic,setOldPic] = useState(false)
+  const [oldPicURL, setOldPicURL] = useState('')
 
   useEffect(()=>getVerticalWhitespace(),[])
   useEffect(()=>getHorizontalWhitespace(),[])
@@ -187,6 +188,7 @@ export default function Admin() {
     document.querySelector('#admin-page-existing-cloudinary-url').value = target.cloudinary_url
     document.querySelector('#admin-page-existing-cloudinary-public-id').value = target.cloudinary_public_id
     target.cloudinary_url && setOldPic(true)
+    target.cloudinary_url && setOldPicURL(target.cloudinary_url)
     document.querySelector('#admin-form').scrollIntoView({behavior:'smooth'})
   }
 
@@ -440,7 +442,7 @@ export default function Admin() {
                               Current Photo:<br/>
                               <div id='old-pic-wrapper'>
                                 <img  style={{maxHeight:'175px',maxWidth:'175px'}} 
-                                      src={document.querySelector('#admin-page-existing-cloudinary-url').value} /><br/>
+                                      src={oldPicURL} /><br/>
                               </div>{/* #old-pic-wrapper */}
                             </>
                   
