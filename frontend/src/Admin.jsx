@@ -40,7 +40,9 @@ export default function Admin() {
     document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
     document.querySelector('#main-photo').style.visibility = isChecked ? 'visible' : 'hidden'
     document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
+    document.querySelector('#image-binary').value = ''
     setIsChecked(prev=>!prev)
+    setPreviewSource('')
   }
 
   function getHorizontalWhitespace(){
@@ -168,10 +170,7 @@ export default function Admin() {
     }
 
     // OLD PIC --> NEW PIC
-    console.log('PREVIEWSOURCE' + previewSource)
-    console.log('OLD-PIC-PUBLIC-ID: '+formData.get('old-pic-cloudinary-public-id'))
     if (previewSource && formData.get('old-pic-cloudinary-public-id')){
-      console.log('DELETE OLD PIC --> NEW PIC')
       await fetch(`${BASE_URL}/api/old-pic/${formData.get('old-pic-cloudinary-public-id')}`,{method:'DELETE'})
       await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
                                                         body:JSON.stringify({data:previewSource}),
@@ -182,6 +181,13 @@ export default function Admin() {
           cloudinary_assigned_public_id = json.public_id
         })
         .catch(err=>console.log(err))      
+    }
+
+    // OLD PIC --> NO PIC
+    if (formData.get('no-photo') == 'on'){
+      await fetch(`${BASE_URL}/api/old-pic/${formData.get('old-pic-cloudinary-public-id')}`,{method:'DELETE'}) 
+      cloudinary_assigned_url = ''
+      cloudinary_assigned_public_id = ''     
     }
 
     await fetch(`${BASE_URL}/api/dinner/${formData.get('id')}`,{method:'PUT',
@@ -264,6 +270,7 @@ export default function Admin() {
     document.querySelector('#admin-page-price-input').value = ''
     document.querySelector('#admin-page-existing-cloudinary-url').value = ''
     document.querySelector('#admin-page-existing-cloudinary-public-id').value = ''
+    document.querySelector('#main-photo').style.visibility = 'visible'
   }
 
   return (
@@ -510,24 +517,25 @@ export default function Admin() {
                   
                 }
 
-              <label id='main-photo'>
-                { oldPic && 'Change ' }
-                Photo: (optional)<br/>
-                <input  type='file' 
-                        onChange={handleFileInputChange}
-                        id='image-binary'
-                        name='imageBinary' /><br/><br/>
-              </label>
-              {previewSource && <>
-                                  <div style={{width:'100%',textAlign:'center'}}>
-                                    <img  src={previewSource}
-                                        alt='Image File Upload Preview'
-                                        id='preview-upload'
-                                        style={{maxHeight:'175px',
-                                                maxWidth:'175px'}} />
-                                  </div>
-                                </>}
-
+              <div id='main-photo'>
+                <label>
+                  { oldPic && 'Change ' }
+                  Photo: (optional)<br/>
+                  <input  type='file' 
+                          onChange={handleFileInputChange}
+                          id='image-binary'
+                          name='imageBinary' /><br/><br/>
+                </label>
+                {previewSource && <>
+                                    <div style={{width:'100%',textAlign:'center'}}>
+                                      <img  src={previewSource}
+                                          alt='Image File Upload Preview'
+                                          id='preview-upload'
+                                          style={{maxHeight:'175px',
+                                                  maxWidth:'175px'}} />
+                                    </div>
+                                  </>}
+              </div>{/* #main-photo */}
               <button type='submit' 
                       style={{color:'white',background: editForm ? 'blue' : 'green'}}
                       className='admin-form-btn'>{editForm ? 'Edit' : 'Add'} Item</button>
