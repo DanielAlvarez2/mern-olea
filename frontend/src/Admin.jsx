@@ -199,6 +199,9 @@ export default function Admin() {
     document.querySelector('#admin-page-pre-description-input').value = ''
     document.querySelector('#admin-page-main-description-input').value = ''
     document.querySelector('#admin-page-price-input').value = ''
+    document.querySelector('#admin-page-existing-cloudinary-url').value = ''
+    document.querySelector('#admin-page-existing-cloudinary-public-id').value = ''
+    
   }
 
   return (
