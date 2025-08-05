@@ -22,6 +22,7 @@ export default function Admin() {
   const [oldPic,setOldPic] = useState(false)
   const [oldPicURL, setOldPicURL] = useState('')
   const [oldPicID, setOldPicID] = useState('')
+  const [isChecked, setIsChecked] = useState(false)
 
   useEffect(()=>getVerticalWhitespace(),[])
   useEffect(()=>getHorizontalWhitespace(),[])
@@ -33,6 +34,13 @@ export default function Admin() {
     reader.readAsDataURL(file) // converts binary image file to a string
     reader.onloadend = ()=> setPreviewSource(reader.result)
     console.log(previewSource)
+  }
+
+  function toggleCheckbox(){
+    document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
+    document.querySelector('#main-photo').style.display = isChecked ? 'block' : 'none'
+    document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
+    setIsChecked(prev=>!prev)
   }
 
   function getHorizontalWhitespace(){
@@ -464,8 +472,14 @@ export default function Admin() {
                                         value={oldPicID} />
 
                               <div style={{position:'relative'}}>
-                                <div style={{position:'absolute',width:'100%',height:'100%',display:'grid',placeContent:'center'}}>
-                                  <MdDoNotDisturb size='100px' style={{color:'red'}} />
+                                <div style={{ position:'absolute',
+                                              width:'100%',
+                                              height:'100%',
+                                              display:'grid',
+                                              placeContent:'center'}}>
+                                  <MdDoNotDisturb size='100px'
+                                                  id='do-not' 
+                                                  style={{color:'red'}} />
                                 </div>
                                 <div id='old-pic-wrapper'>
                                   <img  style={{maxHeight:'175px',maxWidth:'175px'}} 
@@ -476,12 +490,14 @@ export default function Admin() {
                               <br/><br/>
 
                               <br/>Display NO Photo: (optional) <input  name='no-photo' 
+                                                                        checked={isChecked}
+                                                                        onChange={toggleCheckbox}
                                                                         type='checkbox'/><br/><br/>
                             </>
                   
                 }
 
-              <label>
+              <label id='main-photo'>
                 { oldPic && 'Change ' }
                 Photo: (optional)<br/>
                 <input  type='file' 
