@@ -20,6 +20,7 @@ export default function Admin() {
   const [previewSource, setPreviewSource] = useState('')
   const [oldPic,setOldPic] = useState(false)
   const [oldPicURL, setOldPicURL] = useState('')
+  const [oldPicID, setOldPicID] = useState('')
 
   useEffect(()=>getVerticalWhitespace(),[])
   useEffect(()=>getHorizontalWhitespace(),[])
@@ -134,7 +135,14 @@ export default function Admin() {
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
-    if (previewSource){
+    // NO PIC --> NO PIC
+    if (!previewSource && !formData.get('admin-page-existing-cloudinary-url')){
+      cloudinary_assigned_url = formData.get('admin-page-existing-cloudinary-url')
+      cloudinary_assigned_public_id = formData.get('admin-page-existing-cloudinary-public-id')
+    }
+
+    // NO PIC --> ADD PIC
+    if (previewSource && !formData.get('admin-page-existing-cloudinary-url')){
       await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
                                                         body:JSON.stringify({data:previewSource}),
                                                         headers:{'Content-type':'application/json'}                                                      
@@ -144,12 +152,16 @@ export default function Admin() {
           cloudinary_assigned_public_id = json.public_id
         })
         .catch(err=>console.log(err))
-    }else{
-      cloudinary_assigned_url = formData.get('admin-page-existing-cloudinary-url')
-      cloudinary_assigned_public_id = formData.get('admin-page-existing-cloudinary-public-id')
     }
-    console.log(cloudinary_assigned_url)
-    console.log(cloudinary_assigned_public_id)
+
+    // OLD PIC --> NEW PIC
+    console.log('PREVIEWSOURCE' + previewSource)
+    console.log('OLD-PIC-PUBLIC-ID: '+formData.get('old-pic-cloudinary-public-id'))
+    if (previewSource && formData.get('old-pic-cloudinary-public-id')){
+      console.log('DELETE OLD PIC --> NEW PIC')
+      await fetch(`${BASE_URL}/api/old-pic/${formData.get('old-pic-cloudinary-public-id')}`,{method:'DELETE'})
+    }
+
     await fetch(`${BASE_URL}/api/dinner/${formData.get('id')}`,{method:'PUT',
                                                                 headers:{'Content-Type':'application/json'},
                                                                 body: JSON.stringify({
@@ -187,8 +199,9 @@ export default function Admin() {
     document.querySelector('#admin-page-price-input').value = target.price
     document.querySelector('#admin-page-existing-cloudinary-url').value = target.cloudinary_url
     document.querySelector('#admin-page-existing-cloudinary-public-id').value = target.cloudinary_public_id
-    target.cloudinary_url && setOldPic(true)
-    target.cloudinary_url && setOldPicURL(target.cloudinary_url)
+    target.cloudinary_url && setOldPic(true) 
+    target.cloudinary_url && setOldPicID(target.cloudinary_public_id) 
+    target.cloudinary_url && setOldPicURL(target.cloudinary_url) 
     document.querySelector('#admin-form').scrollIntoView({behavior:'smooth'})
   }
 
@@ -216,6 +229,7 @@ export default function Admin() {
     setEditForm(false)
     setOldPic(false)
     setOldPicURL('')
+    setOldPicID('')
     setPreviewSource('')
     document.querySelector('#admin-page-id-input').value = ''
     document.querySelector('#admin-page-section-input').value = ''
@@ -226,7 +240,7 @@ export default function Admin() {
     document.querySelector('#admin-page-price-input').value = ''
     document.querySelector('#admin-page-existing-cloudinary-url').value = ''
     document.querySelector('#admin-page-existing-cloudinary-public-id').value = ''
-    
+    document.querySelector('#old-pic-ID').value = ''
   }
 
   return (
@@ -442,6 +456,10 @@ export default function Admin() {
 
                 { oldPic && <>
                               Current Photo:<br/>
+                              <input  type='hidden'
+                                      id='old-pic-ID' 
+                                      name='old-pic-cloudinary-public-id' 
+                                      value={oldPicID} />
                               <div id='old-pic-wrapper'>
                                 <img  style={{maxHeight:'175px',maxWidth:'175px'}} 
                                       src={oldPicURL} /><br/>

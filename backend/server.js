@@ -72,6 +72,21 @@ app.delete('/api/archive/:id',async(req,res)=>{
         console.log(err)
     }
 })
+app.delete('/api/old-pic/:id',async(req,res)=>{
+    try{
+        cloudinary.uploader.destroy(req.params.id,(err,result)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(result)
+            }
+        })
+    }catch(err){
+        console.log(err)
+    }
+    console.log('Old Image Deleted')
+    res.json('Old Image Deleted')
+})
 app.delete('/api/dinner/:id', async(req,res)=>{
     try{
         const target = await DinnerMenuItem.findById(req.params.id)
