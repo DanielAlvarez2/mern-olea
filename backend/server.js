@@ -117,12 +117,14 @@ app.get('/api/dinner/:id', async(req,res)=>{
 app.put('/api/dinner/:id', async(req,res)=>{
     try{
         await DinnerMenuItem.findByIdAndUpdate({_id:req.params.id},{
-            section:req.body.section,
-            name:req.body.name,
-            allergies:req.body.allergies,
-            preDescription:req.body.preDescription,
-            description:req.body.description,
-            price:req.body.price
+            section: req.body.section,
+            name: req.body.name,
+            allergies: req.body.allergies,
+            preDescription: req.body.preDescription,
+            description: req.body.description,
+            price: req.body.price,
+            cloudinary_url: req.body.cloudinary_url,
+            cloudinary_public_id: req.body.cloudinary_public_id
         })
         console.log(`Updated in Database: ${req.body.name}`)
         res.json(`Updated in Databse: ${req.body.name}`)

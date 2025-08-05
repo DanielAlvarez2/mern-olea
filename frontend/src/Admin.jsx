@@ -19,8 +19,8 @@ export default function Admin() {
   const [archiveLength, setArchiveLength] = useState(0)
   const [previewSource, setPreviewSource] = useState('')
 
-  useEffect(()=>getVerticalWhitespace(),'')
-  useEffect(()=>getHorizontalWhitespace(),'')
+  useEffect(()=>getVerticalWhitespace(),[])
+  useEffect(()=>getHorizontalWhitespace(),[])
   useEffect(()=>getDinnerItems(),[])
 
   function handleFileInputChange(e){
@@ -98,13 +98,10 @@ export default function Admin() {
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
-
     if (previewSource){
       await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
                                                         body:JSON.stringify({data:previewSource}),
                                                         headers:{'Content-type':'application/json'}
-                                                        
-                                                      
       }).then(async(res)=>await res.json())
         .then(async(json)=>{
           cloudinary_assigned_url = json.secure_url
@@ -132,6 +129,25 @@ export default function Admin() {
   }
 
   async function editDinnerItem(formData){
+    let cloudinary_assigned_url = ''
+    let cloudinary_assigned_public_id = ''
+
+    if (previewSource){
+      await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
+                                                        body:JSON.stringify({data:previewSource}),
+                                                        headers:{'Content-type':'application/json'}                                                      
+      }).then(async(res)=>await res.json())
+        .then(async(json)=>{
+          cloudinary_assigned_url = json.secure_url
+          cloudinary_assigned_public_id = json.public_id
+        })
+        .catch(err=>console.log(err))
+    }else{
+      cloudinary_assigned_url = formData.get('admin-page-existing-cloudinary-url')
+      cloudinary_assigned_public_id = formData.get('admin-page-existing-cloudinary-public-id')
+    }
+    console.log(cloudinary_assigned_url)
+    console.log(cloudinary_assigned_public_id)
     await fetch(`${BASE_URL}/api/dinner/${formData.get('id')}`,{method:'PUT',
                                                                 headers:{'Content-Type':'application/json'},
                                                                 body: JSON.stringify({
@@ -141,11 +157,14 @@ export default function Admin() {
                                                                   preDescription: formData.get('preDescription'),
                                                                   description: formData.get('description'),
                                                                   price: formData.get('price'),
-                                                                  cloudinary_url: formData.get('admin-page-existing-cloudinary-url'),
-                                                                  cloudinary_public_id: formData.get('admin-page-existing-cloudinary-public-id')
+                                                                  cloudinary_url: cloudinary_assigned_url,
+                                                                  cloudinary_public_id: cloudinary_assigned_public_id
                                                                 })
-    }).then(console.log(`Updated ${formData.get('name')}`))
-      .then(setEditForm(false))
+    }).then(res=>{
+              console.log(`Updated ${formData.get('name')}`);
+              setEditForm(false)
+              clearForm()
+            })
       .then(async()=>await getDinnerItems())
       .catch(err=>console.log(err))
   }
