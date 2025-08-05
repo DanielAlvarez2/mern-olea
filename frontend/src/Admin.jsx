@@ -219,7 +219,8 @@ export default function Admin() {
               Edit Mode
             </span>
             
-            <button id='admin-page-print-button'>Print</button>
+            <button onClick={()=>window.print()} 
+                    id='admin-page-print-button'>Print</button>
           </div>{/* #admin-header-content */}
 
           <div id='whitespace-controls'>
