@@ -5,6 +5,7 @@ import AdminDinnerMenuItem from './components/AdminDinnerMenuItem.jsx'
 import ArchiveDinnerMenuItem from './components/ArchiveDinnerMenuItem.jsx'
 import { FaToggleOff } from "react-icons/fa6"
 import { FaCaretSquareUp } from "react-icons/fa"
+import { MdDoNotDisturb } from "react-icons/md"
 
 
 export default function Admin() {
@@ -231,6 +232,7 @@ export default function Admin() {
     setOldPicURL('')
     setOldPicID('')
     setPreviewSource('')
+    document.querySelector('#image-binary').value = ''
     document.querySelector('#admin-page-id-input').value = ''
     document.querySelector('#admin-page-section-input').value = ''
     document.querySelector('#admin-page-name-input').value = ''
@@ -456,14 +458,25 @@ export default function Admin() {
 
                 { oldPic && <>
                               Current Photo:<br/>
-                              <input  type='hidden'
-                                      id='old-pic-ID' 
-                                      name='old-pic-cloudinary-public-id' 
-                                      value={oldPicID} />
-                              <div id='old-pic-wrapper'>
-                                <img  style={{maxHeight:'175px',maxWidth:'175px'}} 
-                                      src={oldPicURL} /><br/>
-                              </div>{/* #old-pic-wrapper */}
+                                <input  type='hidden'
+                                        id='old-pic-ID' 
+                                        name='old-pic-cloudinary-public-id' 
+                                        value={oldPicID} />
+
+                              <div style={{position:'relative'}}>
+                                <div style={{position:'absolute',width:'100%',height:'100%',display:'grid',placeContent:'center'}}>
+                                  <MdDoNotDisturb size='100px' style={{color:'red'}} />
+                                </div>
+                                <div id='old-pic-wrapper'>
+                                  <img  style={{maxHeight:'175px',maxWidth:'175px'}} 
+                                        src={oldPicURL} />
+                                </div>{/* #old-pic-wrapper */}
+                              </div>
+
+                              <br/><br/>
+
+                              <br/>Display NO Photo: (optional) <input  name='no-photo' 
+                                                                        type='checkbox'/><br/><br/>
                             </>
                   
                 }
