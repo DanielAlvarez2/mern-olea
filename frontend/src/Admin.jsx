@@ -38,7 +38,7 @@ export default function Admin() {
 
   function toggleCheckbox(){
     document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
-    document.querySelector('#main-photo').style.display = isChecked ? 'block' : 'none'
+    document.querySelector('#main-photo').style.visibility = isChecked ? 'visible' : 'hidden'
     document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
     setIsChecked(prev=>!prev)
   }
@@ -141,6 +141,10 @@ export default function Admin() {
   }
 
   async function editDinnerItem(formData){
+    console.log(...formData)
+    console.log(previewSource ? 'previewSource=true' : 'previewSource=false')
+    console.log('cloudinary_url: ')
+    console.log(formData.get('admin-page-existing-cloudinary-url'))
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
@@ -151,7 +155,7 @@ export default function Admin() {
     }
 
     // NO PIC --> ADD PIC
-    if (previewSource && !formData.get('admin-page-existing-cloudinary-url')){
+    if (previewSource && !formData.get('old-pic-cloudinary-public-id')){
       await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
                                                         body:JSON.stringify({data:previewSource}),
                                                         headers:{'Content-type':'application/json'}                                                      
@@ -169,6 +173,15 @@ export default function Admin() {
     if (previewSource && formData.get('old-pic-cloudinary-public-id')){
       console.log('DELETE OLD PIC --> NEW PIC')
       await fetch(`${BASE_URL}/api/old-pic/${formData.get('old-pic-cloudinary-public-id')}`,{method:'DELETE'})
+      await fetch(`${BASE_URL}/api/upload-cloudinary`,{ method:'POST',
+                                                        body:JSON.stringify({data:previewSource}),
+                                                        headers:{'Content-type':'application/json'}                                                      
+      }).then(async(res)=>await res.json())
+        .then(async(json)=>{
+          cloudinary_assigned_url = json.secure_url
+          cloudinary_assigned_public_id = json.public_id
+        })
+        .catch(err=>console.log(err))      
     }
 
     await fetch(`${BASE_URL}/api/dinner/${formData.get('id')}`,{method:'PUT',
@@ -240,6 +253,7 @@ export default function Admin() {
     setOldPicURL('')
     setOldPicID('')
     setPreviewSource('')
+    setIsChecked(false)
     document.querySelector('#image-binary').value = ''
     document.querySelector('#admin-page-id-input').value = ''
     document.querySelector('#admin-page-section-input').value = ''
@@ -250,7 +264,6 @@ export default function Admin() {
     document.querySelector('#admin-page-price-input').value = ''
     document.querySelector('#admin-page-existing-cloudinary-url').value = ''
     document.querySelector('#admin-page-existing-cloudinary-public-id').value = ''
-    document.querySelector('#old-pic-ID').value = ''
   }
 
   return (
@@ -479,7 +492,7 @@ export default function Admin() {
                                               placeContent:'center'}}>
                                   <MdDoNotDisturb size='100px'
                                                   id='do-not' 
-                                                  style={{color:'red'}} />
+                                                  style={{color:'transparent'}} />
                                 </div>
                                 <div id='old-pic-wrapper'>
                                   <img  style={{maxHeight:'175px',maxWidth:'175px'}} 
