@@ -18,6 +18,7 @@ export default function Admin() {
   const [editMode, setEditMode] = useState(false)
   const [archiveLength, setArchiveLength] = useState(0)
   const [previewSource, setPreviewSource] = useState('')
+  const [oldPic,setOldPic] = useState(false)
 
   useEffect(()=>getVerticalWhitespace(),[])
   useEffect(()=>getHorizontalWhitespace(),[])
@@ -185,6 +186,7 @@ export default function Admin() {
     document.querySelector('#admin-page-price-input').value = target.price
     document.querySelector('#admin-page-existing-cloudinary-url').value = target.cloudinary_url
     document.querySelector('#admin-page-existing-cloudinary-public-id').value = target.cloudinary_public_id
+    target.cloudinary_url && setOldPic(true)
     document.querySelector('#admin-form').scrollIntoView({behavior:'smooth'})
   }
 
@@ -392,10 +394,12 @@ export default function Admin() {
               <input type='hidden' name='id' id='admin-page-id-input' />
               <input  type='hidden' 
                       name='admin-page-existing-cloudinary-url' 
-                      id='admin-page-existing-cloudinary-url' />
+                      id='admin-page-existing-cloudinary-url'
+                      value='' />
               <input  type='hidden' 
                       name='admin-page-existing-cloudinary-public-id' 
-                      id='admin-page-existing-cloudinary-public-id' />
+                      id='admin-page-existing-cloudinary-public-id'
+                      value='' />
               <label>
                 Section:&nbsp;&nbsp; 
                 <select id='admin-page-section-input' name='section' defaultValue=''>
@@ -432,7 +436,18 @@ export default function Admin() {
                 <input id='admin-page-price-input' type='text' name='price' autoComplete='off' /><br/><br/>
               </label>
 
+                { oldPic && <>
+                              Current Photo:<br/>
+                              <div id='old-pic-wrapper'>
+                                <img  style={{maxHeight:'175px',maxWidth:'175px'}} 
+                                      src={document.querySelector('#admin-page-existing-cloudinary-url').value} /><br/>
+                              </div>{/* #old-pic-wrapper */}
+                            </>
+                  
+                }
+
               <label>
+                { oldPic && 'Change ' }
                 Photo: (optional)<br/>
                 <input  type='file' 
                         onChange={handleFileInputChange}
