@@ -214,6 +214,8 @@ export default function Admin() {
   
   function clearForm(){
     setEditForm(false)
+    setOldPic(false)
+    setOldPicURL('')
     setPreviewSource('')
     document.querySelector('#admin-page-id-input').value = ''
     document.querySelector('#admin-page-section-input').value = ''
