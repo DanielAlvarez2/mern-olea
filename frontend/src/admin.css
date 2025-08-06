@@ -51,12 +51,14 @@
   cursor:pointer;
 }
 #admin-dinner-menu{
-  padding-top:10px;
+  background-image: url('./olea-dinner-menu-scan.jpg');
+  background-size: 8.5in 14in;
+  color:red;
+  padding-top:28px;
   padding-left:40px;
   padding-right:40px;
   width:8.5in;
   height:14in;
-  background:white;
   margin:0 auto;
   /* margin-top:110px; */
   font-family: serif;

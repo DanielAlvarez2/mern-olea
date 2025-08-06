@@ -317,6 +317,27 @@ export default function Admin() {
           
           </div>{/* #whitespace-control */}
         </div>{/* #admin-header */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
       <div className='no-print' style={{height:'120px',width:'100%'}}></div>        
         <div id='admin-dinner-menu'>
           <h1><span style={{paddingLeft:whitespaceHorizontal}} id='logo'>olea</span></h1>
