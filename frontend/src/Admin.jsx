@@ -461,27 +461,43 @@ export default function Admin() {
 
               <label>
                 Name:<br/>
-                <input id='admin-page-name-input' type='text' name='name' /><br/><br/>
+                <input  id='admin-page-name-input' 
+                        type='text'
+                        maxlength='500' 
+                        name='name' /><br/><br/>
               </label>
 
               <label>
                 Allergies:<br/>
-                <input id='admin-page-allergies-input' type='text' name='allergies' /><br/><br/>
+                <input  id='admin-page-allergies-input' 
+                        maxlength='500'
+                        type='text' 
+                        name='allergies' /><br/><br/>
               </label>
 
               <label>
                 Mini-Description:<br/>
-                <input id='admin-page-pre-description-input' type='text' name='preDescription' /><br/><br/>
+                <input  id='admin-page-pre-description-input' 
+                        maxlength='500'
+                        type='text' 
+                        name='preDescription' /><br/><br/>
               </label>
 
               <label>
                 Main Description:<br/>
-                <textarea id='admin-page-main-description-input' name='description' rows='5'></textarea><br/><br/>
+                <textarea id='admin-page-main-description-input' 
+                          maxlength='500'
+                          name='description' 
+                          rows='5'></textarea><br/><br/>
               </label>
 
               <label>
                 Price:<br/>
-                <input id='admin-page-price-input' type='text' name='price' autoComplete='off' /><br/><br/>
+                <input  id='admin-page-price-input' 
+                        type='text' 
+                        maxlength='500'
+                        name='price' 
+                        autoComplete='off' /><br/><br/>
               </label>
 
                 { oldPic && <>
