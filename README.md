@@ -381,12 +381,18 @@ $ git push
 
 Netlify: wait for deploy to go live  
 navigate to Netlify URL/test  
-     
+
+
+ADD ENVIRONMENT VARIABLES IN NETLIFY FOR CLOUDINARY  
+
+**********************************************************
+  BELOW MAY NOT BE NEEDED/TRY WITHOUT:
 ADD ENVIRONMENT VARIABLES TO RENDER ACCOUNT:  
 Manage > Environment > Edit  > \+ Add > From .env  
 Command + C > Command + V  
 Add variables  
 Save, rebuild, and redeploy  
+**********************************************************
   
 LESS THAN 3 HOURS TO COMPLETE   
   
