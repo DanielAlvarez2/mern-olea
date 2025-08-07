@@ -5,6 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import PageFooter from './components/PageFooter.jsx'
 import HomePageNavbarHorizontal from './components/HomePageNavbarHorizontal.jsx'
+import { GiHamburgerMenu } from "react-icons/gi"
 
 export default function Root() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -26,7 +27,12 @@ export default function Root() {
       <div id='root-page-wrapper'>
         <div id='root-page-content'>
           <div id='footer-flexbox-top'>
-            <nav style={{display:'flex',width:'100%',paddingTop:'20px',justifyContent:'space-between'}}>
+            <nav style={{ display:'flex',
+                          position:'relative',
+                          width:'100%',
+                          paddingTop:'20px',
+                          justifyContent:'space-between'}}>
+              <div id='hamburger-menu'><GiHamburgerMenu /></div>
               <h1><span id='logo'>olea</span></h1>
               <div id='nav-menu-laptop'>
                 <HomePageNavbarHorizontal />

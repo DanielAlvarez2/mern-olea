@@ -102,11 +102,36 @@ h2 span{
     height:80px;
     padding-top: 30px;
 }
+#hamburger-menu{
+    position:absolute;
+    top:10px;
+    left:10px;
+    display:none;
+}
 @media (max-width:830px){
     #nav-menu-laptop{
         display:none;
     }
     #nav-menu-tablet{
+        display:block;
+    }
+}
+@media (max-width:560px){
+    #nav-menu-tablet{
+        display:none;
+    }
+    #socials{
+        display:none !important;
+    }
+    #logo{
+        display:block;
+        padding-left: 0;
+        padding-top: 0;
+        width:100vw;
+        text-align: center;
+        margin-right: 0;
+    }
+    #hamburger-menu{
         display:block;
     }
 }
