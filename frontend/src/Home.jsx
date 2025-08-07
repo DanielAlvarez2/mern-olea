@@ -7,6 +7,7 @@ import PageFooter from './components/PageFooter.jsx'
 import OpenTable from './components/OpenTable.jsx'
 import HomePageNavbarHorizontal from './components/HomePageNavbarHorizontal.jsx'
 import { GiHamburgerMenu } from "react-icons/gi"
+import HomePageMenuItem from './components/HomePageMenuItem.jsx'
 
 export default function Root() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -85,14 +86,7 @@ export default function Root() {
                 {dinnerItems.filter(item=>item.section == 'Meats').map(data=>{
                   return(
                     <>
-                      <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
-                        <span className='name'>{data.name}</span>
-                        <span className='price'>{data.price}</span>
-                      </div>
-                      <div style={{width:'calc(100% - 4ch)'}}>
-                        <span className='pre-description'>{data.preDescription};&nbsp;</span>  
-                        <span className='description'>{data.description}</span>
-                      </div>
+                      <HomePageMenuItem data={data} />
                     </>
                   )
                 })}
@@ -100,14 +94,7 @@ export default function Root() {
                 {dinnerItems.filter(item=>item.section == 'Appetizers').map(data=>{
                   return(
                     <>
-                      <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
-                        <span className='name'>{data.name}</span>
-                        <span className='price'>{data.price}</span>
-                      </div>
-                      <div style={{width:'calc(100% - 4ch)'}}>
-                        <span className='pre-description'>{data.preDescription};&nbsp;</span>  
-                        <span className='description'>{data.description}</span>
-                      </div>
+                      <HomePageMenuItem data={data} />                    
                     </>
                   )
                 })}
@@ -117,14 +104,7 @@ export default function Root() {
                 {dinnerItems.filter(item=>item.section == 'Entrées').map(data=>{
                   return(
                     <>
-                      <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
-                        <span className='name'>{data.name}</span>
-                        <span className='price'>{data.price}</span>
-                      </div>
-                      <div style={{width:'calc(100% - 4ch)'}}>
-                        <span className='pre-description'>{data.preDescription};&nbsp;</span>  
-                        <span className='description'>{data.description}</span>
-                      </div>
+                      <HomePageMenuItem data={data} />
                     </>
                   )
                 })}
@@ -134,14 +114,7 @@ export default function Root() {
                 {dinnerItems.filter(item=>item.section == 'Sides').map(data=>{
                   return(
                     <>
-                      <div style={{marginTop:'20px',display:'flex',justifyContent:'space-between'}}>
-                        <span className='name'>{data.name}</span>
-                        <span className='price'>{data.price}</span>
-                      </div>
-                      <div style={{width:'calc(100% - 4ch)'}}>
-                        <span className='pre-description'>{data.preDescription};&nbsp;</span>  
-                        <span className='description'>{data.description}</span>
-                      </div>
+                      <HomePageMenuItem data={data} />
                     </>
                   )
                 })}       
