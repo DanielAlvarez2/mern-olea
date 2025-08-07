@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import PageFooter from './components/PageFooter.jsx'
+import OpenTable from './components/OpenTable.jsx'
 import HomePageNavbarHorizontal from './components/HomePageNavbarHorizontal.jsx'
 import { GiHamburgerMenu } from "react-icons/gi"
 
@@ -142,20 +143,26 @@ export default function Root() {
               </div>{/* #main-left */}
               <div id='main-right'>
                 
-                <div id='open-table'>
-                  <div id='ot1'>make a reservation</div>
-                  <div id='ot2'>POWERED BY OPENTABLE</div><br/>
-                  <span id='ot3'>FIND A TABLE</span>
-                </div>{/* #open-table */}
+                <OpenTable />
+
+                <OpenTable />
               
               </div>{/* #main-right */}
             </div>{/* #main */}
             <hr/>
-            <div id='socials-bottom' style={{marginTop:'10px',display:'flex',gap:'10px',justifyContent:'center'}}>
-              <FaFacebookF className='icon' />
-              <FaTwitter className='icon' />
-              <FaInstagram className='icon' />
-            </div>{/* #socials-bottom */}                 
+            <div id='home-page-footer' style={{padding:'0 0.5in'}}>
+              <div id='socials-bottom' style={{marginTop:'10px',display:'flex',gap:'10px'}}>
+                <FaFacebookF className='icon' />
+                <FaTwitter className='icon' />
+                <FaInstagram className='icon' />
+              </div>{/* #socials-bottom */} <br/>
+              39 high street, new haven, connecticut | 203.780.8925<br/><br/>
+              Tuesday-Saturday, 5-10pm (last seating at 8:30)<br/><br/>
+              In the heart of downtown New Haven, Olea offers an innovative interpretation of Spanish and Mediterranean cuisine. 
+              Chef Manuel Romero and his team explore these flavors in their food, wine, and cocktails, locally sourcing many products and importing specialty items from the Mediterranean region.<br/><br/>
+              copyright 2014-2024 by olea. graphic design by Rebecca Martz
+
+            </div>{/* #home-page-footer */}
           </div>{/* #footer-flexbox-top */}
           <PageFooter color='red' />
           

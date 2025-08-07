@@ -43,35 +43,6 @@ li{
     justify-content: center;
 }
 
-#open-table{
-    width:290px;
-    height:205px;
-    background:#00000080;
-    text-align: center;
-    color:#bfbfbf;
-    margin:0 auto;
-    padding-top: 40px;
-    margin-top: 50px;
-}
-#ot1{
-    font-size: 20px;
-    letter-spacing: 2px;
-    font-weight: 100;
-    margin-bottom: 20px;
-}
-#ot2{
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-#ot3{
-    color:white;
-    font-family: serif;
-    font-size:12px;
-    letter-spacing: 2px;
-    padding:10px 40px;
-    background: #00000080;
-    margin-top:180px;
-}
 #logo{
     padding-left: 0.5in;
     margin-right: 1.5cm;

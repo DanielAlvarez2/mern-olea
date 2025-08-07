@@ -4,7 +4,7 @@ export default function PageFooter(props){
         <>
             <div id='footer-wrapper'>
                 <div id='footer-content' className='no-print' style={{color:props.color}}>
-                    Powered by Toggle Software
+                    powered by Toggle Software
                 </div>{/* #footer-content */}
             </div>{/* #footer-wrapper */}
         </>
