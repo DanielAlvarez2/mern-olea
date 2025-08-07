@@ -57,7 +57,7 @@ export default function Root() {
 
 
 
-            
+
             <div id='main'>
               <div id='main-left'>
                 <h2>dinner hours</h2>
@@ -160,8 +160,12 @@ export default function Root() {
               
               </div>{/* #main-right */}
             </div>{/* #main */}
+
+
             <hr/>
-            <div id='home-page-footer' style={{padding:'0 0.5in'}}>
+
+
+            <div id='home-page-footer'>
               <div id='socials-bottom' style={{marginTop:'10px',display:'flex',gap:'10px'}}>
                 <FaFacebookF className='icon' />
                 <FaTwitter className='icon' />

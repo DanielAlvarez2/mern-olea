@@ -83,6 +83,9 @@ h2 span{
     position:sticky;
     top:0.5in;
 }
+#home-page-footer{
+    padding:'0 0.5in'
+}
 @media (max-width:830px){
     #nav-menu-laptop{
         display:none;
