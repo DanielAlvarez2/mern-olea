@@ -119,6 +119,9 @@ h2 span{
     #main{
         flex-direction: column;
     }
+    #main-left{
+        padding-right: 0.5in;
+    }
     #home-page-footer{
         text-align: center;
     #socials-bottom{
