@@ -141,11 +141,12 @@ export default function Root() {
                 but because we make frequent adjustments, based on season and availability, 
                 our menus are subject to change<br/><br/>              
               </div>{/* #main-left */}
-              <div id='main-right'>
-                
-                <OpenTable />
 
-                <OpenTable />
+              <div id='main-right' style={{background:'blue',position:'relative'}}>
+                
+                <div id='open-table-fixed' style={{position:'sticky',top:'0.5in'}}>
+                  <OpenTable />
+                </div>
               
               </div>{/* #main-right */}
             </div>{/* #main */}
