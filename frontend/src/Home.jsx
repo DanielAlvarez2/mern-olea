@@ -76,8 +76,10 @@ export default function Root() {
                         <span className='name'>{data.name}</span>
                         <span className='price'>{data.price}</span>
                       </div>
-                        {data.preDescription} 
-                        {data.description}
+                      <div style={{width:'calc(100% - 4ch)'}}>
+                        <span className='pre-description'>{data.preDescription};&nbsp;</span>  
+                        <span className='description'>{data.description}</span>
+                      </div>
                     </>
                   )
                 })}
@@ -89,8 +91,10 @@ export default function Root() {
                         <span className='name'>{data.name}</span>
                         <span className='price'>{data.price}</span>
                       </div>
+                      <div style={{width:'calc(100% - 4ch)'}}>
                         <span className='pre-description'>{data.preDescription};&nbsp;</span>  
                         <span className='description'>{data.description}</span>
+                      </div>
                     </>
                   )
                 })}
@@ -104,8 +108,10 @@ export default function Root() {
                         <span className='name'>{data.name}</span>
                         <span className='price'>{data.price}</span>
                       </div>
+                      <div style={{width:'calc(100% - 4ch)'}}>
                         <span className='pre-description'>{data.preDescription};&nbsp;</span>  
                         <span className='description'>{data.description}</span>
+                      </div>
                     </>
                   )
                 })}
@@ -119,8 +125,10 @@ export default function Root() {
                         <span className='name'>{data.name}</span>
                         <span className='price'>{data.price}</span>
                       </div>
+                      <div style={{width:'calc(100% - 4ch)'}}>
                         <span className='pre-description'>{data.preDescription};&nbsp;</span>  
                         <span className='description'>{data.description}</span>
+                      </div>
                     </>
                   )
                 })}       
