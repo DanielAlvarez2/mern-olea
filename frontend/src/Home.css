@@ -119,8 +119,10 @@ h2 span{
     #main{
         flex-direction: column;
     }
-    #main-left{
-        padding-right: 0.5in;
+    #main-left,
+    #main-right,
+    #home-page-footer{
+        padding: 0 0.25in;
     }
     #home-page-footer{
         text-align: center;
