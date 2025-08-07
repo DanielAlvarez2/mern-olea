@@ -125,7 +125,7 @@ h2 span{
     #main-left,
     #main-right,
     #home-page-footer{
-        padding: 0;
+        padding: 0 5px;
     }
     #home-page-footer{
         text-align: center;
