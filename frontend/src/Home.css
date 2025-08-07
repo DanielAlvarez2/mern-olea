@@ -79,6 +79,10 @@ h2 span{
     left:10px;
     display:none;
 }
+#open-table{
+    position:sticky;
+    top:0.5in;
+}
 @media (max-width:830px){
     #nav-menu-laptop{
         display:none;
@@ -104,5 +108,21 @@ h2 span{
     }
     #hamburger-menu{
         display:block;
+    }
+}
+@media (max-width:660px){
+    #open-table{
+        position:relative;
+        top:0;
+        margin-bottom:0.5in;
+    }
+    #main{
+        flex-direction: column;
+    }
+    #home-page-footer{
+        text-align: center;
+    #socials-bottom{
+        justify-content: center;
+    }
     }
 }

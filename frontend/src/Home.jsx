@@ -142,9 +142,9 @@ export default function Root() {
                 our menus are subject to change<br/><br/>              
               </div>{/* #main-left */}
 
-              <div id='main-right' style={{background:'blue',position:'relative'}}>
+              <div id='main-right' style={{position:'relative'}}>
                 
-                <div id='open-table-fixed' style={{position:'sticky',top:'0.5in'}}>
+                <div id='open-table'>
                   <OpenTable />
                 </div>
               
