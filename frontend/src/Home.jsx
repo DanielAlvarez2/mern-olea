@@ -4,6 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import PageFooter from './components/PageFooter.jsx'
+import HomePageNavbarHorizontal from './components/HomePageNavbarHorizontal.jsx'
 
 export default function Root() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -27,23 +28,18 @@ export default function Root() {
           <div id='footer-flexbox-top'>
             <nav style={{display:'flex',width:'100%',paddingTop:'20px',justifyContent:'space-between'}}>
               <h1><span id='logo'>olea</span></h1>
-              <div id='nav-links' style={{width:'100%'}}>
-                <ul style={{width:'100%',display:'flex',gap:'20px',alignItems:'center',height:'100%'}}>
-                  <li key='home'>home</li>
-                  <li key='info'>info</li>
-                  <li key='menus'>menus</li>
-                  <li key='press'>press</li>
-                  <li key='gift-cards'>gift cards</li>
-                  <li key='newsletter'>newsletter</li>
-                  <li key='reservations'>reservations</li>
-                </ul>  
-              </div>{/* #nav-links */}
-              <div id='socials' style={{display:'flex',gap:'10px',alignItems:'center',paddingRight:'48px'}}>
+              <div id='nav-menu-laptop'>
+                <HomePageNavbarHorizontal />
+              </div>
+              <div id='socials' style={{display:'flex',gap:'10px',alignItems:'center',padding:'0 48px'}}>
                 <FaFacebookF className='icon' />
                 <FaTwitter className='icon' />
                 <FaInstagram className='icon' />
               </div>{/* #socials */}
             </nav>
+              <div id='nav-menu-tablet'>
+                <HomePageNavbarHorizontal />
+              </div>{/* #home-page-navbar-tablet */}
             <hr/>
             <div id='main'>
               <div id='main-left'>
