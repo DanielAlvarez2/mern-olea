@@ -35,7 +35,7 @@ export default function Root() {
                           paddingTop:'20px',
                           justifyContent:'space-between'}}>
               <div id='hamburger-menu'><GiHamburgerMenu size='25px' /></div>
-              <h1><span id='logo'>olea</span></h1>
+              <h1><span className='logo' id='home-page-logo'>olea</span></h1>
               <div id='nav-menu-laptop'>
                 <HomePageNavbarHorizontal />
               </div>

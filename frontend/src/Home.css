@@ -43,7 +43,7 @@ li{
     justify-content: center;
 }
 
-#logo{
+#home-page-logo{
     padding-left: 0.5in;
     margin-right: 1.5cm;
     padding-top: 0.5in;
@@ -101,7 +101,7 @@ h2 span{
     #socials{
         display:none !important;
     }
-    #logo{
+    #home-page-logo{
         display:block;
         padding-left: 0;
         padding-top: 0;
@@ -129,8 +129,8 @@ h2 span{
     }
     #home-page-footer{
         text-align: center;
+    }
     #socials-bottom{
         justify-content: center;
-    }
     }
 }

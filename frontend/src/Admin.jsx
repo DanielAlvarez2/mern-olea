@@ -337,10 +337,10 @@ export default function Admin() {
 
 
 
-        
+
       <div className='no-print' style={{height:'120px',width:'100%'}}></div>        
         <div id='admin-dinner-menu'>
-          <h1><span style={{paddingLeft:whitespaceHorizontal}} id='logo'>olea</span></h1>
+          <h1><span style={{paddingLeft:whitespaceHorizontal}} className='logo'>olea</span></h1>
           <hr style={{marginBottom:'20px'}} />
 
           <div id='admin-dinner-menu-top'>
