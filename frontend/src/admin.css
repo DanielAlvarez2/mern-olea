@@ -21,6 +21,9 @@
   position:fixed;
   z-index: 100;
 }
+#admin-header button{
+  border-radius: 10px;
+}
 #admin-header-content{
   display:flex;
   align-items: center;
@@ -108,7 +111,13 @@
   cursor:pointer;
 }
 #admin-form-outer-wrapper{
-  width:100%;
+  width:100vw;
+  min-height:100%;
+  padding: 80px 0;
+  position:absolute;
+  top:0;
+  left:0;
+  background:red;
 }
 #admin-form-inner-wrapper{
   width:8.5in;

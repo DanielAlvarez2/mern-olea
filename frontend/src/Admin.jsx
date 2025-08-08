@@ -237,8 +237,6 @@ export default function Admin() {
     if(!editMode){
       document.querySelector('#toggle-switch').style.transform = 'rotate(180deg)'
       document.querySelector('#admin-dinner-menu').style.height = 'auto'
-      document.querySelector('#admin-page-print-button').style.zIndex = '-10'
-      document.querySelector('#admin-page-print-button').style.visibility = 'hidden'
       document.querySelector('#whitespace-controls').style.visibility = 'hidden'
       setEditMode(prev=>!prev)
       getDinnerItems()
@@ -246,8 +244,6 @@ export default function Admin() {
       document.querySelector('#whitespace-controls').style.visibility = 'visible'
       document.querySelector('#toggle-switch').style.transform = 'rotate(0deg)' 
       document.querySelector('#admin-dinner-menu').style.height = '14in'
-      document.querySelector('#admin-page-print-button').style.zIndex = '10'
-      document.querySelector('#admin-page-print-button').style.visibility = 'visible'
       setEditMode(prev=>!prev)
       getDinnerItems()
     } 
@@ -273,6 +269,10 @@ export default function Admin() {
     document.querySelector('#main-photo').style.visibility = 'visible'
   }
 
+  function openForm(){    
+    document.querySelector('#admin-form-outer-wrapper').style.display = 'block'
+  }
+
   return (
     <>
 
@@ -291,8 +291,10 @@ export default function Admin() {
               Edit Mode
             </span>
             
-            <button onClick={()=>window.print()} 
-                    id='admin-page-print-button'>Print</button>
+              <button onClick={()=> editMode ? openForm() : window.print()} 
+                      id='admin-page-print-button'>
+                        {editMode ? '+ Item' : 'Print'} 
+              </button>
           </div>{/* #admin-header-content */}
 
           <div id='whitespace-controls'>
@@ -455,7 +457,7 @@ export default function Admin() {
 {/* FORM */}
     {editMode && 
       <>
-        <div id='admin-form-outer-wrapper'>
+        <div id='admin-form-outer-wrapper' style={{display:'none'}}>
           <div id='admin-form-inner-wrapper'>
             <form action={ editForm ? editDinnerItem : addDinnerItem} id='admin-form'>
               <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
@@ -484,14 +486,14 @@ export default function Admin() {
                 Name:<br/>
                 <input  id='admin-page-name-input' 
                         type='text'
-                        maxlength='500' 
+                        maxLength='500' 
                         name='name' /><br/><br/>
               </label>
 
               <label>
                 Allergies:<br/>
                 <input  id='admin-page-allergies-input' 
-                        maxlength='500'
+                        maxLength='500'
                         type='text' 
                         name='allergies' /><br/><br/>
               </label>
@@ -499,7 +501,7 @@ export default function Admin() {
               <label>
                 Mini-Description:<br/>
                 <input  id='admin-page-pre-description-input' 
-                        maxlength='500'
+                        maxLength='500'
                         type='text' 
                         name='preDescription' /><br/><br/>
               </label>
@@ -507,7 +509,7 @@ export default function Admin() {
               <label>
                 Main Description:<br/>
                 <textarea id='admin-page-main-description-input' 
-                          maxlength='500'
+                          maxLength='500'
                           name='description' 
                           rows='5'></textarea><br/><br/>
               </label>
@@ -516,7 +518,7 @@ export default function Admin() {
                 Price:<br/>
                 <input  id='admin-page-price-input' 
                         type='text' 
-                        maxlength='500'
+                        maxLength='500'
                         name='price' 
                         autoComplete='off' /><br/><br/>
               </label>
