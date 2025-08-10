@@ -477,6 +477,10 @@ export default function Admin() {
               </div>{/* #archive-wrapper */}
             </>
           }
+
+
+                  <PageFooter className='no-print' color='blue' />
+
         </div>{/* #admin-page-not-form */}
 
 
@@ -631,7 +635,6 @@ export default function Admin() {
 
 
 
-        <PageFooter className='no-print' color='blue' />
 
 
 
