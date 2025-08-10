@@ -109,6 +109,7 @@ export default function Admin() {
   }
 
   async function addDinnerItem(formData){
+    console.log('addDinnerItem()')
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
@@ -140,6 +141,8 @@ export default function Admin() {
       .then(async ()=> await getDinnerItems())
       .catch(err=>console.log(err))
     clearForm()
+    document.querySelector('#admin-page-not-form').style.display = 'block'
+    document.querySelector('#admin-form-outer-wrapper').style.display = 'none'
   }
 
   async function editDinnerItem(formData){
@@ -495,7 +498,7 @@ export default function Admin() {
 
         <div id='admin-form-outer-wrapper' style={{display:'none'}}>
           <div id='admin-form-inner-wrapper'>
-            <form action={ ()=> editForm ? editDinnerItem() : addDinnerItem()} 
+            <form action={editForm ? editDinnerItem() : addDinnerItem} 
                   id='admin-form'>
               <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
