@@ -182,3 +182,8 @@ form textarea{
 #old-pic-wrapper{
   text-align: center;
 }
+@media (max-width:8.5in){
+  #admin-form-inner-wrapper{
+    width:100%;
+  }
+}
