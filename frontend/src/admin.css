@@ -186,4 +186,7 @@ form textarea{
   #admin-form-inner-wrapper{
     width:100%;
   }
+  #admin-page-wrapper-dinner-menu{
+    min-width:0;
+  }
 }
