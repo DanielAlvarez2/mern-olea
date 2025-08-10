@@ -461,7 +461,7 @@ export default function Admin() {
 
 
 
-          {editMode && archiveLength && 
+          {editMode && (archiveLength > 0) && 
             <>
               <div id='archive-wrapper'>
                 <div id='archive-content'>
