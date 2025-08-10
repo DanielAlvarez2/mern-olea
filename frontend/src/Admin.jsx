@@ -271,211 +271,223 @@ export default function Admin() {
 
   function openFormModal(){    
     document.querySelector('#admin-form-outer-wrapper').style.display = 'block'
-    document.querySelector('#admin-form-outer-wrapper').style.overflow = 'hidden'
-    document.querySelector('#admin-form-outer-wrapper').style.overscrollBehavior = 'contain'
+    document.querySelector('#admin-page-not-form').style.display = 'none'
   }
 
   return (
     <>
 
       <div id='admin-page-wrapper-dinner-menu'>
-        
-        <div id='admin-header' className='no-print'>
-          <div id='admin-header-content'>
-            <span id='admin-page'>Admin Page</span>
+        <div id='admin-page-not-form'>
+          <div id='admin-header' className='no-print'>
+            <div id='admin-header-content'>
+              <span id='admin-page'>Admin Page</span>
 
-            <span id='admin-page-toggle-menu'>
-              Print Preview 
-              <FaToggleOff  id='toggle-switch' 
-                            onClick={flipToggle} 
-                            size={30} 
-                            style={{cursor:'pointer'}} /> 
-              Edit Mode
-            </span>
-            
-              <button onClick={()=> editMode ? openFormModal() : window.print()} 
-                      id='admin-page-print-button'>
-                        {editMode ? '+ Item' : 'Print'} 
-              </button>
-          </div>{/* #admin-header-content */}
-
-          <div id='whitespace-controls'>
-          
-            <span id='whitespace-vertical'>
-              <FaCaretSquareUp  onClick={increaseVerticalWhitespace} 
-                                style={{transform:'rotate(0deg)',cursor:'pointer'}} />
-              <span>{whitespaceVertical}</span>
-              <FaCaretSquareUp  onClick={decreaseVerticalWhitespace} 
-                                style={{transform:'rotate(180deg)',cursor:'pointer'}} />
-            </span>{/* #whitespace-vertical */}
-          
-            <span>WHITESPACE</span> 
-          
-            <span id='whitespace-horizontal'>
-              <FaCaretSquareUp  onClick={decreaseHorizontalWhitespace} 
-                                style={{transform:'rotate(270deg)',cursor:'pointer'}} />
-              <span>&nbsp;{whitespaceHorizontal}&nbsp;</span>
-              <FaCaretSquareUp  onClick={increaseHorizontalWhitespace} 
-                                style={{transform:'rotate(90deg)',cursor:'pointer'}} />
-            </span>{/* #whitespace-horizontal */}
-          
-          </div>{/* #whitespace-control */}
-        </div>{/* #admin-header */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div className='no-print' style={{height:'120px',width:'100%'}}></div>        
-        <div id='admin-dinner-menu'>
-          <h1><span style={{paddingLeft:whitespaceHorizontal}} className='logo'>olea</span></h1>
-          <hr style={{marginBottom:'20px'}} />
-
-          <div id='admin-dinner-menu-top'>
-            <div id='admin-dinner-menu-top-left'>
-
-              <div id='admin-dinner-menu-meats'>
-                {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
-                  return <AdminDinnerMenuItem data={data} 
-                                              sectionLength={dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).length}
-                                              getDinnerItems={()=>getDinnerItems()}
-                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
-                                              onEditClick={()=>populateForm(data._id)}
-                                              marginVertical={whitespaceVertical}
-                                              paddingHorizontal={whitespaceHorizontal}
-                                              key={data._id} 
-                                              editMode = {editMode} />                  
-                })}
-              </div>{/* #admin-dinner-menu-meats */}
-
-              <div id='admin-dinner-menu-appetizers'>
-                {dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).map(data=>{
-                  return <AdminDinnerMenuItem data={data} 
-                                              sectionLength={dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).length} 
-                                              getDinnerItems={()=>getDinnerItems()}
-                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
-                                              onEditClick={()=>populateForm(data._id)}
-                                              marginVertical={whitespaceVertical}
-                                              paddingHorizontal={whitespaceHorizontal}
-                                              key={data._id}
-                                              editMode = {editMode} />
-                })}
-                
-              </div>{/* #admin-dinner-menu-appetizers */}
-            </div>{/* #admin-dinner-menu-top-left */}
-
-            <div id='admin-dinner-menu-top-right'>
-              {dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
-                  return <AdminDinnerMenuItem data={data} 
-                                              sectionLength={dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
-                                              getDinnerItems={()=>getDinnerItems()}
-                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
-                                              onEditClick={()=>populateForm(data._id)}
-                                              marginVertical={whitespaceVertical}
-                                              paddingHorizontal={whitespaceHorizontal}
-                                              key={data._id}
-                                              editMode = {editMode} />
-                })}
-
-            <div id='tasting-menu' style={{ border:'1px solid black',
-                                            paddingTop:whitespaceVertical,
-                                            paddingBottom:whitespaceVertical,
-                                            paddingLeft:whitespaceHorizontal,
-                                            paddingRight:whitespaceHorizontal
-                                          }}>
-                <span style={{fontFamily:'FuturaLight',fontWeight:'900'}}>
-                  chef's tasting menu</span> <span style={{fontStyle:'italic'}}>six courses <span style={{fontWeight:'900'}}>105</span> / person</span><br/>
-                <span style={{fontStyle:'italic',fontWeight:'900'}}>48-hours notice and reservation required</span><br/>
-                full table participation<br/>
-                available tuesday through thursday<br/>
-                <span style={{fontStyle:'italic'}}>optional wine pairing available <span style={{fontWeight:'900'}}>52</span> / person</span><br/>
-            </div>{/* #tasting-menu */}
-            </div>{/* #admin-dinner-menu-top-right */}
-
-          </div>{/* #admin-dinner-menu-top */}
-
-          <h2 style={{paddingLeft:whitespaceHorizontal,fontSize:'25px',fontWeight:'900'}}>sides</h2>
-          <div id='admin-dinner-menu-sides'>
-              {dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
-                  return <AdminDinnerMenuItem data={data} 
-                                              sectionLength={dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).length}
-                                              getDinnerItems={()=>getDinnerItems()}
-                                              onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
-                                              onEditClick={()=>populateForm(data._id)}
-                                              marginVertical={whitespaceVertical}
-                                              paddingHorizontal={whitespaceHorizontal}
-                                              key={data._id}
-                                              editMode = {editMode} /> 
-              })}
-          </div>{/* #admin-dinner-menu-sides */}
+              <span id='admin-page-toggle-menu'>
+                Print Preview 
+                <FaToggleOff  id='toggle-switch' 
+                              onClick={flipToggle} 
+                              size={30} 
+                              style={{cursor:'pointer'}} /> 
+                Edit Mode
+              </span>
               
+                <button onClick={()=> editMode ? openFormModal() : window.print()} 
+                        id='admin-page-print-button'>
+                          {editMode ? '+ Item' : 'Print'} 
+                </button>
+            </div>{/* #admin-header-content */}
 
-          <div style={{paddingLeft:whitespaceHorizontal,paddingRight:whitespaceHorizontal}} id='admin-dinner-menu-footer'>
-              <div id='chef'>manuel romero, chef</div>
-              <div id='qr'><img width='65px' src='./qrCode.jpg'/></div>
-              <div id='legal'>
-                consumer advisory: consumption of undercooked meat, poultry, eggs, or seafood may increase the risk of food-borne illnesses<br/>
-                all menu items are subject to change according to seasonality and availability<br/>
-                <div>
-                  please alert your server if you have special dietary requirements before ordering:<br/> 
-                  gl (gluten), d (dairy), n (nuts)
-                </div>
-              </div>{/* #legal */}
-          </div>{/* #admin-dinner-menu */}          
-        </div>{/* #admin-dinner-menu */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div id='whitespace-controls'>
+            
+              <span id='whitespace-vertical'>
+                <FaCaretSquareUp  onClick={increaseVerticalWhitespace} 
+                                  style={{transform:'rotate(0deg)',cursor:'pointer'}} />
+                <span>{whitespaceVertical}</span>
+                <FaCaretSquareUp  onClick={decreaseVerticalWhitespace} 
+                                  style={{transform:'rotate(180deg)',cursor:'pointer'}} />
+              </span>{/* #whitespace-vertical */}
+            
+              <span>WHITESPACE</span> 
+            
+              <span id='whitespace-horizontal'>
+                <FaCaretSquareUp  onClick={decreaseHorizontalWhitespace} 
+                                  style={{transform:'rotate(270deg)',cursor:'pointer'}} />
+                <span>&nbsp;{whitespaceHorizontal}&nbsp;</span>
+                <FaCaretSquareUp  onClick={increaseHorizontalWhitespace} 
+                                  style={{transform:'rotate(90deg)',cursor:'pointer'}} />
+              </span>{/* #whitespace-horizontal */}
+            
+            </div>{/* #whitespace-control */}
+          </div>{/* #admin-header */}
 
 
 
 
-        {editMode && archiveLength && 
-          <>
-            <div id='archive-wrapper'>
-              <div id='archive-content'>
-                <div style={{textAlign:'center'}}><h2>Archived Items</h2></div>
-                {dinnerItems.filter(item=>item.sequence == 0).map(data=>{
-                  return <ArchiveDinnerMenuItem data={data} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div className='no-print' style={{height:'120px',width:'100%'}}></div>        
+          <div id='admin-dinner-menu'>
+            <h1><span style={{paddingLeft:whitespaceHorizontal}} className='logo'>olea</span></h1>
+            <hr style={{marginBottom:'20px'}} />
+
+            <div id='admin-dinner-menu-top'>
+              <div id='admin-dinner-menu-top-left'>
+
+                <div id='admin-dinner-menu-meats'>
+                  {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
+                    return <AdminDinnerMenuItem data={data} 
+                                                sectionLength={dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).length}
                                                 getDinnerItems={()=>getDinnerItems()}
-                                                deleteArchivedMenuItem={()=>deleteArchivedMenuItem(data._id)} 
-                                                editMode = {editMode}
-                                                key={data._id} /> 
-              })}
-              </div>{/* #archive-content */}
-            </div>{/* #archive-wrapper */}
-          </>
-        }
-        <PageFooter className='no-print' color='blue' />
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                onEditClick={()=>populateForm(data._id)}
+                                                marginVertical={whitespaceVertical}
+                                                paddingHorizontal={whitespaceHorizontal}
+                                                key={data._id} 
+                                                editMode = {editMode} />                  
+                  })}
+                </div>{/* #admin-dinner-menu-meats */}
+
+                <div id='admin-dinner-menu-appetizers'>
+                  {dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).map(data=>{
+                    return <AdminDinnerMenuItem data={data} 
+                                                sectionLength={dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).length} 
+                                                getDinnerItems={()=>getDinnerItems()}
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                onEditClick={()=>populateForm(data._id)}
+                                                marginVertical={whitespaceVertical}
+                                                paddingHorizontal={whitespaceHorizontal}
+                                                key={data._id}
+                                                editMode = {editMode} />
+                  })}
+                  
+                </div>{/* #admin-dinner-menu-appetizers */}
+              </div>{/* #admin-dinner-menu-top-left */}
+
+              <div id='admin-dinner-menu-top-right'>
+                {dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
+                    return <AdminDinnerMenuItem data={data} 
+                                                sectionLength={dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
+                                                getDinnerItems={()=>getDinnerItems()}
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                onEditClick={()=>populateForm(data._id)}
+                                                marginVertical={whitespaceVertical}
+                                                paddingHorizontal={whitespaceHorizontal}
+                                                key={data._id}
+                                                editMode = {editMode} />
+                  })}
+
+              <div id='tasting-menu' style={{ border:'1px solid black',
+                                              paddingTop:whitespaceVertical,
+                                              paddingBottom:whitespaceVertical,
+                                              paddingLeft:whitespaceHorizontal,
+                                              paddingRight:whitespaceHorizontal
+                                            }}>
+                  <span style={{fontFamily:'FuturaLight',fontWeight:'900'}}>
+                    chef's tasting menu</span> <span style={{fontStyle:'italic'}}>six courses <span style={{fontWeight:'900'}}>105</span> / person</span><br/>
+                  <span style={{fontStyle:'italic',fontWeight:'900'}}>48-hours notice and reservation required</span><br/>
+                  full table participation<br/>
+                  available tuesday through thursday<br/>
+                  <span style={{fontStyle:'italic'}}>optional wine pairing available <span style={{fontWeight:'900'}}>52</span> / person</span><br/>
+              </div>{/* #tasting-menu */}
+              </div>{/* #admin-dinner-menu-top-right */}
+
+            </div>{/* #admin-dinner-menu-top */}
+
+            <h2 style={{paddingLeft:whitespaceHorizontal,fontSize:'25px',fontWeight:'900'}}>sides</h2>
+            <div id='admin-dinner-menu-sides'>
+                {dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
+                    return <AdminDinnerMenuItem data={data} 
+                                                sectionLength={dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).length}
+                                                getDinnerItems={()=>getDinnerItems()}
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                onEditClick={()=>populateForm(data._id)}
+                                                marginVertical={whitespaceVertical}
+                                                paddingHorizontal={whitespaceHorizontal}
+                                                key={data._id}
+                                                editMode = {editMode} /> 
+                })}
+            </div>{/* #admin-dinner-menu-sides */}
+                
+
+            <div style={{paddingLeft:whitespaceHorizontal,paddingRight:whitespaceHorizontal}} id='admin-dinner-menu-footer'>
+                <div id='chef'>manuel romero, chef</div>
+                <div id='qr'><img width='65px' src='./qrCode.jpg'/></div>
+                <div id='legal'>
+                  consumer advisory: consumption of undercooked meat, poultry, eggs, or seafood may increase the risk of food-borne illnesses<br/>
+                  all menu items are subject to change according to seasonality and availability<br/>
+                  <div>
+                    please alert your server if you have special dietary requirements before ordering:<br/> 
+                    gl (gluten), d (dairy), n (nuts)
+                  </div>
+                </div>{/* #legal */}
+            </div>{/* #admin-dinner-menu */}          
+          </div>{/* #admin-dinner-menu */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {editMode && archiveLength && 
+            <>
+              <div id='archive-wrapper'>
+                <div id='archive-content'>
+                  <div style={{textAlign:'center'}}><h2>Archived Items</h2></div>
+                  {dinnerItems.filter(item=>item.sequence == 0).map(data=>{
+                    return <ArchiveDinnerMenuItem data={data} 
+                                                  getDinnerItems={()=>getDinnerItems()}
+                                                  deleteArchivedMenuItem={()=>deleteArchivedMenuItem(data._id)} 
+                                                  editMode = {editMode}
+                                                  key={data._id} /> 
+                })}
+                </div>{/* #archive-content */}
+              </div>{/* #archive-wrapper */}
+            </>
+          }
+        </div>{/* #admin-page-not-form */}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -613,6 +625,13 @@ export default function Admin() {
         </div>{/* #admin-form-outer-wrapper */}
      
 {/* END FORM */}   
+
+
+
+        <PageFooter className='no-print' color='blue' />
+
+
+
 
 
 
