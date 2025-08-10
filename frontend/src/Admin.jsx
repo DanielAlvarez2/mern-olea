@@ -269,8 +269,10 @@ export default function Admin() {
     document.querySelector('#main-photo').style.visibility = 'visible'
   }
 
-  function openForm(){    
+  function openFormModal(){    
     document.querySelector('#admin-form-outer-wrapper').style.display = 'block'
+    document.querySelector('#admin-form-outer-wrapper').style.overflow = 'hidden'
+    document.querySelector('#admin-form-outer-wrapper').style.overscrollBehavior = 'contain'
   }
 
   return (
@@ -291,7 +293,7 @@ export default function Admin() {
               Edit Mode
             </span>
             
-              <button onClick={()=> editMode ? openForm() : window.print()} 
+              <button onClick={()=> editMode ? openFormModal() : window.print()} 
                       id='admin-page-print-button'>
                         {editMode ? '+ Item' : 'Print'} 
               </button>
@@ -454,12 +456,35 @@ export default function Admin() {
 
 
 
-{/* FORM */}
-    {editMode && 
-      <>
+
+
+
+        {editMode && archiveLength && 
+          <>
+            <div id='archive-wrapper'>
+              <div id='archive-content'>
+                <div style={{textAlign:'center'}}><h2>Archived Items</h2></div>
+                {dinnerItems.filter(item=>item.sequence == 0).map(data=>{
+                  return <ArchiveDinnerMenuItem data={data} 
+                                                getDinnerItems={()=>getDinnerItems()}
+                                                deleteArchivedMenuItem={()=>deleteArchivedMenuItem(data._id)} 
+                                                editMode = {editMode}
+                                                key={data._id} /> 
+              })}
+              </div>{/* #archive-content */}
+            </div>{/* #archive-wrapper */}
+          </>
+        }
+        <PageFooter className='no-print' color='blue' />
+
+
+
+      {/* FORM */}
+
         <div id='admin-form-outer-wrapper' style={{display:'none'}}>
           <div id='admin-form-inner-wrapper'>
-            <form action={ editForm ? editDinnerItem : addDinnerItem} id='admin-form'>
+            <form action={ ()=> editForm ? editDinnerItem() : addDinnerItem()} 
+                  id='admin-form'>
               <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
               <input type='hidden' name='id' id='admin-page-id-input' />
@@ -579,37 +604,38 @@ export default function Admin() {
                       style={{color:'white',background: editForm ? 'blue' : 'green'}}
                       className='admin-form-btn'>{editForm ? 'Edit' : 'Add'} Item</button>
 
-              <div  onClick={clearForm} 
+              <div  onClick={()=>clearForm()} 
                     style={{background:'darkgrey'}}
                     className='admin-form-btn'>Clear Form</div>
 
             </form>{/* #admin-form */}
           </div>{/* #admin-form-inner-wrapper */}
         </div>{/* #admin-form-outer-wrapper */}
-      </>
-    }
+     
 {/* END FORM */}   
 
 
 
-        {editMode && archiveLength && 
-          <>
-            <div id='archive-wrapper'>
-              <div id='archive-content'>
-                <div style={{textAlign:'center'}}><h2>Archived Items</h2></div>
-                {dinnerItems.filter(item=>item.sequence == 0).map(data=>{
-                  return <ArchiveDinnerMenuItem data={data} 
-                                                getDinnerItems={()=>getDinnerItems()}
-                                                deleteArchivedMenuItem={()=>deleteArchivedMenuItem(data._id)} 
-                                                editMode = {editMode}
-                                                key={data._id} /> 
-              })}
-              </div>{/* #archive-content */}
-            </div>{/* #archive-wrapper */}
-          </>
-        }
-        <PageFooter className='no-print' color='blue' />
-      </div>{/* #page-wrapper-admin-dinner-menu */}
+      </div>{/* #admin-page-wrapper-dinner-menu */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </>
   )
 }

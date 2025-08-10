@@ -96,6 +96,7 @@
 #admin-form{
   width:300px;
   border:1px solid green;
+  height:auto;
 }
 .admin-form-btn{
   width:120px;
