@@ -45,6 +45,9 @@ h1{
 }
 @media (max-width:550px){
     #menu-page-content{
-        padding:2px;
+        padding:10px 2px;
+    }
+    .menu-page-item{
+        padding: 0 5px !important;
     }
 }
