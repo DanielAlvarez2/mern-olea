@@ -20,6 +20,7 @@ export default function MenuPagePic(props){
                                                 document.querySelector('#menu-page-content').style.height = 'auto'
                                                 document.querySelector('#menu-page-content').style.overflow = 'visible'
                                                 document.querySelector(`#pic-${props.data._id}`).style.display = 'none'
+                                                document.querySelector(`#footer-content`).style.display = 'block'
                                             }} 
                                             style={{position:'absolute',
                                                     cursor:'pointer',
