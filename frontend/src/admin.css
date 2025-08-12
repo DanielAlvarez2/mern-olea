@@ -3,8 +3,8 @@
   src:url('./assets/fonts/FuturaLight.otf') format(opentype);
 }
 #admin-page-wrapper-dinner-menu{
-  min-width:8.5in;
   width:100%;
+  min-width:8.5in;
   min-height:100vh;
   min-height:100svh;
   /* border:1px solid red; */
