@@ -7,7 +7,12 @@ export default function MenuPageItem(props){
     }
     return(
         <>
-            <div className='menu-page-item' onClick={()=>openPic(props.data.cloudinary_public_id)}>
+            <div    className='menu-page-item'
+                    style={{marginBottom: 
+                        ((props.data.section == 'Sides' && props.data.sequence == 1) ||
+                        (props.data.section == 'Sides' && props.data.sequence == 2)) ? 0 : ''
+                    }} 
+                    onClick={()=>openPic(props.data.cloudinary_public_id)}>
                 <img    src={props.data.cloudinary_url}
                         className='menu-page-pic' 
                         id={props.data.cloudinary_public_id}
@@ -15,7 +20,11 @@ export default function MenuPageItem(props){
 
                 {props.data.name == 'jamón ibérico' ? 
                 <>
-                    <div style={{display:'flex',alignItems:'center',gap:'15px'}}>
+                    <div    id='menu-page-jamon-iberico' 
+                            style={{display:'flex',
+                                    alignItems:'center',
+                                    gap:'15px',
+                                    flexWrap:'wrap'}}>
                         <span className='name'>{props.data.name}</span>
                         <span className='price'>{props.data.price}</span>
                     </div>
