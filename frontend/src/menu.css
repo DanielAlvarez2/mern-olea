@@ -26,7 +26,8 @@ h1{
 }
 #menu-top-left,
 #menu-top-right{
-    flex:1;
+    /* flex:1; */
+    width:50%;
 }
 #sides{
     display:flex;
@@ -36,6 +37,8 @@ h1{
 #sides>div{
     width:50%;
 }
-#logo{
-    padding-left: 0;
+@media (max-width:8.5in){
+    #menu-page-content{
+        width:100%;
+    }
 }
