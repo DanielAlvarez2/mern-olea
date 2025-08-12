@@ -10,6 +10,7 @@
 }
 #menu-page-content{
     font-family: FuturaLight;
+    padding:20px;
     width:8.5in;
     margin:0 auto;
     background-image:url('./menu-background.jpg');
@@ -40,5 +41,10 @@ h1{
 @media (max-width:8.5in){
     #menu-page-content{
         width:100%;
+    }
+}
+@media (max-width:550px){
+    #menu-page-content{
+        padding:2px;
     }
 }

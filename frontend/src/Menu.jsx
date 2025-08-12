@@ -23,7 +23,7 @@ export default function Menu() {
     <>
       <div id='menu-page-wrapper'>
         <div  id='menu-page-content' 
-              style={{padding:'20px',backgroundImage: `url('./menu-background.jpg')`}}>
+              style={{backgroundImage: `url('./menu-background.jpg')`}}>
           <div id='footer-flexbox-top'>
             <h1 style={{display:'flex',justifyContent:'space-between'}}>
               <span className='logo' style={{paddingLeft:'20px'}}>olea</span>
@@ -37,7 +37,7 @@ export default function Menu() {
 
 
 
-            
+
               <div id='menu-top'>
                 <div id='menu-top-left'>
                   <div id='meats' style={{border:'1px solid black'}}>
