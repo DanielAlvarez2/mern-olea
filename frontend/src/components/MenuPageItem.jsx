@@ -8,15 +8,11 @@ export default function MenuPageItem(props){
     return(
         <>
             <div    className='menu-page-item'
+                    onClick={()=>document.querySelector(`#pic-${props.data._id}`).style.display = 'grid'}
                     style={{marginBottom: 
                         ((props.data.section == 'Sides' && props.data.sequence == 1) ||
                         (props.data.section == 'Sides' && props.data.sequence == 2)) ? 0 : ''
-                    }} 
-                    onClick={()=>openPic(props.data.cloudinary_public_id)}>
-                <img    src={props.data.cloudinary_url}
-                        className='menu-page-pic' 
-                        id={props.data.cloudinary_public_id}
-                        style={{maxWidth:'300px',maxHeight:'300px',display:'none'}} />
+                    }}> 
 
                 {props.data.name == 'jamón ibérico' ? 
                 <>

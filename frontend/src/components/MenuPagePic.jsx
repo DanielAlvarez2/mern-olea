@@ -8,7 +8,7 @@ export default function MenuPagePic(props){
                             left:'0',
                             width:'100vw',
                             height:'100vh',
-                            display:'grid',
+                            display:'none',
                             background:'lightgrey',
                             placeContent:'center',
                             border:'1px solid green'}}
