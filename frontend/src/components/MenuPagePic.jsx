@@ -3,9 +3,8 @@ import { AiTwotoneCloseCircle } from "react-icons/ai"
 export default function MenuPagePic(props){
     return(
         <>
-            <div    style={{position:'absolute',
-                            top:'0',
-                            left:'0',
+            <div    style={{position:'fixed',
+                            inset:'0',
                             width:'100vw',
                             height:'100vh',
                             display:'none',
@@ -17,8 +16,6 @@ export default function MenuPagePic(props){
                 <figure style={{display:'table',position:'relative'}}>
                     <AiTwotoneCloseCircle   size='40'
                                             onClick={()=>{
-                                                document.querySelector('#menu-page-content').style.height = 'auto'
-                                                document.querySelector('#menu-page-content').style.overflow = 'visible'
                                                 document.querySelector(`#pic-${props.data._id}`).style.display = 'none'
                                                 document.querySelector(`#footer-content`).style.display = 'block'
                                             }} 

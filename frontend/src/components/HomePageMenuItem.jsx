@@ -9,7 +9,9 @@ export default function HomePageMenuItem(props){
                 {props.data.preDescription && 
                 <span className='pre-description'>{props.data.preDescription};&nbsp;</span>}  
                 <span className='description'>{props.data.description}</span>
-            </div>            
+            </div>          
+            {props.data.name == 'cochinillo' && 
+                <div style={{fontStyle:'italic'}}>(please allow 40 minutes cooking time)</div>}  
         </>
     )
 }

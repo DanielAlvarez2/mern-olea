@@ -9,8 +9,6 @@ export default function MenuPageItem(props){
         <>
             <div    className='menu-page-item'
                     onClick={()=>{
-                                    document.querySelector('#menu-page-content').style.height = '100vh'
-                                    document.querySelector('#menu-page-content').style.overflow = 'hidden'
                                     document.querySelector(`#pic-${props.data._id}`).style.display = 'grid'
                                     document.querySelector(`#footer-content`).style.display = 'none'
                             }}
