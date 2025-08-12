@@ -7,7 +7,8 @@ export default function OpenTable(){
                   <div id='ot1'>make a reservation</div>
                   <div id='ot2'>POWERED BY OPENTABLE</div><br/>
                   <a  href='https://www.opentable.com/rest_profile.aspx?rid=151186&restref=151186'
-                      target='_blank'>
+                      target='_blank'
+                      style={{textDecoration:'none'}}>
                     <span id='ot3' style={{cursor:'pointer'}}>FIND A TABLE</span>
                   </a>
                 </div>{/* #open-table */}
