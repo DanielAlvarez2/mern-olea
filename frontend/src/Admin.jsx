@@ -481,8 +481,10 @@ export default function Admin() {
             </>
           }
 
-
+          <div  id='admin-page-footer-wrapper'
+                style={{minWidth:'8.5in'}}>
                   <PageFooter className='no-print' color='blue' />
+          </div>
 
         </div>{/* #admin-page-not-form */}
 
