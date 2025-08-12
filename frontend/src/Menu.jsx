@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './menu.css'
 import PageFooter from './components/PageFooter.jsx'
 import MenuPageItem from './components/MenuPageItem.jsx'
+import MenuPagePic from './components/MenuPagePic.jsx'
 import { FaWifi } from "react-icons/fa"
 
 export default function Menu() {
@@ -44,6 +45,7 @@ export default function Menu() {
                     {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
                       return(
                         <div key={data._id}>
+                          <MenuPagePic data={data} />
                           <MenuPageItem data={data} />
                         </div>
                       )
