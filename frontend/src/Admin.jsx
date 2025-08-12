@@ -141,15 +141,11 @@ export default function Admin() {
       .then(async ()=> await getDinnerItems())
       .catch(err=>console.log(err))
     clearForm()
-    document.querySelector('#admin-page-not-form').style.display = 'block'
-    document.querySelector('#admin-form-outer-wrapper').style.display = 'none'
+    closeForm()
   }
 
   async function editDinnerItem(formData){
-    console.log(...formData)
-    console.log(previewSource ? 'previewSource=true' : 'previewSource=false')
-    console.log('cloudinary_url: ')
-    console.log(formData.get('admin-page-existing-cloudinary-url'))
+    console.log('editDinnerItem()')
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
@@ -211,10 +207,12 @@ export default function Admin() {
               clearForm()
             })
       .then(async()=>await getDinnerItems())
+      .then(closeForm())
       .catch(err=>console.log(err))
   }
 
   async function populateForm(id){
+    openForm()
     let target
     setEditForm(true)
     await fetch(`${BASE_URL}/api/dinner/${id}`)
@@ -272,9 +270,14 @@ export default function Admin() {
     document.querySelector('#main-photo').style.visibility = 'visible'
   }
 
-  function openFormModal(){    
+  function openForm(){    
     document.querySelector('#admin-form-outer-wrapper').style.display = 'block'
     document.querySelector('#admin-page-not-form').style.display = 'none'
+  }
+
+  function closeForm(){    
+    document.querySelector('#admin-page-not-form').style.display = 'block'
+    document.querySelector('#admin-form-outer-wrapper').style.display = 'none'
   }
 
   return (
@@ -295,7 +298,7 @@ export default function Admin() {
                 Edit Mode
               </span>
               
-                <button onClick={()=> editMode ? openFormModal() : window.print()} 
+                <button onClick={()=> editMode ? openForm() : window.print()} 
                         id='admin-page-print-button'>
                           {editMode ? '+ Item' : 'Print'} 
                 </button>
@@ -502,7 +505,7 @@ export default function Admin() {
 
         <div id='admin-form-outer-wrapper' style={{display:'none'}}>
           <div id='admin-form-inner-wrapper'>
-            <form action={editForm ? editDinnerItem() : addDinnerItem} 
+            <form action={editForm ? editDinnerItem : addDinnerItem} 
                   id='admin-form'>
               <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
