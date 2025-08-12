@@ -28,10 +28,20 @@ export default function MenuPagePic(props){
                                                     right:'0'}} />
                     <img style={{maxWidth:'75vw',maxHeight:'75vh'}} src={props.data.cloudinary_url} />
                     <figcaption style={{display:'table-caption',captionSide:'bottom'}}>
-                        <div className="name">{props.data.name}</div>
-                        <span className='pre-description'>{props.data.preDescription}; </span>
-                        <span className='description'>{props.data.description}</span>&nbsp;&nbsp;&nbsp;
-                        <span className='price'>{props.data.price}</span>
+                        {props.data.name == 'jamón ibérico' ? 
+                        <>
+                            <span className='name'>{props.data.name}</span>&nbsp;&nbsp;&nbsp;
+                            <span className='price'>{props.data.price}</span>
+                        </> 
+                        : 
+                        <>
+                            <div className="name">{props.data.name}</div>
+                            {props.data.preDescription && <span className='pre-description'>{props.data.preDescription}; </span>}
+                            <span className='description'>{props.data.description}</span>&nbsp;&nbsp;&nbsp;
+                            <span className='price'>{props.data.price}</span>
+                            {props.data.name == 'cochinillo' && 
+                                <div style={{fontStyle:'italic'}}>(please allow 40 minutes cooking time)</div>}
+                        </>}
                     </figcaption>
                 </figure>
             </div>
