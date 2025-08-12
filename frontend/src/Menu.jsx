@@ -54,6 +54,7 @@ export default function Menu() {
                   {dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).map(data=>{
                     return(
                       <div key={data._id}>
+                        <MenuPagePic data={data} />
                         <MenuPageItem data={data} />
                       </div>
                     )
@@ -64,6 +65,7 @@ export default function Menu() {
                   {dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
                     return(
                       <div key={data._id}>
+                        <MenuPagePic data={data} />                        
                         <MenuPageItem data={data} />
                       </div>
                     )
@@ -86,6 +88,7 @@ export default function Menu() {
                 {dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
                   return(
                     <div key={data._id}>
+                      <MenuPagePic data={data} />
                       <MenuPageItem data={data} />
                     </div>
                   )

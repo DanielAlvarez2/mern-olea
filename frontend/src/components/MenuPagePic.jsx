@@ -16,12 +16,16 @@ export default function MenuPagePic(props){
                     className='menu-page-pic'>
                 <figure style={{display:'table',position:'relative'}}>
                     <AiTwotoneCloseCircle   size='40'
-                                            onClick={()=>document.querySelector(`#pic-${props.data._id}`).style.display = 'none'} 
+                                            onClick={()=>{
+                                                document.querySelector('#menu-page-content').style.height = 'auto'
+                                                document.querySelector('#menu-page-content').style.overflow = 'visible'
+                                                document.querySelector(`#pic-${props.data._id}`).style.display = 'none'
+                                            }} 
                                             style={{position:'absolute',
                                                     cursor:'pointer',
                                                     top:'0',
                                                     right:'0'}} />
-                    <img src={props.data.cloudinary_url} />
+                    <img style={{maxWidth:'75vw',maxHeight:'75vh'}} src={props.data.cloudinary_url} />
                     <figcaption style={{display:'table-caption',captionSide:'bottom'}}>
                         <div className="name">{props.data.name}</div>
                         <span className='pre-description'>{props.data.preDescription}; </span>

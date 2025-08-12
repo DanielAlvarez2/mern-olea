@@ -8,7 +8,11 @@ export default function MenuPageItem(props){
     return(
         <>
             <div    className='menu-page-item'
-                    onClick={()=>document.querySelector(`#pic-${props.data._id}`).style.display = 'grid'}
+                    onClick={()=>{
+                                    document.querySelector('#menu-page-content').style.height = '100vh'
+                                    document.querySelector('#menu-page-content').style.overflow = 'hidden'
+                                    document.querySelector(`#pic-${props.data._id}`).style.display = 'grid'
+                            }}
                     style={{marginBottom: 
                         ((props.data.section == 'Sides' && props.data.sequence == 1) ||
                         (props.data.section == 'Sides' && props.data.sequence == 2)) ? 0 : ''
