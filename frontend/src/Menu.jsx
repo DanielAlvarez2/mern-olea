@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './menu.css'
 import PageFooter from './components/PageFooter.jsx'
 import MenuPageItem from './components/MenuPageItem.jsx'
+import { FaWifi } from "react-icons/fa"
 
 export default function Menu() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ?
@@ -24,7 +25,14 @@ export default function Menu() {
         <div  id='menu-page-content' 
               style={{padding:'20px',backgroundImage: `url('./menu-background.jpg')`}}>
           <div id='footer-flexbox-top'>
-            <h1><span id='logo' style={{paddingLeft:'20px'}}>olea</span></h1>
+            <h1 style={{display:'flex',justifyContent:'space-between'}}>
+              <span className='logo' style={{paddingLeft:'20px'}}>olea</span>
+              <span style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+                <FaWifi />
+                <span style={{fontSize:'15px',
+                              textAlign:'center'}}>OleaGuest<br/>2037808925</span>
+              </span>
+            </h1>
             <hr style={{marginBottom:'20px'}} />
               <div id='menu-top'>
                 <div id='menu-top-left'>
