@@ -486,4 +486,5 @@ people often use the flashlight feature on their phones to read the menu in dim 
 more detailed and comprehensive allergy descriptions  
 daily specials viewable online  
 initially: don't write any text with the QR-Code. Only have servers explain it when needed  
-
+show bug fix on top nav transition sizes from desktop to mobile WAS poorly designed  
+show improvement of open table section position:sticky fixes awkward EMPTY right half of screen  
