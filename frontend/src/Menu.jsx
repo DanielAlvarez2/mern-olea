@@ -31,7 +31,7 @@ export default function Menu() {
               <span style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
                 <FaWifi />
                 <span style={{fontSize:'15px',
-                              textAlign:'center'}}>OleaGuest<br/>2037808925</span>
+                              textAlign:'center'}}>name: OLEA GUEST<br/>password: 2037808925</span>
               </span>
             </h1>
             <hr style={{marginBottom:'20px'}} />

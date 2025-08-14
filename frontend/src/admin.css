@@ -8,7 +8,7 @@
   min-height:100vh;
   min-height:100svh;
   /* border:1px solid red; */
-  background:red;
+  background:lightgrey;
 }
 #admin-dinner-menu-meats{
   border:1px solid black;
@@ -185,8 +185,5 @@ form textarea{
 @media (max-width:8.5in){
   #admin-form-inner-wrapper{
     width:100%;
-  }
-  #admin-page-wrapper-dinner-menu{
-    /* min-width:0; */
   }
 }

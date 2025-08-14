@@ -457,4 +457,31 @@ HTTPS takes a few minutes to kick in
 may take 48 hours for "oleademo.com" to work glitch-free  
 
 
+  
+*******************************************  
+OPTIMIZATIONS  
+*******************************************  
+  
+button spinners while loading  
+pics page  
+mvc  
+clean up inline css  
+mobile view form for add / edit  
+menudemo.com  
+create a page for all staff to quickly view the current printed menus: /staff  
+      (with height:auto, not fixed)  
+oleademo.com not working in incognito mode???  
+  
+
+
+
+*******************************************  
+SALES PITCH  
+*******************************************  
+asians who can't read any english appreciate the pics  
+old people asking for "reading glasses"  
+elderly father: daughter was reading the entire menu to him out loud. pics helped  
+people often use the flashlight feature on their phones to read the menu in dim lighting  
+more detailed and comprehensive allergy descriptions  
+daily specials viewable online  
 
