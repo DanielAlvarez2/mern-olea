@@ -285,6 +285,7 @@ export default function Admin() {
 
       <div id='admin-page-wrapper-dinner-menu'>
         <div id='admin-page-not-form'>
+          <div id='admin-page-footer-flexbox-top'>
           <div id='admin-header' className='no-print'>
             <div id='admin-header-content'>
               <span id='admin-page'>Admin Page</span>
@@ -480,7 +481,8 @@ export default function Admin() {
               </div>{/* #archive-wrapper */}
             </>
           }
-
+          
+          </div>{/* #admin-page-footer-flexbox-top */}
           <div  id='admin-page-footer-wrapper'
                 style={{minWidth:'8.5in'}}>
                   <PageFooter className='no-print' color='blue' />

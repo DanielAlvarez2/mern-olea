@@ -471,7 +471,8 @@ menudemo.com
 create a page for all staff to quickly view the current printed menus: /staff  
       (with height:auto, not fixed)  
 oleademo.com not working in incognito mode???  
-  
+add long allergy descriptions to schema and forms and display  
+add ADDITIONAL route for /allergies    
 
 
 
