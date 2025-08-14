@@ -109,7 +109,8 @@ export default function Admin() {
   }
 
   async function addDinnerItem(formData){
-    console.log('addDinnerItem()')
+    document.querySelector('#admin-page-form-submit-button').textContent = 'Uploading...'
+   
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
@@ -142,10 +143,11 @@ export default function Admin() {
       .catch(err=>console.log(err))
     clearForm()
     closeForm()
+    document.querySelector('#admin-page-form-submit-button').textContent = 'Add Item'
   }
 
   async function editDinnerItem(formData){
-    console.log('editDinnerItem()')
+    document.querySelector('#admin-page-form-submit-button').textContent = 'Uploading...'
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
@@ -209,6 +211,7 @@ export default function Admin() {
       .then(async()=>await getDinnerItems())
       .then(closeForm())
       .catch(err=>console.log(err))
+    document.querySelector('#admin-page-form-submit-button').textContent = 'Edit Item'
   }
 
   async function populateForm(id){
@@ -627,8 +630,9 @@ export default function Admin() {
                                   </>}
               </div>{/* #main-photo */}
               <button type='submit' 
+                      id='admin-page-form-submit-button'
                       style={{color:'white',background: editForm ? 'blue' : 'green'}}
-                      className='admin-form-btn'>{editForm ? 'Edit' : 'Add'} Item</button>
+                      className='admin-form-btn'>{editForm ? 'Edit Item' : 'Add Item'}</button>
 
               <div  onClick={()=>clearForm()} 
                     style={{background:'darkgrey'}}

@@ -470,7 +470,7 @@ mobile view form for add / edit
 BUY: menudemo.com  
 create a page for all staff to quickly view the current printed menus: /staff  
       (with height:auto, not fixed)  
-oleademo.com not working in incognito mode???  
+oleademo.com not working in incognito mode??? inspect at BestBuy  
 add long allergy descriptions to schema and forms and display  
 add a key to allergies page lower-case vs UPPER-CASE position:fixed, bottom of screen    
 add ADDITIONAL route for /allergies    
