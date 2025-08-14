@@ -110,6 +110,9 @@ export default function Admin() {
 
   async function addDinnerItem(formData){
     document.querySelector('#admin-page-form-submit-button').textContent = 'Uploading...'
+    document.querySelector('#admin-page-form-submit-button').disabled = true
+    document.querySelector('#admin-page-form-submit-button').style.cursor = 'wait'
+    document.querySelector('#admin-page-form-submit-button').style.background = 'black'
    
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
@@ -144,10 +147,16 @@ export default function Admin() {
     clearForm()
     closeForm()
     document.querySelector('#admin-page-form-submit-button').textContent = 'Add Item'
+    document.querySelector('#admin-page-form-submit-button').disabled = false
+    document.querySelector('#admin-page-form-submit-button').style.cursor = 'pointer'
+    document.querySelector('#admin-page-form-submit-button').style.background = 'green'
   }
 
   async function editDinnerItem(formData){
+    document.querySelector('#admin-page-form-submit-button').style.background = 'black'
+    document.querySelector('#admin-page-form-submit-button').style.cursor = 'wait'
     document.querySelector('#admin-page-form-submit-button').textContent = 'Uploading...'
+    document.querySelector('#admin-page-form-submit-button').disabled = true
     let cloudinary_assigned_url = ''
     let cloudinary_assigned_public_id = ''
 
@@ -212,6 +221,9 @@ export default function Admin() {
       .then(closeForm())
       .catch(err=>console.log(err))
     document.querySelector('#admin-page-form-submit-button').textContent = 'Edit Item'
+    document.querySelector('#admin-page-form-submit-button').disabled = false
+    document.querySelector('#admin-page-form-submit-button').style.cursor = 'pointer'
+    document.querySelector('#admin-page-form-submit-button').style.background = 'blue'
   }
 
   async function populateForm(id){
