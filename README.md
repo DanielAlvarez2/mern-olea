@@ -461,7 +461,9 @@ may take 48 hours for "oleademo.com" to work glitch-free
 *******************************************  
 OPTIMIZATIONS  
 *******************************************  
+
   
+rename Admin to Office  
 button spinners while loading  
 pics page  
 mvc  
