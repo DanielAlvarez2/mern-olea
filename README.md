@@ -467,7 +467,7 @@ pics page
 mvc  
 clean up inline css  
 mobile view form for add / edit  
-menudemo.com  
+BUY: menudemo.com  
 create a page for all staff to quickly view the current printed menus: /staff  
       (with height:auto, not fixed)  
 oleademo.com not working in incognito mode???  
@@ -485,4 +485,5 @@ elderly father: daughter was reading the entire menu to him out loud. pics helpe
 people often use the flashlight feature on their phones to read the menu in dim lighting  
 more detailed and comprehensive allergy descriptions  
 daily specials viewable online  
+initially: don't write any text with the QR-Code. Only have servers explain it when needed  
 
