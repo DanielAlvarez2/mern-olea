@@ -116,6 +116,8 @@
   min-height: 100vh;
   min-height:100svh;
   background:white;
+  display:grid;
+  place-content: center;
 }
 #admin-form-inner-wrapper{
   width:8.5in;
