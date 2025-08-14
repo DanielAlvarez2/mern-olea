@@ -135,7 +135,7 @@ export default function Root() {
             </div>{/* #main */}
 
 
-            <hr style={{marginBottom:'20px'}} />
+            <hr style={{marginBottom:'30px'}} />
 
 
             <div id='home-page-footer'>
