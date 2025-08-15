@@ -464,8 +464,6 @@ OPTIMIZATIONS
   
 img alt tags = menu item name  
 make form responsive / 2-columns on desktop mode  
-make nam/price input fields required in form jsx  
-svh to fix grid centered form too low  
 make form into REUSABLE component  
 rename Admin to Office  
 button spinners while loading  

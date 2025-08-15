@@ -286,7 +286,7 @@ export default function Admin() {
   }
 
   function openForm(){    
-    document.querySelector('#admin-form-outer-wrapper').style.display = 'block'
+    document.querySelector('#admin-form-outer-wrapper').style.display = 'grid'
     document.querySelector('#admin-page-not-form').style.display = 'none'
   }
 
@@ -539,7 +539,10 @@ export default function Admin() {
                       value='' />
               <label>
                 Section:&nbsp;&nbsp; 
-                <select id='admin-page-section-input' name='section' defaultValue=''>
+                <select id='admin-page-section-input' 
+                        required
+                        name='section' 
+                        defaultValue=''>
                   <option value='' disabled>Section...</option>
                   <option>Meats</option>
                   <option>Appetizers</option>
@@ -551,6 +554,7 @@ export default function Admin() {
               <label>
                 Name:<br/>
                 <input  id='admin-page-name-input' 
+                        required
                         type='text'
                         maxLength='500' 
                         name='name' /><br/><br/>
@@ -583,6 +587,7 @@ export default function Admin() {
               <label>
                 Price:<br/>
                 <input  id='admin-page-price-input' 
+                        required
                         type='text' 
                         maxLength='500'
                         name='price' 
