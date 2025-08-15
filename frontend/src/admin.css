@@ -59,6 +59,7 @@
   /* background-image: url('./olea-dinner-menu-scan.jpg');
   background-size: 8.5in 14in;
   color:red; */
+  border:1px solid red;
   background:white;
   padding-top:28px;
   padding-left:40px;

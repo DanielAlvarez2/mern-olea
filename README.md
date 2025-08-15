@@ -461,8 +461,12 @@ may take 48 hours for "oleademo.com" to work glitch-free
 *******************************************  
 OPTIMIZATIONS  
 *******************************************  
-
   
+img alt tags = menu item name  
+make form responsive / 2-columns on desktop mode  
+make nam/price input fields required in form jsx  
+svh to fix grid centered form too low  
+make form into REUSABLE component  
 rename Admin to Office  
 button spinners while loading  
 pics page  
@@ -476,7 +480,7 @@ oleademo.com not working in incognito mode??? inspect at BestBuy
 add long allergy descriptions to schema and forms and display  
 add a key to allergies page lower-case vs UPPER-CASE position:fixed, bottom of screen    
 add ADDITIONAL route for /allergies    
-
+observe react effect to explain  
 
 
 *******************************************  
