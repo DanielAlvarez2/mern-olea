@@ -34,9 +34,9 @@ export default function ArchiveDinnerMenuItem(props){
                                                                                                         cursor:'pointer'
                                                                                                         }} />
                                                                         <img  style={{maxWidth:'200px',
-                                                                                      maxHeight:'200px',
-                                                                                      
+                                                                                      maxHeight:'200px'
                                                                                     }} 
+                                                                              alt={props.data.name}
                                                                               src={props.data.cloudinary_url} /></div>
                                                                           
                                                                         
