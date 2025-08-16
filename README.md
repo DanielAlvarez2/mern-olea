@@ -462,7 +462,6 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
   
-img alt tags = menu item name  
 make form responsive / 2-columns on desktop mode  
 make form into REUSABLE component  
 rename Admin to Office  

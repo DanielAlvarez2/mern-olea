@@ -23,7 +23,9 @@ export default function MenuPagePic(props){
                                                     cursor:'pointer',
                                                     top:'0',
                                                     right:'0'}} />
-                    <img style={{maxWidth:'75vw',maxHeight:'75vh'}} src={props.data.cloudinary_url} />
+                    <img    style={{maxWidth:'75vw',maxHeight:'75vh'}} 
+                            alt={props.data.name}
+                            src={props.data.cloudinary_url} />
                     <figcaption style={{display:'table-caption',captionSide:'bottom'}}>
                         {props.data.name == 'jamón ibérico' ? 
                         <>
