@@ -466,7 +466,10 @@ img alt tags = menu item name
 make form responsive / 2-columns on desktop mode  
 make form into REUSABLE component  
 rename Admin to Office  
-button spinners while loading  
+add a 'confirm' dialogue modal on delete()  
+check 'sides' font size match  
+check gap size b/w tasting+sides same as original menu  
+button spinners while uploading w/react19    
 pics page  
 mvc  
 clean up inline css  
