@@ -101,11 +101,21 @@ export default function Admin() {
       .catch(err=>console.log(err))
   }
 
-  function deleteDinnerMenuItem(id){
-    fetch(`${BASE_URL}/api/dinner/${id}`,{method:'DELETE'})
-      .then(res=>res.json(`Item Deleted from Database`))
-      .then(()=>getDinnerItems())
-      .catch(err=>console.log(err))      
+  function deleteDinnerMenuItem(id,name){
+    // BELOW: empty line is intentional. Do not remove!!!
+    let doubleCheck = confirm(`Are you sure you want to permanently delete:
+      
+      ${name}`)
+    // ABOVE: empty line is intentional. Do not remove!!!
+    if (doubleCheck){
+      fetch(`${BASE_URL}/api/dinner/${id}`,{method:'DELETE'})
+        .then(res=>res.json(`Item Deleted from Database`))
+        .then(()=>getDinnerItems())
+        .catch(err=>console.log(err))      
+    }else{
+      return
+    }
+
   }
 
   async function addDinnerItem(formData){
@@ -376,7 +386,7 @@ export default function Admin() {
                     return <AdminDinnerMenuItem data={data} 
                                                 sectionLength={dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).length}
                                                 getDinnerItems={()=>getDinnerItems()}
-                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id,data.name)} 
                                                 onEditClick={()=>populateForm(data._id)}
                                                 marginVertical={whitespaceVertical}
                                                 paddingHorizontal={whitespaceHorizontal}
@@ -390,7 +400,7 @@ export default function Admin() {
                     return <AdminDinnerMenuItem data={data} 
                                                 sectionLength={dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).length} 
                                                 getDinnerItems={()=>getDinnerItems()}
-                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id,data.name)} 
                                                 onEditClick={()=>populateForm(data._id)}
                                                 marginVertical={whitespaceVertical}
                                                 paddingHorizontal={whitespaceHorizontal}
@@ -406,7 +416,7 @@ export default function Admin() {
                     return <AdminDinnerMenuItem data={data} 
                                                 sectionLength={dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
                                                 getDinnerItems={()=>getDinnerItems()}
-                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id,data.name)} 
                                                 onEditClick={()=>populateForm(data._id)}
                                                 marginVertical={whitespaceVertical}
                                                 paddingHorizontal={whitespaceHorizontal}
@@ -437,7 +447,7 @@ export default function Admin() {
                     return <AdminDinnerMenuItem data={data} 
                                                 sectionLength={dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).length}
                                                 getDinnerItems={()=>getDinnerItems()}
-                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id)} 
+                                                onDeleteClick={()=>deleteDinnerMenuItem(data._id,data.name)} 
                                                 onEditClick={()=>populateForm(data._id)}
                                                 marginVertical={whitespaceVertical}
                                                 paddingHorizontal={whitespaceHorizontal}

@@ -468,8 +468,6 @@ make form responsive / 2-columns on desktop mode
 make form into REUSABLE component  
 rename /admin to /print <Admin /> to <Print />   
 add a 'confirm' dialogue modal on delete()  
-check 'sides' font size match  
-check gap size b/w tasting+sides same as original menu  
 button spinners while uploading w/react19    
 pics page  
 mvc  
