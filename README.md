@@ -466,8 +466,7 @@ conditionally render using a state variable 2 different toggle switch images
 make sure img 's in menu are bound within page-wrapper  
 make form responsive / 2-columns on desktop mode  
 make form into REUSABLE component  
-rename /admin to /print <Admin /> to <Print />   
-add a 'confirm' dialogue modal on delete()  
+rename /admin to /print <Admin /> to <Print /> 
 button spinners while uploading w/react19    
 pics page  
 mvc  
@@ -480,7 +479,6 @@ oleademo.com not working in incognito mode??? inspect at BestBuy
 add long allergy descriptions to schema and forms and display  
 add a key to allergies page lower-case vs UPPER-CASE position:fixed, bottom of screen     
 observe react effect to explain  
-identify font for 'name' in original scanned menu darker/fatter/thicker font?  
 
 *******************************************  
 SALES PITCH  

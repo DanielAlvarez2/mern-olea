@@ -2,6 +2,10 @@
   font-family:'FuturaLight';
   src:url('./assets/fonts/FuturaLight.otf') format(opentype);
 }
+@font-face{
+  font-family:'FuturaMedium';
+  src:url('./assets/fonts/FuturaMedium.otf') format(opentype);
+}
 #admin-page-wrapper-dinner-menu{
   width:100%;
   min-width:9in;
@@ -135,9 +139,9 @@ form textarea{
   width:100%;
 }
 .name, #chef{
-  font-weight:900;
+  font-weight:100;
   font-size:18px;
-  font-family: FuturaLight;
+  font-family: FuturaMedium;
 }
 .allergies{
   font-family:serif;
