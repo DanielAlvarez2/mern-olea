@@ -23,6 +23,10 @@ export default function Menu() {
   return (
     <>
       <div id='menu-page-wrapper'>
+        <div id='allergy-key'>
+          <span>lower-case = can be removed</span>
+          <span>UPPER-CASE = CANNOT BE OMITTED</span>
+        </div>
         <div  id='menu-page-content' 
               style={{backgroundImage: `url('./menu-background.jpg')`}}>
           <div id='footer-flexbox-top'>

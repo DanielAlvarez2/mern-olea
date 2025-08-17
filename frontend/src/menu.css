@@ -2,11 +2,33 @@
     font-family: 'FuturaLight';
     src: url(./assets/fonts/FuturaLight.otf);
 }
+#allergy-key{
+    position:fixed;
+    display:flex;
+    gap:100px;
+    color:red;
+    justify-content: center;
+    bottom:0;
+    left:0;
+    background:white;
+    width:100%;
+}
 #menu-page-wrapper{
     width:100%;
     min-height:100vh;
     display:flex;
     flex-direction: column;
+    padding-bottom:20px;
+}
+@media (max-width:600px){
+    #allergy-key{
+        flex-direction: column;
+        gap:5px;
+        align-items: center;
+    }
+    #menu-page-wrapper{
+        padding-bottom:50px;
+    }
 }
 #menu-page-content{
     font-family: FuturaLight;
