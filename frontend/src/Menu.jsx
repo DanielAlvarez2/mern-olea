@@ -33,7 +33,10 @@ export default function Menu() {
             <h1 style={{display:'flex',justifyContent:'space-between'}}>
               <span className='logo' style={{paddingLeft:'20px'}}>olea</span>
               <span style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-                <FaWifi />
+                <div style={{paddingBottom:'10px',display:'flex',alignItems:'flex-end'}}>
+                  <FaWifi />&nbsp;
+                  <span style={{fontSize:'20px'}}>Wi-Fi</span>
+                </div>
                 <span style={{fontSize:'15px',
                               textAlign:'center'}}>name: OLEA GUEST<br/>password: 2037808925</span>
               </span>
