@@ -469,6 +469,7 @@ make form into REUSABLE component
 rename /admin to /print <Admin /> to <Print /> 
 button spinners while uploading w/react19    
 pics page  
+check if file size too large BEFORE form submission  
 mvc  
 clean up inline css  
 mobile view form for add / edit  
