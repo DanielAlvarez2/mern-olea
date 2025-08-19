@@ -480,6 +480,7 @@ create a page for all staff to quickly view the current printed menus: /staff
 oleademo.com not working in incognito mode??? inspect at BestBuy  
 add long allergy descriptions to schema and forms and display  
 observe react effect to explain  
+check to see what happens when uploading an image file without changing format from binary to base 64, also look into uploading 2 files at once for nama  
 
 *******************************************  
 SALES PITCH  

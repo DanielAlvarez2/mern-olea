@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client'
 import {BrowserRouter,Routes,Route} from 'react-router'
 import { StrictMode } from 'react'
 import Admin from './Admin.jsx'
+import Manager from './Manager.jsx'
 import Menu from './Menu.jsx'
 import Home from './Home.jsx'
 import Pics from './Pics.jsx'
@@ -13,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='admin' element={<Admin />} />
+        <Route path='manager' element={<Manager />} />
         <Route path='menu' element={<Menu />} />
         <Route path='allergies' element={<Menu />} />
         <Route path='pics' element={<Pics />} />
