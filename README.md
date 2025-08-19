@@ -462,14 +462,15 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
   
+add meta tags in index.html with keywords  
 conditionally render using a state variable 2 different toggle switch images  
 make sure img 's in menu are bound within page-wrapper  
 make form responsive / 2-columns on desktop mode  
 make form into REUSABLE component  
 rename /admin to /print <Admin /> to <Print /> 
-button spinners while uploading w/react19    
+[button spinners while uploading w/react19](https://www.youtube.com/watch?v=81uAxzeyL2I)   
 pics page  
-check if file size too large BEFORE form submission  
+check if file size too large BEFORE form submission / max 5mb?    
 mvc  
 clean up inline css  
 mobile view form for add / edit  
