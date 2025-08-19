@@ -39,7 +39,6 @@ export default function Admin() {
   function toggleCheckbox(){
     document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
     document.querySelector('#main-photo').style.visibility = isChecked ? 'visible' : 'hidden'
-    document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
     document.querySelector('#image-binary').value = ''
     setIsChecked(prev=>!prev)
     setPreviewSource('')
