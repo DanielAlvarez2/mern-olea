@@ -1,0 +1,35 @@
+#manager-page-wrapper{
+    background:lightpink;
+}
+#manager-page-wrapper main{
+    width:8.5in;
+    margin:0 auto;
+    min-height:100vh;
+    min-height:100svh;
+    background:lightgrey;
+}
+#manager{
+    display:inline-block;
+}
+#manager-page-header{
+    display:flex;
+    width:100%;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px 20px;
+}
+#toggle-menu{
+    display:flex;
+    align-items: center;
+    gap:10px;
+}
+button{
+    padding: 0.5rem 1rem;
+    border-radius:10px;
+    border:1px solid black;
+    cursor:pointer;
+    background:white;
+}
+#toggle-icon{
+    cursor:pointer;
+}
