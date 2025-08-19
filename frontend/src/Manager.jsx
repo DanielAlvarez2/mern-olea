@@ -17,6 +17,12 @@ export default function Manager(){
         setEditMode(prev=>!prev)
     }
 
+    function showForm(){
+        document.querySelector('#manager-page-form').style.display = 'block'
+        document.querySelector('#manager-page-wrapper main').style.display = 'none'
+
+    }
+
     const [editMode, setEditMode] = useState(true)
     return(
         <>
@@ -33,7 +39,7 @@ export default function Manager(){
                         </span>
 
                         <span>
-                            <button>+ Item</button>
+                            <button onClick={showForm}>+ Item</button>
                         </span>
                     </header>
 

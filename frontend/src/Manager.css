@@ -33,3 +33,6 @@ button{
 #toggle-icon{
     cursor:pointer;
 }
+#manager-page-form{
+    display:none;
+}
