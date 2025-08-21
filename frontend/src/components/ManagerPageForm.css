@@ -10,4 +10,6 @@ form{
     margin:0 auto;
     border:1px solid black;
     background:lightgrey;
+    padding:0.5em;
+    border-radius:10px;
 }
