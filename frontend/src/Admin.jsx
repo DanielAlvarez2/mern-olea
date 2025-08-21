@@ -565,14 +565,14 @@ export default function Admin() {
                 <input  id='admin-page-name-input' 
                         required
                         type='text'
-                        maxLength='500' 
+                        maxLength={500} 
                         name='name' /><br/><br/>
               </label>
 
               <label>
                 Allergies:<br/>
                 <input  id='admin-page-allergies-input' 
-                        maxLength='500'
+                        maxLength={500}
                         type='text' 
                         name='allergies' /><br/><br/>
               </label>
@@ -580,7 +580,7 @@ export default function Admin() {
               <label>
                 Mini-Description:<br/>
                 <input  id='admin-page-pre-description-input' 
-                        maxLength='500'
+                        maxLength={500}
                         type='text' 
                         name='preDescription' /><br/><br/>
               </label>
@@ -588,7 +588,7 @@ export default function Admin() {
               <label>
                 Main Description:<br/>
                 <textarea id='admin-page-main-description-input' 
-                          maxLength='500'
+                          maxLength={500}
                           name='description' 
                           rows='5'></textarea><br/><br/>
               </label>
@@ -598,7 +598,7 @@ export default function Admin() {
                 <input  id='admin-page-price-input' 
                         required
                         type='text' 
-                        maxLength='500'
+                        maxLength={500}
                         name='price' 
                         autoComplete='off' /><br/><br/>
               </label>

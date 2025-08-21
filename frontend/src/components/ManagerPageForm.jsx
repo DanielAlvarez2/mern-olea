@@ -13,40 +13,78 @@ export default function ManagerPageForm(){
     }
     return(
         <>
-            <h1>Manager Page Form</h1>
+        <div id='manager-page-form-wrapper'>
+
+        
             <form action={editForm ? editDinnerItem : addDinnerItem}>
-                <h2>{editForm ? 'Edit' : 'Create New'} Item</h2>
+                <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/><br/>
 
-                Section:&nbsp;
-                <select>
-                    <option disabled>Select Section...</option>
-                    <option>Meats</option>
-                    <option>Appetizers</option>
-                    <option>Entrées</option>
-                </select><br/><br/>
+                <label>
+                    Section:&nbsp; 
+                    <select required
+                            name='section'
+                            id='manager-page-section-input' 
+                            defaultValue={''}>
+                        <option disabled value=''>Select...</option>
+                        <option>Meats</option>
+                        <option>Appetizers</option>
+                        <option>Entrées</option>
+                        <option>Sides</option>
+                    </select> <span class='required'>*required</span><br/><br/>
+                </label>
 
-                Name:<br/>
-                <input type='text' /><br/><br/>
+                <label>
+                    Name: <span class='required'>*required</span><br/>
+                    <input  type='text'
+                            name='name'
+                            id='manager-page-name-input' 
+                            maxLength={500}
+                            required /><br/><br/>
+                </label>
 
-                Allergies:<br/>
-                <input type='text' /><br/><br/>
+                <label>
+                    Allergies:<br/>
+                    <input  type='text'
+                            name='allergies'
+                            maxLength={500}
+                            id='manager-page-allergies-input' /><br/><br/>
+                </label>
 
-                Mini-Description:<br/>
-                <input type='text' /><br/><br/>
+                <label>
+                    Mini-Description:<br/>
+                    <input  type='text'
+                            id='manager-page-mini-description-input'
+                            maxLength={500}
+                            name='preDescription' /><br/><br/>
+                </label>
 
-                Main Description:<br/>
-                <textarea></textarea><br/><br/>
+                <label>
+                    Main Description:<br/>
+                    <textarea   name='description'
+                                rows='5'
+                                id='manager-page-description-input'
+                                maxLength={500}></textarea><br/><br/>
+                </label>
 
-                Price:<br/>
-                <input type='text' /><br/><br/>
+                <label>
+                    Price: <span class='required'>*required</span><br/>
+                    <input  type='text'
+                            name='price'
+                            id='manager-page-price-input'
+                            maxLength={500} 
+                            required /><br/><br/>
+                </label>
 
                 Photo: (optional)<br/>
                 <input type='file' /><br/><br/>
 
-                <button>Add Item</button><br/><br/>
-                
-                <div className='.btn'>Clear Form</div>
+                <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
+                    <button style={{background:'lightgreen'}}>Add Item</button>
+                    <div className='btn'>Clear Form</div>
+                </div>
+
             </form>
+        </div>
         </>
     )
 }
