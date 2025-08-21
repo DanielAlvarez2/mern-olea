@@ -8,6 +8,11 @@ import ManagerPagePrint from './components/ManagerPagePrint.jsx'
 
 export default function Manager(){
 
+    const BASE_URL =    (process.env.NODE_ENV == 'production') ?
+                        'https://mern-olea.onrender.com' : 
+                        'http://localhost:1435'
+
+
     function flipToggle(){
         if (editMode){
             document.querySelector('#toggle-icon').style.transform = 'rotate(180deg'
