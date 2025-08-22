@@ -1,5 +1,6 @@
 import './ManagerPageForm.css'
 import {useState} from 'react'
+import { AiTwotoneCloseCircle } from "react-icons/ai";
 
 export default function ManagerPageForm(){
 
@@ -75,16 +76,29 @@ export default function ManagerPageForm(){
         document.querySelector('#manager-page-description-input').value = ''
         document.querySelector('#manager-page-price-input').value = ''
         document.querySelector('#manager-page-file-input').value = ''
-        document.querySelector('#manager-page-preview-upload').value = ''
+        if(document.querySelector('#manager-page-preview-upload')){
+            document.querySelector('#manager-page-preview-upload').value = ''
+        }
         setPreviewImage('')
     }
 
+    function exitForm(){
+        clearForm()
+        document.querySelector('#manager-page-wrapper main').style.display = 'block'
+        document.querySelector('#manager-page-form').style.display = 'none'
+    }
     return(
         <>
         <div id='manager-page-form-wrapper'>
 
         
             <form action={editForm ? editDinnerItem : addDinnerItem}>
+                <AiTwotoneCloseCircle   size={40} 
+                                        onClick={exitForm}
+                                        style={{position:'absolute',
+                                                cursor:'pointer',
+                                                right:'10px',
+                                                top:'10px'}} />
                 <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/><br/>
 
                 <label>
