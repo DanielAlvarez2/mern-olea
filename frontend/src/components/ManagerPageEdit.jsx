@@ -124,6 +124,7 @@ export default function ManagerPageEdit(props){
                         })}
                 </div>{/* #manager-page-sides */}
             </div>{/* #manager-page-menu-bottom */}
+            <br/>
         </>
     )
 }
