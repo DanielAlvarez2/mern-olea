@@ -1,7 +1,11 @@
 import { FaToggleOff } from "react-icons/fa6"
 import {useEffect, useState} from 'react'
+import ManagerDinnerMenuItem from "./ManagerDinnerMenuItem.jsx"
 
 export default function ManagerPageEdit(props){
+    const BASE_URL =    (process.env.NODE_ENV == 'production') ?
+                        'https://mern-olea.onrender.com' : 
+                        'http://localhost:1435'
 
     const [dinnerItems, setDinnerItems] = useState([])
     const [archiveLength, setArchiveLength] = useState(0)
@@ -37,10 +41,66 @@ export default function ManagerPageEdit(props){
                 </span>
             </header>
             
+
+
+
+
+
+
+
+
+
             <div className='logo'>olea</div>
             <hr/>
 
-            
+            <div id='manager-page-menu-top' style={{display:'flex',width:'100%'}}>
+                <div id='manager-page-menu-top-left' style={{flex:'1'}}>
+
+                    <div id='manager-page-meats'>
+                        {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
+                            return <ManagerDinnerMenuItem   data={data}
+                                                            sectionLength={dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).length}
+                                                            getDinnerItems={()=>getDinnerItems()}
+                                                            deleteDinnerMenuItem={()=>deletDinnerMenuItem(data._id,data.name)}
+                                                            editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
+                                                            key={data._id}
+                                                            editMode={props.editMode} 
+                                    />
+                        })}
+                    </div>{/* #manager-page-meats */}
+
+                    <div id='manager-page-appetizers'>
+                        {dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).map(data=>{
+                            return <ManagerDinnerMenuItem   data={data}
+                                                            sectionLength={dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).length}
+                                                            getDinnerItems={()=>getDinnerItems()}
+                                                            deleteDinnerMenuItem={()=>deletDinnerMenuItem(data._id,data.name)}
+                                                            editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
+                                                            key={data._id}
+                                                            editMode={props.editMode} 
+                                    />
+                        })}
+                    </div>{/* #manager-page-appetizers */}
+                
+                </div>{/* #manager-page-menu-top-left */}            
+                <div id='manager-page-menu-top-right' style={{flex:'1'}}>
+
+                    <div id='manager-page-entrées'>
+                        {dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
+                            return <ManagerDinnerMenuItem   data={data}
+                                                            sectionLength={dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
+                                                            getDinnerItems={()=>getDinnerItems()}
+                                                            deleteDinnerMenuItem={()=>deletDinnerMenuItem(data._id,data.name)}
+                                                            editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
+                                                            key={data._id}
+                                                            editMode={props.editMode} 
+                                    />
+                        })}
+                    </div>{/* #manager-page-appetizers */}
+                
+                </div>{/* #manager-page-menu-top-right */}            
+
+            </div>{/* #manager-page-menu-top */}
         </>
     )
 }

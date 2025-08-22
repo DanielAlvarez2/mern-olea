@@ -33,7 +33,8 @@ export default function Manager(){
                 <main>
                     
                     {editMode ? <ManagerPageEdit    flipToggle={()=>flipToggle()}
-                                                    showForm={()=>showForm()} /> : 
+                                                    showForm={()=>showForm()}
+                                                    editMode={editMode} /> : 
                                 <ManagerPagePrint flipToggle={()=>flipToggle()} />}
                 </main>
 
