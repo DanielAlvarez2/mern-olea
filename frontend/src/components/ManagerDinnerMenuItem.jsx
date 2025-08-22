@@ -1,10 +1,14 @@
 export default function ManagerDinnerMenuItem(props){
     return(
         <div>
-            <span className='name'>{props.data.name}</span>
-            {props.data.allergies &&    <>
-                                            <span className='allergies'>&nbsp;({props.data.allergies})</span>
-                                        </>}<br/>
+            <div style={{display:'flex',flexWrap:'wrap',alignItems:'center'}}>
+                <span className='name'>{props.data.name}&nbsp;</span>
+                
+                {props.data.allergies &&    <>
+                                                <span className='allergies'>({props.data.allergies})</span>
+                                            </>}
+            </div>
+            
             {props.data.preDescription &&   <>
                                                 <span className='pre-description'>{props.data.preDescription};</span>
                                             </>}
@@ -12,6 +16,8 @@ export default function ManagerDinnerMenuItem(props){
                                             <span className="description">{props.data.description}</span>
                                         </>}
             <span className="price">&nbsp;&nbsp;{props.data.price}</span>
+            <br/><br/><br/>
         </div>
+        
     )
 }

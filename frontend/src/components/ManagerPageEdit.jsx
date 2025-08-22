@@ -53,8 +53,8 @@ export default function ManagerPageEdit(props){
             <div className='logo'>olea</div>
             <hr/>
 
-            <div id='manager-page-menu-top' style={{display:'flex',width:'100%'}}>
-                <div id='manager-page-menu-top-left' style={{flex:'1'}}>
+            <div id='manager-page-menu-top' style={{display:'flex',flexWrap:'wrap',width:'100%'}}>
+                <div id='manager-page-menu-top-left' style={{maxWidth:'50%'}}>
 
                     <div id='manager-page-meats'>
                         {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
@@ -83,7 +83,7 @@ export default function ManagerPageEdit(props){
                     </div>{/* #manager-page-appetizers */}
                 
                 </div>{/* #manager-page-menu-top-left */}            
-                <div id='manager-page-menu-top-right' style={{flex:'1'}}>
+                <div id='manager-page-menu-top-right' style={{maxWidth:'50%'}}>
 
                     <div id='manager-page-entrées'>
                         {dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
