@@ -17,6 +17,7 @@
     justify-content: space-between;
     align-items: center;
     padding:5px 20px;
+    background:yellow;
 }
 #toggle-menu{
     display:flex;
@@ -38,11 +39,18 @@ button{
 }
 @media (max-width:8.5in){
     #manager-page-form,
-    #manager-page-form form{
+    #manager-page-form form,
+    #manager-page-wrapper main,
+    #manager-page-header{
         width:100% !important;
     }
     #manager-page-form form{
         margin-top:5px;
         margin-bottom:5px;
+    }
+}
+@media (max-width:500px){
+    #manager-page-header{
+        flex-direction: column;
     }
 }
