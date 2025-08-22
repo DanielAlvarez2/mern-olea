@@ -10,6 +10,7 @@ export default function ManagerPagePrint(props){
                     Edit Mode 
                     
                     <FaToggleOff    size='30'
+                                    style={{transform:'rotate(180deg)'}}
                                     id='toggle-icon' 
                                     onClick={props.flipToggle} />
                     
@@ -17,7 +18,7 @@ export default function ManagerPagePrint(props){
                 </span>
             
                 <span>
-                    <button onClick={showForm}>+ Item</button>
+                    <button onClick={()=>window.print()}>Print</button>
                 </span>
             </header>
 
