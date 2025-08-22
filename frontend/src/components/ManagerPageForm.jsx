@@ -93,13 +93,14 @@ export default function ManagerPageForm(){
 
         
             <form action={editForm ? editDinnerItem : addDinnerItem}>
-                <AiTwotoneCloseCircle   size={40} 
+                <AiTwotoneCloseCircle   size={30} 
                                         onClick={exitForm}
                                         style={{position:'absolute',
                                                 cursor:'pointer',
                                                 right:'10px',
                                                 top:'10px'}} />
-                <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/><br/>
+                <br/><br/>
+                <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
                 <label>
                     Section:&nbsp; 
