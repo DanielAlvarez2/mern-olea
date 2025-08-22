@@ -41,4 +41,8 @@ button{
     #manager-page-form form{
         width:100% !important;
     }
+    #manager-page-form form{
+        margin-top:5px;
+        margin-bottom:5px;
+    }
 }
