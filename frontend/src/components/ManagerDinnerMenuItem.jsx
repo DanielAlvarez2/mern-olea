@@ -10,7 +10,7 @@ export default function ManagerDinnerMenuItem(props){
             </div>
             
             {props.data.preDescription &&   <>
-                                                <span className='pre-description'>{props.data.preDescription};</span>
+                                                <span className='pre-description'>{props.data.preDescription};&nbsp;</span>
                                             </>}
             {props.data.description &&  <>
                                             <span className="description">{props.data.description}</span>
