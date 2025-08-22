@@ -37,7 +37,8 @@ button{
     display:none;
 }
 @media (max-width:8.5in){
-    #manager-page-form{
-        width:100%;
+    #manager-page-form,
+    #manager-page-form form{
+        width:100% !important;
     }
 }
