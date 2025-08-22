@@ -36,3 +36,8 @@ button{
 #manager-page-form{
     display:none;
 }
+@media (max-width:8.5in){
+    #manager-page-form{
+        width:100%;
+    }
+}
