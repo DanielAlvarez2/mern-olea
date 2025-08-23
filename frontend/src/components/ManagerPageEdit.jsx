@@ -8,18 +8,6 @@ export default function ManagerPageEdit(props){
                         'https://mern-olea.onrender.com' : 
                         'http://localhost:1435'
 
-    const [dinnerItems, setDinnerItems] = useState([])
-    const [archiveLength, setArchiveLength] = useState(0)
-
-    const getDinnerItems = ()=>{
-        fetch(`${BASE_URL}/api/dinner`)
-            .then(res=>res.json())
-            .then(json=>setDinnerItems(json))
-            .catch(err=>console.log(err))
-        setArchiveLength(dinnerItems.filter(item=>item.sequence == 0).length)
-    }
-    
-    useEffect(()=>getDinnerItems(),[])
     
     return(
         <>
@@ -58,10 +46,10 @@ export default function ManagerPageEdit(props){
                 <div id='manager-page-menu-top-left' style={{maxWidth:'50%'}}>
 
                     <div id='manager-page-meats' style={{border:'1px solid black',padding:'3px',margin:'3px'}}>
-                        {dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
+                        {props.dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).map(data=>{
                             return <ManagerDinnerMenuItem   data={data}
-                                                            sectionLength={dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).length}
-                                                            getDinnerItems={()=>getDinnerItems()}
+                                                            sectionLength={props.dinnerItems.filter(item=>item.section == 'Meats' && item.sequence).length}
+                                                            getDinnerItems={()=>props.getDinnerItems()}
                                                             deleteDinnerMenuItem={()=>deletDinnerMenuItem(data._id,data.name)}
                                                             editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
                                                             key={data._id}
@@ -71,10 +59,10 @@ export default function ManagerPageEdit(props){
                     </div>{/* #manager-page-meats */}
 
                     <div id='manager-page-appetizers'>
-                        {dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).map(data=>{
+                        {props.dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).map(data=>{
                             return <ManagerDinnerMenuItem   data={data}
-                                                            sectionLength={dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).length}
-                                                            getDinnerItems={()=>getDinnerItems()}
+                                                            sectionLength={props.dinnerItems.filter(item=>item.section == 'Appetizers' && item.sequence).length}
+                                                            getDinnerItems={()=>props.getDinnerItems()}
                                                             deleteDinnerMenuItem={()=>deletDinnerMenuItem(data._id,data.name)}
                                                             editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
                                                             key={data._id}
@@ -87,10 +75,10 @@ export default function ManagerPageEdit(props){
                 <div id='manager-page-menu-top-right' style={{maxWidth:'50%'}}>
 
                     <div id='manager-page-entrées'>
-                        {dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
+                        {props.dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).map(data=>{
                             return <ManagerDinnerMenuItem   data={data}
-                                                            sectionLength={dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
-                                                            getDinnerItems={()=>getDinnerItems()}
+                                                            sectionLength={props.dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
+                                                            getDinnerItems={()=>props.getDinnerItems()}
                                                             deleteDinnerMenuItem={()=>deletDinnerMenuItem(data._id,data.name)}
                                                             editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
                                                             key={data._id}
@@ -109,11 +97,11 @@ export default function ManagerPageEdit(props){
             <h2>sides</h2>
             <div id='manager-page-menu-bottom' style={{padding:'3px',margin:'3px',border:'1px solid black'}}>
                 <div id='manager-page-sides' style={{display:'flex',flexWrap:'wrap'}}>
-                        {dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
+                        {props.dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
                             return  <div key={data._id} style={{width:'50%'}}>
                                         <ManagerDinnerMenuItem  data={data}
-                                                                sectionLength={dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
-                                                                getDinnerItems={()=>getDinnerItems()}
+                                                                sectionLength={props.dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
+                                                                getDinnerItems={()=>props.getDinnerItems()}
                                                                 deleteDinnerMenuItem={()=>deletDinnerMenuItem(data._id,data.name)}
                                                                 editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
                                                                 // key={data._id}

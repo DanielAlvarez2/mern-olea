@@ -45,6 +45,8 @@ export default function Manager(){
                 <main>
                     
                     {editMode ? <ManagerPageEdit    flipToggle={()=>flipToggle()}
+                                                    dinnerItems={dinnerItems} 
+                                                    getDinnerItems={()=>getDinnerItems()}
                                                     showForm={()=>showForm()}
                                                     editMode={editMode} /> : 
                                 <ManagerPagePrint flipToggle={()=>flipToggle()} />}
