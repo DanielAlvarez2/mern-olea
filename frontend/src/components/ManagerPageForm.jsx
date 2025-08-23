@@ -2,7 +2,7 @@ import './ManagerPageForm.css'
 import {useState} from 'react'
 import { AiTwotoneCloseCircle } from "react-icons/ai";
 
-export default function ManagerPageForm(){
+export default function ManagerPageForm(props){
 
     const BASE_URL =    (process.env.NODE_ENV == 'production') ?
                         'https://mern-olea.onrender.com' : 
@@ -53,7 +53,7 @@ export default function ManagerPageForm(){
                                                     cloudinary_public_id: cloudinary_assigned_public_id
                                                 })
         }).then(alert(`Added: ${formData.get('name')}`))
-          .then(async()=>getDinnerItems())
+          .then(async()=>props.getDinnerItems())
           .catch(err=>console.log(err))
 
         clearForm()

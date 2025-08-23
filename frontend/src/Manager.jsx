@@ -11,6 +11,18 @@ export default function Manager(){
                         'https://mern-olea.onrender.com' : 
                         'http://localhost:1435'
 
+    const [dinnerItems, setDinnerItems] = useState([])
+    const [archiveLength, setArchiveLength] = useState(0)
+
+    useEffect(()=>getDinnerItems(),[])
+
+    const getDinnerItems = ()=>{
+        fetch(`${BASE_URL}/api/dinner`)
+            .then(res=>res.json())
+            .then(json=>setDinnerItems(json))
+            .catch(err=>console.log(err))
+        setArchiveLength(dinnerItems.filter(item=>item.sequence == 0).length)
+    }
 
     function flipToggle(){
         if (editMode){
@@ -39,7 +51,8 @@ export default function Manager(){
                 </main>
 
                 <div id='manager-page-form'>
-                    <ManagerPageForm />
+                    <ManagerPageForm    dinnerItems={dinnerItems} 
+                                        getDinnerItems={()=>getDinnerItems()} />
                 </div>
             </div>
         </>
