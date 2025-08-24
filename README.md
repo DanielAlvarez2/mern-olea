@@ -461,7 +461,8 @@ may take 48 hours for "oleademo.com" to work glitch-free
 *******************************************  
 OPTIMIZATIONS  
 *******************************************  
-
+  
+is image data being sent to server first/should be only url's  
 confirm input fields with maxLength of 500 working    
 add meta tags in index.html with keywords  
 conditionally render using a state variable 2 different toggle switch images  
@@ -496,3 +497,5 @@ daily specials viewable online
 initially: don't write any text with the QR-Code. Only have servers explain it when needed  
 show bug fix on top nav transition sizes from desktop to mobile WAS poorly designed  
 show improvement of open table section position:sticky fixes awkward EMPTY right half of screen  
+Andrea: "Japanese" scallops  
+everyone can proof-read online without printing paper copies  
