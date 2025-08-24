@@ -462,6 +462,7 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
   
+make manager heading +item position:sticky  
 check if form resets automatically without using clearForm()  
 center 5th side dish  
 useContect() for BASE_URL  
