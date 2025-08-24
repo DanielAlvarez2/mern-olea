@@ -116,8 +116,8 @@ export default function ManagerPageEdit(props){
             
 
 
-
-            <h2>Archive</h2>
+            {props.dinnerItems.filter(item=>item.sequence == 0).length != 0 && <h2>Archive</h2>}
+            
             {props.dinnerItems.filter(item=>item.sequence == 0).map(data=>{
                             return  <div key={data._id} style={{width:'50%'}}>
                                         <ManagerDinnerMenuItem  data={data}

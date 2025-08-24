@@ -31,6 +31,12 @@ export default function ManagerDinnerMenuItem(props){
         }else{return}
     }
 
+    function UNarchiveDinnerMenuItem(id,name){
+        fetch(`${BASE_URL}/api/unarchive/${id}`,{method:'PUT'})
+            .then(res=>res.json(`Item Archived: ${name}`))
+            .then(()=>props.getDinnerItems())
+            .catch(err=>console.log(err))      
+    }
 
     return(
         <div><br/>
@@ -52,16 +58,27 @@ export default function ManagerDinnerMenuItem(props){
             <span id='manager-edit-buttons' style={{  display:'flex',
                             justifyContent:'space-between',
                             maxWidth:'1.5in'}}>
-                <button style={{fontSize:'9px',
-                                background:'blue',
-                                color:'white',
-                                margin:'0',
-                                padding:'0.5em 0.25em'}}>EDIT</button>
-                <button onClick={()=>archiveDinnerMenuItem(props.data._id,props.data.name)}
-                        style={{fontSize:'9px',
-                                background:'yellow',
-                                margin:'0',
-                                padding:'0.5em 0.25em'}}>ARCHIVE</button>
+                {props.data.sequence != 0 && 
+                    <button style={{fontSize:'9px',
+                                    background:'blue',
+                                    color:'white',
+                                    margin:'0',
+                                    padding:'0.5em 0.25em'}}>EDIT</button>
+                }
+                {props.data.sequence == 0 ? <>
+                                                <button onClick={()=>UNarchiveDinnerMenuItem(props.data._id)}
+                                                        style={{fontSize:'9px',
+                                                                background:'yellow',
+                                                                margin:'0',
+                                                                padding:'0.5em 0.25em'}}>UNARCHIVE</button>                                            </> : 
+                                            <>
+                                                <button onClick={()=>archiveDinnerMenuItem(props.data._id,props.data.name)}
+                                                        style={{fontSize:'9px',
+                                                                background:'yellow',
+                                                                margin:'0',
+                                                                padding:'0.5em 0.25em'}}>ARCHIVE</button>                            
+                                            </>}
+                
                 <button onClick={()=>deleteDinnerMenuItem(props.data._id,props.data.name)}
                         style={{fontSize:'9px',
                                 background:'red',
