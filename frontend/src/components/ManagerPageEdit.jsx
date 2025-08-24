@@ -113,6 +113,24 @@ export default function ManagerPageEdit(props){
                 </div>{/* #manager-page-sides */}
             </div>{/* #manager-page-menu-bottom */}
             <br/>
+            
+
+
+
+            <h2>Archive</h2>
+            {props.dinnerItems.filter(item=>item.sequence == 0).map(data=>{
+                            return  <div key={data._id} style={{width:'50%'}}>
+                                        <ManagerDinnerMenuItem  data={data}
+                                                                sectionLength={props.dinnerItems.filter(item=>item.section == 'Entrées' && item.sequence).length}
+                                                                getDinnerItems={()=>props.getDinnerItems()}
+                                                                deleteDinnerMenuItem={()=>deletDinnerMenuItem(data._id,data.name)}
+                                                                editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
+                                                                // key={data._id}
+                                                                editMode={props.editMode} 
+                                        />
+                                    </div>
+                            
+                        })}
         </>
     )
 }

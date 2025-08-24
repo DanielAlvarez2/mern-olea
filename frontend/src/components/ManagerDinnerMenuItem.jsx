@@ -10,15 +10,27 @@ export default function ManagerDinnerMenuItem(props){
         ${name}`)
         // ABOVE: empty line is intentional. Do not remove!!!
         if (doubleCheck){
-        fetch(`${BASE_URL}/api/dinner/${id}`,{method:'DELETE'})
-            .then(res=>res.json(`Item Deleted from Database`))
-            .then(()=>props.getDinnerItems())
-            .catch(err=>console.log(err))      
-    }else{
-      return
+            fetch(`${BASE_URL}/api/dinner/${id}`,{method:'DELETE'})
+                .then(res=>res.json(`Item Deleted from Database`))
+                .then(()=>props.getDinnerItems())
+                .catch(err=>console.log(err))      
+        }else{return}
     }
 
-  }
+    function archiveDinnerMenuItem(id,name){
+        // BELOW: empty line is intentional. Do not remove!!!
+        let doubleCheck = confirm(`Are you sure you want to archive:
+        
+        ${name}`)
+        // ABOVE: empty line is intentional. Do not remove!!!
+        if (doubleCheck){
+            fetch(`${BASE_URL}/api/archive/${id}`,{method:'PUT'})
+                .then(res=>res.json(`Item Archived: ${name}`))
+                .then(()=>props.getDinnerItems())
+                .catch(err=>console.log(err))      
+        }else{return}
+    }
+
 
     return(
         <div><br/>
@@ -45,7 +57,8 @@ export default function ManagerDinnerMenuItem(props){
                                 color:'white',
                                 margin:'0',
                                 padding:'0.5em 0.25em'}}>EDIT</button>
-                <button style={{fontSize:'9px',
+                <button onClick={()=>archiveDinnerMenuItem(props.data._id,props.data.name)}
+                        style={{fontSize:'9px',
                                 background:'yellow',
                                 margin:'0',
                                 padding:'0.5em 0.25em'}}>ARCHIVE</button>

@@ -462,6 +462,8 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
   
+center 5th side dish  
+useContect() for BASE_URL  
 is image data being sent to server first/should be only url's  
 confirm input fields with maxLength of 500 working    
 add meta tags in index.html with keywords  

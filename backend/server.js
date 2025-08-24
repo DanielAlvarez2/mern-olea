@@ -91,8 +91,10 @@ app.delete('/api/dinner/:id', async(req,res)=>{
     try{
         const target = await DinnerMenuItem.findById(req.params.id)
         const max = await DinnerMenuItem.findOne({section:target.section}).sort({sequence:-1})
-        for(let i=target.sequence;i<=max.sequence;i++){
-            await DinnerMenuItem.findOneAndUpdate({section:target.section,sequence:i},{sequence:i-1})
+        if(target.sequence){
+            for(let i=target.sequence;i<=max.sequence;i++){
+                await DinnerMenuItem.findOneAndUpdate({section:target.section,sequence:i},{sequence:i-1})
+            }
         }
         if (target.cloudinary_public_id){
             cloudinary.uploader.destroy(target.cloudinary_public_id,(err,result)=>{
@@ -246,6 +248,15 @@ app.get('/api/moveDown/:id', async(req,res)=>{
 })
 
 app.get('/api/archive/:id', async(req,res)=>{
+    const target = await DinnerMenuItem.findById(req.params.id)
+    const sectionLast = await DinnerMenuItem.findOne({section:target.section}).sort({sequence:-1})
+    for (let i=target.sequence+1;i<=sectionLast.sequence;i++){
+        await DinnerMenuItem.findOneAndUpdate({section:target.section,sequence:i},{sequence:i-1})
+    }
+    await DinnerMenuItem.findByIdAndUpdate({_id:target._id},{sequence:0})
+    res.json(`${target.name} has been Archived`)
+})
+app.put('/api/archive/:id', async(req,res)=>{
     const target = await DinnerMenuItem.findById(req.params.id)
     const sectionLast = await DinnerMenuItem.findOne({section:target.section}).sort({sequence:-1})
     for (let i=target.sequence+1;i<=sectionLast.sequence;i++){
