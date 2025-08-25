@@ -1,5 +1,6 @@
 import './ManagerDinnerMenuItem.css'
 import { FaCamera } from "react-icons/fa"
+import { AiTwotoneCloseCircle } from "react-icons/ai"
 
 export default function ManagerDinnerMenuItem(props){
     const BASE_URL =    (process.env.NODE_ENV == 'production') ?
@@ -44,13 +45,26 @@ export default function ManagerDinnerMenuItem(props){
     function showPhoto(){
 
     }
+
+    function closeModal(id){
+        document.querySelector(`#photo-${id}`).style.display = 'none'
+    }
     return(
         <div><br/>
             {props.data.cloudinary_url && <FaCamera style={{cursor:'pointer'}}
                                                     size={20}
                                                     onClick={()=>alert('photo')} />}
             <div className='photo-modal' id={`photo-${props.data._id}`}>
-                x
+                <AiTwotoneCloseCircle   size={40}
+                                        onClick={()=>closeModal(props.data._id)} 
+                                        style={{position:'absolute',
+                                                top:'0',
+                                                right:'0',
+                                                cursor:'pointer'}} />
+                <div>
+                    <img className='modal-pic' src={props.data.cloudinary_url} /><br/>
+                    {props.data.name}
+                </div>
             </div>
             <div style={{display:'flex',flexWrap:'wrap',alignItems:'center'}}>
                 <span className='name'>{props.data.name}&nbsp;</span>

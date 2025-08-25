@@ -12,3 +12,7 @@
     display:grid;
     place-content: center;
 }
+.modal-pic{
+    max-height: 75vh;
+    max-width: 75vw;
+}
