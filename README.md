@@ -464,7 +464,6 @@ OPTIMIZATIONS
   
 make manager heading +item position:sticky  
 check if form resets automatically without using clearForm()  
-center 5th side dish  
 useContect() for BASE_URL  
 is image data being sent to server first/should be only url's  
 confirm input fields with maxLength of 500 working    

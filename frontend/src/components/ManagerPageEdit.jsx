@@ -94,9 +94,12 @@ export default function ManagerPageEdit(props){
                 </div>{/* #manager-page-menu-top-right */}            
 
             </div>{/* #manager-page-menu-top */}
+
+
             <h2>sides</h2>
+            
             <div id='manager-page-menu-bottom' style={{padding:'3px',margin:'3px',border:'1px solid black'}}>
-                <div id='manager-page-sides' style={{display:'flex',flexWrap:'wrap'}}>
+                <div id='manager-page-sides' style={{display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
                         {props.dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
                             return  <div key={data._id} style={{width:'50%'}}>
                                         <ManagerDinnerMenuItem  data={data}

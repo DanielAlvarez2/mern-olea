@@ -440,6 +440,15 @@ export default function Admin() {
 
             </div>{/* #admin-dinner-menu-top */}
 
+
+
+
+
+
+
+
+
+
             <h2 style={{paddingLeft:whitespaceHorizontal,fontSize:'25px',fontWeight:'900'}}>sides</h2>
             <div id='admin-dinner-menu-sides'>
                 {dinnerItems.filter(item=>item.section == 'Sides' && item.sequence).map(data=>{
