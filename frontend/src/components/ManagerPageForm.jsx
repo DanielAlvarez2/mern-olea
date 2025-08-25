@@ -52,18 +52,12 @@ export default function ManagerPageForm(props){
                                                     cloudinary_url: cloudinary_assigned_url,
                                                     cloudinary_public_id: cloudinary_assigned_public_id
                                                 })
-        }).then(alert(`Added: ${formData.get('name')}`))
+        }).then(async()=>alert(`Added: ${formData.get('name')}`))
           .then(async()=>props.getDinnerItems())
           .catch(err=>console.log(err))
 
         clearForm() 
         // React19 automatically clears forms when submitted, but previewImage still needs to be reset
-        document.querySelector('#manager-page-form-submit-button').style.color = 'black'
-        document.querySelector('#manager-page-form-submit-button').textContent = 'Add Item'
-        document.querySelector('#manager-page-form-submit-button').disabled = false
-        document.querySelector('#manager-page-form-submit-button').style.cursor = 'pointer'
-        document.querySelector('#manager-page-form-submit-button').style.background = 'lightgreen'
-
     }
 
     function editDinnerItem(id){
@@ -81,6 +75,11 @@ export default function ManagerPageForm(props){
             document.querySelector('#manager-page-preview-upload').value = ''
         }
         setPreviewImage('')
+                document.querySelector('#manager-page-form-submit-button').style.color = 'black'
+        document.querySelector('#manager-page-form-submit-button').textContent = 'Add Item'
+        document.querySelector('#manager-page-form-submit-button').disabled = false
+        document.querySelector('#manager-page-form-submit-button').style.cursor = 'pointer'
+        document.querySelector('#manager-page-form-submit-button').style.background = 'lightgreen'
     }
 
     function exitForm(){

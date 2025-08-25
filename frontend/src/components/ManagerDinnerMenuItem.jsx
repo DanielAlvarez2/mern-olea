@@ -1,3 +1,5 @@
+import { FaCamera } from "react-icons/fa"
+
 export default function ManagerDinnerMenuItem(props){
     const BASE_URL =    (process.env.NODE_ENV == 'production') ?
                         'https://mern-olea.onrender.com' : 
@@ -40,6 +42,8 @@ export default function ManagerDinnerMenuItem(props){
 
     return(
         <div><br/>
+            {props.data.cloudinary_url && <FaCamera />}
+            
             <div style={{display:'flex',flexWrap:'wrap',alignItems:'center'}}>
                 <span className='name'>{props.data.name}&nbsp;</span>
                 
