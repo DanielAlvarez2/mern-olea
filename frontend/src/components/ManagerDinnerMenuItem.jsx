@@ -1,3 +1,4 @@
+import './ManagerDinnerMenuItem.css'
 import { FaCamera } from "react-icons/fa"
 
 export default function ManagerDinnerMenuItem(props){
@@ -40,10 +41,17 @@ export default function ManagerDinnerMenuItem(props){
             .catch(err=>console.log(err))      
     }
 
+    function showPhoto(){
+
+    }
     return(
         <div><br/>
-            {props.data.cloudinary_url && <FaCamera />}
-            
+            {props.data.cloudinary_url && <FaCamera style={{cursor:'pointer'}}
+                                                    size={20}
+                                                    onClick={()=>alert('photo')} />}
+            <div className='photo-modal' id={`photo-${props.data._id}`}>
+                x
+            </div>
             <div style={{display:'flex',flexWrap:'wrap',alignItems:'center'}}>
                 <span className='name'>{props.data.name}&nbsp;</span>
                 

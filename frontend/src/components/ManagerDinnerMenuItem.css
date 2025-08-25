@@ -1,3 +1,14 @@
 #manager-edit-buttons button{
     font-size:5px !important;
 }
+.photo-modal{
+    background:orange;
+    inset:0;
+    position:fixed;
+    width:100%;
+    min-height:100vh;
+    color:blue;
+    border:1px solid black;
+    display:grid;
+    place-content: center;
+}
