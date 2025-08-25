@@ -42,8 +42,8 @@ export default function ManagerDinnerMenuItem(props){
             .catch(err=>console.log(err))      
     }
 
-    function showPhoto(){
-
+    function showPhoto(id){
+        document.querySelector(`#photo-${id}`).style.display = 'grid'
     }
 
     function closeModal(id){
@@ -53,7 +53,7 @@ export default function ManagerDinnerMenuItem(props){
         <div><br/>
             {props.data.cloudinary_url && <FaCamera style={{cursor:'pointer'}}
                                                     size={20}
-                                                    onClick={()=>alert('photo')} />}
+                                                    onClick={()=>showPhoto(props.data._id)} />}
             <div className='photo-modal' id={`photo-${props.data._id}`}>
                 <AiTwotoneCloseCircle   size={40}
                                         onClick={()=>closeModal(props.data._id)} 

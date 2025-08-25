@@ -9,7 +9,7 @@
     min-height:100vh;
     color:blue;
     border:1px solid black;
-    display:grid;
+    display:none;
     place-content: center;
 }
 .modal-pic{
