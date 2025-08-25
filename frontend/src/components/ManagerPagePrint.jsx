@@ -3,7 +3,7 @@ import { FaToggleOff } from "react-icons/fa6"
 export default function ManagerPagePrint(props){
     return(
         <>
-            <header id='manager-page-header'>                        
+            <header className='manager-page-header'>                        
                 <h1 id='manager'>MANAGER</h1>
                                     
                 <span id='toggle-menu'>

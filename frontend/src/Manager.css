@@ -7,11 +7,12 @@
     min-height:100vh;
     min-height:100svh;
     background:lightgrey;
+    position:relative;
 }
 #manager{
     display:inline-block;
 }
-#manager-page-header{
+.manager-page-header{
     display:flex;
     width:100%;
     justify-content: space-between;
@@ -41,7 +42,7 @@ button{
     #manager-page-form,
     #manager-page-form form,
     #manager-page-wrapper main,
-    #manager-page-header{
+    .manager-page-header{
         width:100% !important;
     }
     #manager-page-form form{
@@ -50,7 +51,7 @@ button{
     }
 }
 @media (max-width:500px){
-    #manager-page-header{
+    .manager-page-header{
         flex-direction: column;
     }
 }

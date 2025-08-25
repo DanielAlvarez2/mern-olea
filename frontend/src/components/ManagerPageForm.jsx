@@ -56,7 +56,8 @@ export default function ManagerPageForm(props){
           .then(async()=>props.getDinnerItems())
           .catch(err=>console.log(err))
 
-        clearForm()
+        clearForm() 
+        // React19 automatically clears forms when submitted, but previewImage still needs to be reset
         document.querySelector('#manager-page-form-submit-button').style.color = 'black'
         document.querySelector('#manager-page-form-submit-button').textContent = 'Add Item'
         document.querySelector('#manager-page-form-submit-button').disabled = false

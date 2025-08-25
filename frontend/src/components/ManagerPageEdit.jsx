@@ -11,7 +11,7 @@ export default function ManagerPageEdit(props){
     
     return(
         <>
-            <header id='manager-page-header'>                        
+            <header className='manager-page-header' style={{position:'fixed'}} >                        
                 <h1 id='manager'>MANAGER</h1>
                                     
                 <span id='toggle-menu'>
@@ -39,7 +39,7 @@ export default function ManagerPageEdit(props){
 
 
 
-            <div className='logo'>olea</div>
+            <div className='logo' style={{paddingTop:'60px'}}>olea</div>
             <hr/><br/>
 
             <div id='manager-page-menu-top' style={{display:'flex',flexWrap:'wrap',width:'100%'}}>

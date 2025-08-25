@@ -462,16 +462,15 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
   
-make manager heading +item position:sticky  
+add camera icon to menu items that have a photo  
 check if form resets automatically without using clearForm()  
-useContect() for BASE_URL  
+useContext() for BASE_URL  
 is image data being sent to server first/should be only url's  
 confirm input fields with maxLength of 500 working    
 add meta tags in index.html with keywords  
 conditionally render using a state variable 2 different toggle switch images  
 make sure img 's in menu are bound within page-wrapper  
 make form responsive / 2-columns on desktop mode  
-make form into REUSABLE component  
 rename /admin to /print < Admin /> to < Print />  
 [button spinners while uploading w/react19](https://www.youtube.com/watch?v=81uAxzeyL2I)   
 same video as above: change < title> for each page / good for SEO  

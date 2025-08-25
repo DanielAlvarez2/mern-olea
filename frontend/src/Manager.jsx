@@ -39,6 +39,8 @@ export default function Manager(){
     }
 
     const [editMode, setEditMode] = useState(true)
+
+    
     return(
         <>
             <div className='page-wrapper' id='manager-page-wrapper'>
