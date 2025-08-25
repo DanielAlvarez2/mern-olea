@@ -66,21 +66,33 @@ export default function ManagerDinnerMenuItem(props){
                     {props.data.name}
                 </div>
             </div>
-            <div style={{display:'flex',flexWrap:'wrap',alignItems:'center'}}>
-                <span className='name'>{props.data.name}&nbsp;</span>
-                
-                {props.data.allergies &&    <>
-                                                <span className='allergies'>({props.data.allergies})</span>
-                                            </>}
-            </div>
             
-            {props.data.preDescription &&   <>
-                                                <span className='pre-description'>{props.data.preDescription};&nbsp;</span>
-                                            </>}
-            {props.data.description &&  <>
-                                            <span className="description">{props.data.description}</span>
-                                        </>}
-            <span className="price">&nbsp;&nbsp;{props.data.price}</span>
+            {props.data.name == 'jamón ibérico' ?  
+                <div style={{display:'flex',alignItems:'center',gap:'5px',flexWrap:'wrap'}}>
+                    <span className='name'>{props.data.name}</span>
+                    <span className='price'>{props.data.price}</span>
+                </div>
+            :   <>
+                    <div style={{display:'flex',flexWrap:'wrap',alignItems:'center'}}>
+                        <span className='name'>{props.data.name}&nbsp;</span>
+                        
+                        {props.data.allergies &&    <>
+                                                        <span className='allergies'>({props.data.allergies})</span>
+                                                    </>}
+                    </div>
+                    
+                    {props.data.preDescription &&   <>
+                                                        <span className='pre-description'>{props.data.preDescription};&nbsp;</span>
+                                                    </>}
+                    {props.data.description &&  <>
+                                                    <span className="description">{props.data.description}</span>
+                                                </>}
+                    <span className="price">&nbsp;&nbsp;{props.data.price}</span>
+                    {props.data.name == 'cochinillo' && <div style={{fontStyle:'italic'}}>(please allow 40 minutes cooking time)</div>}                                    
+                </>}
+
+            
+            
             <span id='manager-edit-buttons' style={{  display:'flex',
                             justifyContent:'space-between',
                             maxWidth:'1.5in'}}>
