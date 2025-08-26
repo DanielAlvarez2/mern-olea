@@ -63,7 +63,22 @@ export default function ManagerDinnerMenuItem(props){
               .catch(err=>console.log(err))
     }
 
-
+    function editButtonClick(   section,
+                                name,
+                                allergies,
+                                preDescription,
+                                description,
+                                price
+    ){
+        props.showForm()
+        document.querySelector('#manager-page-section-input').value = section
+        document.querySelector('#manager-page-name-input').value = name
+        document.querySelector('#manager-page-allergies-input').value = allergies
+        document.querySelector('#manager-page-mini-description-input').value = preDescription
+        document.querySelector('#manager-page-description-input').value = description
+        document.querySelector('#manager-page-description-input').value = description
+        document.querySelector('#manager-page-price-input').value = price
+    }
 
     return(
         <div><br/>
@@ -157,7 +172,13 @@ export default function ManagerDinnerMenuItem(props){
                             justifyContent:'space-between',
                             maxWidth:'1.5in'}}>
                 {props.data.sequence != 0 && 
-                    <button onClick={()=>props.showForm()} 
+                    <button onClick={()=>editButtonClick(   props.data.section, 
+                                                            props.data.name,
+                                                            props.data.allergies,
+                                                            props.data.preDescription,
+                                                            props.data.description,
+                                                            props.data.price
+                    )} 
                             style={{fontSize:'9px',
                                     background:'blue',
                                     color:'white',
