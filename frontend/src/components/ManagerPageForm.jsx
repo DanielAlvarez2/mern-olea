@@ -13,9 +13,14 @@ export default function ManagerPageForm(props){
 
     function handleFileInputChange(e){
         const file= e.target.files[0]
-        const reader = new FileReader()
-        reader.readAsDataURL(file) // converts binary image file to a string
-        reader.onloadend = ()=> setPreviewImage(reader.result)
+        if (file.size/1000000 > 5){
+            alert(`File size is too large.`)
+            document.querySelector('#manager-page-file-input').value = ''
+        }else{
+            const reader = new FileReader()
+            reader.readAsDataURL(file) // converts binary image file to a string
+            reader.onloadend = ()=> setPreviewImage(reader.result)
+        }
     }
 
     async function addDinnerItem(formData){
@@ -75,7 +80,7 @@ export default function ManagerPageForm(props){
             document.querySelector('#manager-page-preview-upload').value = ''
         }
         setPreviewImage('')
-                document.querySelector('#manager-page-form-submit-button').style.color = 'black'
+        document.querySelector('#manager-page-form-submit-button').style.color = 'black'
         document.querySelector('#manager-page-form-submit-button').textContent = 'Add Item'
         document.querySelector('#manager-page-form-submit-button').disabled = false
         document.querySelector('#manager-page-form-submit-button').style.cursor = 'pointer'

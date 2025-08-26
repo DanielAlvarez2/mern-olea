@@ -461,9 +461,7 @@ may take 48 hours for "oleademo.com" to work glitch-free
 *******************************************  
 OPTIMIZATIONS  
 *******************************************  
-  
-add camera icon to menu items that have a photo  
-check if form resets automatically without using clearForm()  
+   
 useContext() for BASE_URL  
 is image data being sent to server first/should be only url's  
 confirm input fields with maxLength of 500 working    
