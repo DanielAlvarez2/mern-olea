@@ -26,7 +26,8 @@ export default function ManagerPageEdit(props){
                 </span>
             
                 <span>
-                    <button onClick={props.showForm}>+ Item</button>
+                    <button onClick={()=>{  props.setEditForm(false)
+                                            props.showForm()}}>+ Item</button>
                 </span>
             </header>
             
@@ -55,6 +56,8 @@ export default function ManagerPageEdit(props){
                                                             editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
                                                             key={data._id}
                                                             editMode={props.editMode} 
+                                                            editForm={props.editForm}
+                                                            setEditForm={props.setEditForm}
                                     />
                         })}
                     </div>{/* #manager-page-meats */}
@@ -69,6 +72,8 @@ export default function ManagerPageEdit(props){
                                                             key={data._id}
                                                             showForm={()=>props.showForm()}
                                                             editMode={props.editMode} 
+                                                            editForm={props.editForm}
+                                                            setEditForm={props.setEditForm}
                                     />
                         })}
                     </div>{/* #manager-page-appetizers */}
@@ -86,6 +91,8 @@ export default function ManagerPageEdit(props){
                                                             key={data._id}
                                                             showForm={()=>props.showForm()}
                                                             editMode={props.editMode} 
+                                                            editForm={props.editForm}
+                                                            setEditForm={props.setEditForm}
                                     />
                         })}
                     </div>{/* #manager-page-entrées */}
@@ -113,6 +120,8 @@ export default function ManagerPageEdit(props){
                                                                 editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
                                                                 // key={data._id}
                                                                 editMode={props.editMode} 
+                                                                editForm={props.editForm}
+                                                                setEditForm={props.setEditForm}
                                         />
                                     </div>
                             
@@ -134,6 +143,8 @@ export default function ManagerPageEdit(props){
                                                                 editDinnerMenuItem={()=>editDinnerMenuItem(data._id)}
                                                                 // key={data._id}
                                                                 editMode={props.editMode} 
+                                                                editForm={props.editForm}
+                                                                setEditForm={props.setEditForm}
                                         />
                                     </div>
                             

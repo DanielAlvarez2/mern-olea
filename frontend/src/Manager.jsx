@@ -13,6 +13,8 @@ export default function Manager(){
 
     const [dinnerItems, setDinnerItems] = useState([])
     const [archiveLength, setArchiveLength] = useState(0)
+    const [editMode, setEditMode] = useState(true)
+    const [editForm, setEditForm] = useState(false)
 
     useEffect(()=>getDinnerItems(),[])
 
@@ -38,9 +40,8 @@ export default function Manager(){
         document.querySelector('#manager-page-wrapper main').style.display = 'none'
     }
 
-    const [editMode, setEditMode] = useState(true)
 
-    
+
     return(
         <>
             <div className='page-wrapper' id='manager-page-wrapper'>
@@ -50,12 +51,16 @@ export default function Manager(){
                                                     dinnerItems={dinnerItems} 
                                                     getDinnerItems={()=>getDinnerItems()}
                                                     showForm={()=>showForm()}
+                                                    editForm={editForm}
+                                                    setEditForm={setEditForm}
                                                     editMode={editMode} /> : 
                                 <ManagerPagePrint flipToggle={()=>flipToggle()} />}
                 </main>
 
                 <div id='manager-page-form'>
                     <ManagerPageForm    dinnerItems={dinnerItems} 
+                                        editForm={editForm}
+                                        setEditForm={setEditForm}
                                         getDinnerItems={()=>getDinnerItems()} />
                 </div>
             </div>

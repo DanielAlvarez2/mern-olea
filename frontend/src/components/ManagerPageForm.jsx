@@ -8,7 +8,6 @@ export default function ManagerPageForm(props){
                         'https://mern-olea.onrender.com' : 
                         'http://localhost:1435'
 
-    const [editForm, setEditForm] = useState(false)
     const [previewImage, setPreviewImage] = useState('')
 
     function handleFileInputChange(e){
@@ -97,7 +96,7 @@ export default function ManagerPageForm(props){
         <div id='manager-page-form-wrapper'>
 
         
-            <form action={editForm ? editDinnerItem : addDinnerItem}>
+            <form action={props.editForm ? editDinnerItem : addDinnerItem}>
                 <AiTwotoneCloseCircle   size={30} 
                                         onClick={exitForm}
                                         style={{position:'absolute',
@@ -105,7 +104,7 @@ export default function ManagerPageForm(props){
                                                 right:'10px',
                                                 top:'10px'}} />
                 <br/><br/>
-                <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
+                <h2>{props.editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
                 <label>
                     Section:&nbsp; 
@@ -183,7 +182,9 @@ export default function ManagerPageForm(props){
                 <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
                     
                     <button id='manager-page-form-submit-button' 
-                            style={{background:'lightgreen'}}>Add Item</button>
+                            style={{background: props.editForm ? 'lightblue' : 'lightgreen'}}>
+                                {props.editForm ? 'Update Item' : 'Add Item'}
+                    </button>
                     
                     <div    onClick={clearForm} 
                             className='btn'>Clear Form</div>

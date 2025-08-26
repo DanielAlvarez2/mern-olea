@@ -70,6 +70,7 @@ export default function ManagerDinnerMenuItem(props){
                                 description,
                                 price
     ){
+        props.setEditForm(true)
         props.showForm()
         document.querySelector('#manager-page-section-input').value = section
         document.querySelector('#manager-page-name-input').value = name
