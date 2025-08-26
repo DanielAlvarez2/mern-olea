@@ -56,7 +56,15 @@ export default function ManagerDinnerMenuItem(props){
               .then(()=>props.getDinnerItems())
               .catch(err=>console.log(err))
     }
-    
+
+    async function moveDown(id){
+      await fetch(`${BASE_URL}/api/moveDown/${id}`)
+              .then(()=>props.getDinnerItems())
+              .catch(err=>console.log(err))
+    }
+
+
+
     return(
         <div><br/>
             {props.data.sequence != '1' &&  <div style={{textAlign:'center'}}>
@@ -139,6 +147,15 @@ export default function ManagerDinnerMenuItem(props){
                                 margin:'0',
                                 padding:'0.5em 0.25em'}}>DELETE</button>
             </span>
+            
+            <div style={{textAlign:'center'}}>
+                <BiSolidUpArrow size={30} 
+                                onClick={()=>moveDown(props.data._id)}
+                                style={{color:'green',
+                                        transform:'rotate(180deg)',
+                                        cursor:'pointer'}} />
+            </div>
+            
             <br/>
         </div>
         
