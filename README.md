@@ -472,8 +472,7 @@ make form responsive / 2-columns on desktop mode
 rename /admin to /print < Admin /> to < Print />  
 [button spinners while uploading w/react19](https://www.youtube.com/watch?v=81uAxzeyL2I)   
 same video as above: change < title> for each page / good for SEO  
-pics page  
-check if file size too large BEFORE form submission / max 5mb?    
+pics page   
 mvc  
 clean up inline css  
 mobile view form for add / edit  

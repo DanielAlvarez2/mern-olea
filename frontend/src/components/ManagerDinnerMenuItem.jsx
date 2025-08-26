@@ -1,6 +1,7 @@
 import './ManagerDinnerMenuItem.css'
 import { FaCamera } from "react-icons/fa"
 import { AiTwotoneCloseCircle } from "react-icons/ai"
+import { BiSolidUpArrow } from "react-icons/bi"
 
 export default function ManagerDinnerMenuItem(props){
     const BASE_URL =    (process.env.NODE_ENV == 'production') ?
@@ -49,8 +50,22 @@ export default function ManagerDinnerMenuItem(props){
     function closeModal(id){
         document.querySelector(`#photo-${id}`).style.display = 'none'
     }
+
+    async function moveUp(id){
+      await fetch(`${BASE_URL}/api/moveUp/${id}`)
+              .then(()=>props.getDinnerItems())
+              .catch(err=>console.log(err))
+    }
+    
     return(
         <div><br/>
+            {props.data.sequence != '1' &&  <div style={{textAlign:'center'}}>
+                                                <BiSolidUpArrow size={30} 
+                                                                onClick={()=>moveUp(props.data._id)}
+                                                                style={{color:'green',
+                                                                        cursor:'pointer'}} />
+                                            </div>}
+            
             {props.data.cloudinary_url && <FaCamera style={{cursor:'pointer'}}
                                                     size={20}
                                                     onClick={()=>showPhoto(props.data._id)} />}
