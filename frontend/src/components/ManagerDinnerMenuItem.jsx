@@ -113,10 +113,19 @@ export default function ManagerDinnerMenuItem(props){
                                                 right:'0',
                                                 cursor:'pointer'}} />
                 <div>
-                    <img className='modal-pic' src={props.data.cloudinary_url} /><br/>
-                    {props.data.name}
+                    <figure>
+                        <img className='modal-pic' src={props.data.cloudinary_url} />
+                        <figcaption>
+                            {props.data.name}
+                            {props.data.allergies}<br/>
+                            {props.data.preDescription}
+                            {props.data.description}
+                            {props.data.price}
+                        </figcaption>
+                    </figure>
+
                 </div>
-            </div>
+            </div>{/* .photo-modal */}
             
             {props.data.name == 'jamón ibérico' ?  
                 <div style={{display:'flex',alignItems:'center',gap:'5px',flexWrap:'wrap'}}>
@@ -148,7 +157,8 @@ export default function ManagerDinnerMenuItem(props){
                             justifyContent:'space-between',
                             maxWidth:'1.5in'}}>
                 {props.data.sequence != 0 && 
-                    <button style={{fontSize:'9px',
+                    <button onClick={()=>alert('Edit Item')} 
+                            style={{fontSize:'9px',
                                     background:'blue',
                                     color:'white',
                                     margin:'0',

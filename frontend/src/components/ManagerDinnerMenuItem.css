@@ -9,8 +9,16 @@
     border:1px solid black;
     display:none;
     place-content: center;
+    z-index: 100;
 }
 .modal-pic{
     max-height: 75vh;
     max-width: 75vw;
+}
+figure{
+    display:table;
+}
+figcaption{
+    display:table-caption;
+    caption-side: bottom;
 }
