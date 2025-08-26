@@ -157,7 +157,7 @@ export default function ManagerDinnerMenuItem(props){
                             justifyContent:'space-between',
                             maxWidth:'1.5in'}}>
                 {props.data.sequence != 0 && 
-                    <button onClick={()=>alert('Edit Item')} 
+                    <button onClick={()=>props.showForm()} 
                             style={{fontSize:'9px',
                                     background:'blue',
                                     color:'white',
