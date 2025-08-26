@@ -67,12 +67,40 @@ export default function ManagerDinnerMenuItem(props){
 
     return(
         <div><br/>
-            {props.data.sequence != '1' &&  <div style={{textAlign:'center'}}>
-                                                <BiSolidUpArrow size={30} 
-                                                                onClick={()=>moveUp(props.data._id)}
-                                                                style={{color:'green',
-                                                                        cursor:'pointer'}} />
-                                            </div>}
+            {props.data.section == 'Sides' && 
+                <div style={{display:'flex',justifyContent:'space-between'}}>
+                     {props.data.sequence != '1' ? 
+                        <BiSolidUpArrow size={30} 
+                                        onClick={()=>moveUp(props.data._id)}
+                                        style={{color:'green',
+                                                transform:'rotate(-90deg)',
+                                                cursor:'pointer'}} />
+                     : 
+                        <span></span>
+                     }
+                    
+                                    
+                    {props.data.sequence != props.sectionLength ? 
+                    <BiSolidUpArrow size={30} 
+                                    onClick={()=>moveDown(props.data._id)}
+                                    style={{color:'green',
+                                            transform:'rotate(90deg)',
+                                            cursor:'pointer'}} />
+                    
+                    :
+                        <span></span>
+                    }
+                    
+                </div>
+            }
+            {props.data.sequence != '1' && props.data.section != 'Sides' &&  
+                <div style={{textAlign:'center'}}>
+                    <BiSolidUpArrow size={30} 
+                                    onClick={()=>moveUp(props.data._id)}
+                                    style={{color:'green',
+                                            cursor:'pointer'}} />
+                </div>
+            }
             
             {props.data.cloudinary_url && <FaCamera style={{cursor:'pointer'}}
                                                     size={20}
@@ -148,13 +176,15 @@ export default function ManagerDinnerMenuItem(props){
                                 padding:'0.5em 0.25em'}}>DELETE</button>
             </span>
             
-            <div style={{textAlign:'center'}}>
-                <BiSolidUpArrow size={30} 
-                                onClick={()=>moveDown(props.data._id)}
-                                style={{color:'green',
-                                        transform:'rotate(180deg)',
-                                        cursor:'pointer'}} />
-            </div>
+            {props.data.section != 'Sides' && props.data.sequence != props.sectionLength &&
+                <div style={{textAlign:'center'}}>
+                    <BiSolidUpArrow size={30} 
+                                    onClick={()=>moveDown(props.data._id)}
+                                    style={{color:'green',
+                                            transform:'rotate(180deg)',
+                                            cursor:'pointer'}} />
+                </div>
+            }
             
             <br/>
         </div>
