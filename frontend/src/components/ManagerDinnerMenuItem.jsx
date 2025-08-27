@@ -144,6 +144,8 @@ export default function ManagerDinnerMenuItem(props){
                             <span className='pre-description'>{props.data.preDescription}; </span>
                             <span className='description'>{props.data.description}</span>
                             <span className='price'>&nbsp;&nbsp;{props.data.price}</span>
+                            {props.data.name == 'cochinillo' && 
+                                <div style={{fontStyle:'italic'}}>(please allow 40 minutes cooking time)</div>}
                         </figcaption>
                     </figure>
 
