@@ -63,7 +63,10 @@ export default function ManagerDinnerMenuItem(props){
               .catch(err=>console.log(err))
     }
 
-    function editButtonClick(   section,
+    function editButtonClick(   id,
+                                cloudinary_url,
+                                cloudinary_public_id,
+                                section,
                                 name,
                                 allergies,
                                 preDescription,
@@ -72,6 +75,10 @@ export default function ManagerDinnerMenuItem(props){
     ){
         props.setEditForm(true)
         props.showForm()
+        document.querySelector('#manager-page-id-input').value = id
+        document.querySelector('#manager-page-existing-cloudinary-url').value = cloudinary_url
+        cloudinary_url && setOldPic(true)
+        document.querySelector('#manager-page-existing-cloudinary-public-id').value = cloudinary_public_id
         document.querySelector('#manager-page-section-input').value = section
         document.querySelector('#manager-page-name-input').value = name
         document.querySelector('#manager-page-allergies-input').value = allergies
@@ -132,11 +139,11 @@ export default function ManagerDinnerMenuItem(props){
                     <figure>
                         <img className='modal-pic' src={props.data.cloudinary_url} />
                         <figcaption>
-                            {props.data.name}
-                            {props.data.allergies}<br/>
-                            {props.data.preDescription}
-                            {props.data.description}
-                            {props.data.price}
+                            <span className='name'>{props.data.name}</span>
+                            <span className='allergies'> ({props.data.allergies})</span><br/>
+                            <span className='pre-description'>{props.data.preDescription}; </span>
+                            <span className='description'>{props.data.description}</span>
+                            <span className='price'>&nbsp;&nbsp;{props.data.price}</span>
                         </figcaption>
                     </figure>
 
@@ -169,11 +176,16 @@ export default function ManagerDinnerMenuItem(props){
 
             
             
-            <span id='manager-edit-buttons' style={{  display:'flex',
+            <span   id='manager-edit-buttons' 
+                    style={{display:'flex',
                             justifyContent:'space-between',
                             maxWidth:'1.5in'}}>
+                
                 {props.data.sequence != 0 && 
-                    <button onClick={()=>editButtonClick(   props.data.section, 
+                    <button onClick={()=>editButtonClick(   props.data._id,
+                                                            props.data.cloudinary_url,
+                                                            props.data.cloudinary_public_id,
+                                                            props.data.section, 
                                                             props.data.name,
                                                             props.data.allergies,
                                                             props.data.preDescription,
@@ -186,6 +198,7 @@ export default function ManagerDinnerMenuItem(props){
                                     margin:'0',
                                     padding:'0.5em 0.25em'}}>EDIT</button>
                 }
+                
                 {props.data.sequence == 0 ? <>
                                                 <button onClick={()=>UNarchiveDinnerMenuItem(props.data._id)}
                                                         style={{fontSize:'9px',

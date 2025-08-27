@@ -9,6 +9,10 @@ export default function ManagerPageForm(props){
                         'http://localhost:1435'
 
     const [previewImage, setPreviewImage] = useState('')
+    const [oldPic,setOldPic] = useState(false)
+    const [oldPicURL, setOldPicURL] = useState('')
+    const [oldPicID, setOldPicID] = useState('')
+
 
     function handleFileInputChange(e){
         const file= e.target.files[0]
@@ -64,7 +68,7 @@ export default function ManagerPageForm(props){
         // React19 automatically clears forms when submitted, but previewImage still needs to be reset
     }
 
-    function editDinnerItem(id){
+    function editDinnerItem(formData){
 
     }
 
@@ -105,6 +109,19 @@ export default function ManagerPageForm(props){
                                                 top:'10px'}} />
                 <br/><br/>
                 <h2>{props.editForm ? 'Edit' : 'Create New'} Item</h2><br/>
+
+                <input  type='hidden' 
+                        name='id' 
+                        id='manager-page-id-input' 
+                        value='' />
+                <input  type='hidden' 
+                        name='manager-page-existing-cloudinary-url' 
+                        id='manager-page-existing-cloudinary-url'
+                        value='' />
+                <input  type='hidden' 
+                        name='manager-page-existing-cloudinary-public-id' 
+                        id='manager-page-existing-cloudinary-public-id'
+                        value='' />
 
                 <label>
                     Section:&nbsp; 

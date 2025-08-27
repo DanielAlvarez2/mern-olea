@@ -546,7 +546,10 @@ export default function Admin() {
                   id='admin-form'>
               <h2>{editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
-              <input type='hidden' name='id' id='admin-page-id-input' />
+              <input  type='hidden' 
+                      name='id' 
+                      id='admin-page-id-input' 
+                      value='' />
               <input  type='hidden' 
                       name='admin-page-existing-cloudinary-url' 
                       id='admin-page-existing-cloudinary-url'
@@ -555,6 +558,7 @@ export default function Admin() {
                       name='admin-page-existing-cloudinary-public-id' 
                       id='admin-page-existing-cloudinary-public-id'
                       value='' />
+                      
               <label>
                 Section:&nbsp;&nbsp; 
                 <select id='admin-page-section-input' 
