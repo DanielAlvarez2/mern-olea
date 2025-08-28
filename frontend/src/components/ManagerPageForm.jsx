@@ -13,6 +13,7 @@ export default function ManagerPageForm(props){
     const [oldPic,setOldPic] = useState(false)
     const [oldPicURL, setOldPicURL] = useState('')
     const [oldPicID, setOldPicID] = useState('')
+    const [isChecked, setIsChecked] = useState(false)
 
 
     function handleFileInputChange(e){
@@ -92,6 +93,14 @@ export default function ManagerPageForm(props){
         document.querySelector('#manager-page-form-submit-button').style.background = 'lightgreen'
         props.setOldPic(false)
         props.setEditForm(false)
+    }
+
+    function toggleCheckbox(){
+        document.querySelector('#do-not').style.color = isChecked ? 'transparent' : 'red'
+        document.querySelector('#main-photo').style.visibility = isChecked ? 'visible' : 'hidden'
+        document.querySelector('#manager-page-file-input').value = ''
+        setPreviewImage(null)
+        setIsChecked(prev=>!prev)
     }
 
     function exitForm(){
@@ -205,7 +214,7 @@ export default function ManagerPageForm(props){
                                             }}>
                                                 <MdDoNotDisturbAlt  size={100} 
                                                                     id='do-not'
-                                                                    style={{color:'red'}}
+                                                                    style={{color:'transparent'}}
                                                 />
                                             </div>
                                             <div style={{width:'100%',textAlign:'center'}}>
@@ -215,21 +224,28 @@ export default function ManagerPageForm(props){
                                         </div>
 
                                         <br/>
-                                        <input  style={{display:'inline-block',width:'20px'}} 
-                                                type='checkbox' />
-                                        Display NO Photo (optional)
+                                        <label>
+                                            <input  style={{display:'inline-block',width:'20px'}} 
+                                                    checked={isChecked}
+                                                    name='no-photo'
+                                                    onChange={toggleCheckbox}
+                                                    type='checkbox' />
+                                            Display NO Photo (optional)
+                                        </label>
                                         <br/>
                                          
                                     </>}
 
                 <br/>
-                <label>
-                    {props.oldPic && 'Change'} Photo: (optional)<br/>
-                    <input  type='file' 
-                            onChange={handleFileInputChange}
-                            name='image-binary'
-                            id='manager-page-file-input' /><br/><br/>
-                </label>
+                <div id='main-photo'>
+                    <label>
+                        {props.oldPic && 'Change'} Photo: (optional)<br/>
+                        <input  type='file' 
+                                onChange={handleFileInputChange}
+                                name='image-binary'
+                                id='manager-page-file-input' /><br/><br/>
+                    </label>
+                </div>
                 {previewImage &&    <>
                                         <div style={{width:'100%',textAlign:'center'}}>
                                             <img    src={previewImage ? previewImage : null}
