@@ -90,6 +90,7 @@ export default function ManagerPageForm(props){
         document.querySelector('#manager-page-form-submit-button').style.cursor = 'pointer'
         document.querySelector('#manager-page-form-submit-button').style.background = 'lightgreen'
         props.setOldPic(false)
+        props.setEditForm(false)
     }
 
     function exitForm(){
@@ -183,6 +184,16 @@ export default function ManagerPageForm(props){
                 </label>
 
                 {props.oldPic &&    <>
+                                        <input  type='hidden'
+                                        id='old-pic-ID' 
+                                        name='old-pic-cloudinary-public-id' 
+                                        value={props.oldPicID} />
+
+                                        <input  type='hidden'
+                                        id='old-pic-URL' 
+                                        name='old-pic-cloudinary-url' 
+                                        value={props.oldPicURL} />
+
                                         Current Photo:
                                         <div style={{width:'100%',textAlign:'center'}}>
                                             <img    style={{maxHeight:'175px',maxWidth:'175px'}} 
