@@ -186,7 +186,7 @@ export default function ManagerPageForm(props){
                                         Current Photo:
                                         <div style={{width:'100%',textAlign:'center'}}>
                                             <img    style={{maxHeight:'175px',maxWidth:'175px'}} 
-                                                    src={props.oldPicURL} />
+                                                    src={props.oldPicURL ? props.oldPicURL : null} />
                                         </div>
                                     </>}
 
@@ -200,13 +200,14 @@ export default function ManagerPageForm(props){
                 </label>
                 {previewImage &&    <>
                                         <div style={{width:'100%',textAlign:'center'}}>
-                                            <img    src={previewImage}
+                                            <img    src={previewImage ? previewImage : null}
                                                     id='manager-page-preview-upload'
                                                     alt='Image File Upload Preview'
                                                     style={{maxHeight:'175px',maxWidth:'175px'}} />
                                         </div>
                                     </>}
 
+                <br/>
                 <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
                     
                     <button id='manager-page-form-submit-button' 

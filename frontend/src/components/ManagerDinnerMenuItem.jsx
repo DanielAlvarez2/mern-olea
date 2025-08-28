@@ -141,7 +141,7 @@ export default function ManagerDinnerMenuItem(props){
                                                 cursor:'pointer'}} />
                 <div>
                     <figure>
-                        <img className='modal-pic' src={props.data.cloudinary_url} />
+                        <img className='modal-pic' src={props.data.cloudinary_url ? props.data.cloudinary_url : null} />
                         <figcaption>
                             <span className='name'>{props.data.name}</span>
                             <span className='allergies'> ({props.data.allergies})</span><br/>
