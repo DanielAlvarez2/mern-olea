@@ -1,6 +1,7 @@
 import './ManagerPageForm.css'
 import {useState} from 'react'
-import { AiTwotoneCloseCircle } from "react-icons/ai";
+import { AiTwotoneCloseCircle } from "react-icons/ai"
+import { MdDoNotDisturbAlt } from "react-icons/md";
 
 export default function ManagerPageForm(props){
 
@@ -195,10 +196,30 @@ export default function ManagerPageForm(props){
                                         value={props.oldPicURL} />
 
                                         Current Photo:
-                                        <div style={{width:'100%',textAlign:'center'}}>
-                                            <img    style={{maxHeight:'175px',maxWidth:'175px'}} 
-                                                    src={props.oldPicURL ? props.oldPicURL : null} />
+                                        <div style={{position:'relative'}}>
+                                            <div style={{   position:'absolute',
+                                                            width:'100%',
+                                                            height:'100%',
+                                                            display:'grid',
+                                                            placeContent:'center'
+                                            }}>
+                                                <MdDoNotDisturbAlt  size={100} 
+                                                                    id='do-not'
+                                                                    style={{color:'red'}}
+                                                />
+                                            </div>
+                                            <div style={{width:'100%',textAlign:'center'}}>
+                                                <img    style={{maxHeight:'175px',maxWidth:'175px'}} 
+                                                        src={props.oldPicURL ? props.oldPicURL : null} />
+                                            </div>
                                         </div>
+
+                                        <br/>
+                                        <input  style={{display:'inline-block',width:'20px'}} 
+                                                type='checkbox' />
+                                        Display NO Photo (optional)
+                                        <br/>
+                                         
                                     </>}
 
                 <br/>
