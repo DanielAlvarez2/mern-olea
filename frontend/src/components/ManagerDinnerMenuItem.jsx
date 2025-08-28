@@ -74,10 +74,14 @@ export default function ManagerDinnerMenuItem(props){
                                 price
     ){
         props.setEditForm(true)
+        props.setOldPic(false)
         props.showForm()
         document.querySelector('#manager-page-id-input').value = id
         document.querySelector('#manager-page-existing-cloudinary-url').value = cloudinary_url
-        cloudinary_url && setOldPic(true)
+        document.querySelector('#manager-page-existing-cloudinary-url').value && 
+            props.setOldPic(true)
+        document.querySelector('#manager-page-existing-cloudinary-url').value && 
+            props.setOldPicURL(document.querySelector('#manager-page-existing-cloudinary-url').value)
         document.querySelector('#manager-page-existing-cloudinary-public-id').value = cloudinary_public_id
         document.querySelector('#manager-page-section-input').value = section
         document.querySelector('#manager-page-name-input').value = name

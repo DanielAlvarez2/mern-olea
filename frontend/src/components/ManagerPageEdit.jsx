@@ -58,6 +58,12 @@ export default function ManagerPageEdit(props){
                                                             editMode={props.editMode} 
                                                             editForm={props.editForm}
                                                             setEditForm={props.setEditForm}
+                                                            oldPic={props.oldPic}
+                                                            setOldPic={props.setOldPic}
+                                                            oldPicURL={props.oldPicURL}
+                                                            setOldPicURL={props.setOldPicURL}
+                                                            oldPicID={props.oldPicID}
+                                                            setOldPicID={props.setOldPicID}
                                     />
                         })}
                     </div>{/* #manager-page-meats */}
@@ -74,6 +80,12 @@ export default function ManagerPageEdit(props){
                                                             editMode={props.editMode} 
                                                             editForm={props.editForm}
                                                             setEditForm={props.setEditForm}
+                                                            oldPic={props.oldPic}
+                                                            setOldPic={props.setOldPic}
+                                                            oldPicURL={props.oldPicURL}
+                                                            setOldPicURL={props.setOldPicURL}
+                                                            oldPicID={props.oldPicID}
+                                                            setOldPicID={props.setOldPicID}                                                            
                                     />
                         })}
                     </div>{/* #manager-page-appetizers */}
@@ -93,6 +105,12 @@ export default function ManagerPageEdit(props){
                                                             editMode={props.editMode} 
                                                             editForm={props.editForm}
                                                             setEditForm={props.setEditForm}
+                                                            oldPic={props.oldPic}
+                                                            setOldPic={props.setOldPic}
+                                                            oldPicURL={props.oldPicURL}
+                                                            setOldPicURL={props.setOldPicURL}
+                                                            oldPicID={props.oldPicID}
+                                                            setOldPicID={props.setOldPicID}
                                     />
                         })}
                     </div>{/* #manager-page-entrées */}
@@ -122,6 +140,12 @@ export default function ManagerPageEdit(props){
                                                                 editMode={props.editMode} 
                                                                 editForm={props.editForm}
                                                                 setEditForm={props.setEditForm}
+                                                            oldPic={props.oldPic}
+                                                            setOldPic={props.setOldPic}
+                                                            oldPicURL={props.oldPicURL}
+                                                            setOldPicURL={props.setOldPicURL}
+                                                            oldPicID={props.oldPicID}
+                                                            setOldPicID={props.setOldPicID}                                                                
                                         />
                                     </div>
                             

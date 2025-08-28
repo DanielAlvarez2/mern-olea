@@ -15,6 +15,9 @@ export default function Manager(){
     const [archiveLength, setArchiveLength] = useState(0)
     const [editMode, setEditMode] = useState(true)
     const [editForm, setEditForm] = useState(false)
+    const [oldPic, setOldPic] = useState(false)
+    const [oldPicURL, setOldPicURL] = useState('')
+    const [oldPicID, setOldPicID] = useState('')
 
     useEffect(()=>getDinnerItems(),[])
 
@@ -53,7 +56,14 @@ export default function Manager(){
                                                     showForm={()=>showForm()}
                                                     editForm={editForm}
                                                     setEditForm={setEditForm}
-                                                    editMode={editMode} /> : 
+                                                    editMode={editMode} 
+                                                    oldPic={oldPic}
+                                                    setOldPic={setOldPic}
+                                                    oldPicURL={oldPicURL}
+                                                    setOldPicURL={setOldPicURL}
+                                                    oldPicID={oldPicID}
+                                                    setOldPicID={setOldPicID}
+                                                    /> : 
                                 <ManagerPagePrint flipToggle={()=>flipToggle()} />}
                 </main>
 
@@ -61,7 +71,14 @@ export default function Manager(){
                     <ManagerPageForm    dinnerItems={dinnerItems} 
                                         editForm={editForm}
                                         setEditForm={setEditForm}
-                                        getDinnerItems={()=>getDinnerItems()} />
+                                        getDinnerItems={()=>getDinnerItems()} 
+                                        oldPic={oldPic}
+                                        setOldPic={setOldPic}
+                                        oldPicURL={oldPicURL}
+                                        setOldPicURL={setOldPicURL}
+                                        oldPicID={oldPicID}
+                                        setOldPicID={setOldPicID}
+                                        />
                 </div>
             </div>
         </>

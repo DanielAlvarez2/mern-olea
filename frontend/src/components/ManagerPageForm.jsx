@@ -76,6 +76,7 @@ export default function ManagerPageForm(props){
         document.querySelector('#manager-page-section-input').value = ''
         document.querySelector('#manager-page-name-input').value = ''
         document.querySelector('#manager-page-allergies-input').value = ''
+        document.querySelector('#manager-page-mini-description-input').value = ''
         document.querySelector('#manager-page-description-input').value = ''
         document.querySelector('#manager-page-price-input').value = ''
         document.querySelector('#manager-page-file-input').value = ''
@@ -88,6 +89,7 @@ export default function ManagerPageForm(props){
         document.querySelector('#manager-page-form-submit-button').disabled = false
         document.querySelector('#manager-page-form-submit-button').style.cursor = 'pointer'
         document.querySelector('#manager-page-form-submit-button').style.background = 'lightgreen'
+        props.setOldPic(false)
     }
 
     function exitForm(){
@@ -180,8 +182,17 @@ export default function ManagerPageForm(props){
                             required /><br/><br/>
                 </label>
 
+                {props.oldPic &&    <>
+                                        Current Photo:
+                                        <div style={{width:'100%',textAlign:'center'}}>
+                                            <img    style={{maxHeight:'175px',maxWidth:'175px'}} 
+                                                    src={props.oldPicURL} />
+                                        </div>
+                                    </>}
+
+                <br/>
                 <label>
-                    Photo: (optional)<br/>
+                    {props.oldPic && 'Change'} Photo: (optional)<br/>
                     <input  type='file' 
                             onChange={handleFileInputChange}
                             name='image-binary'

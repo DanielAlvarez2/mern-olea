@@ -462,7 +462,6 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
    
-is user able to select more than 1 image file to upload? if so, can it be prevented? only allow 1 file?  
 style figcaption description for jamon 
 limit uploads to only 1 file     
 useContext() for BASE_URL  
@@ -486,7 +485,6 @@ oleademo.com not working in incognito mode??? inspect at BestBuy
 add long allergy descriptions to schema and forms and display  
 observe react effect to explain  
 check to see what happens when uploading an image file without changing format from binary to base 64  
-look into uploading 2 files at once by mistake?  
 
 *******************************************  
 SALES PITCH  
