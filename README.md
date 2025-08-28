@@ -462,6 +462,7 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
    
+is user able to select more than 1 image file to upload? if so, can it be prevented? only allow 1 file?  
 style figcaption description for jamon 
 limit uploads to only 1 file     
 useContext() for BASE_URL  
