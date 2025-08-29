@@ -71,7 +71,8 @@ export default function ManagerPageForm(props){
     }
 
     function editDinnerItem(formData){
-
+        alert('editDinnerItem()')
+        console.log(...formData)
     }
 
     function clearForm(){
