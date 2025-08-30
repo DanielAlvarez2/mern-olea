@@ -74,7 +74,7 @@ export default function ManagerPageForm(props){
         alert('editDinnerItem()')
         console.log(...formData)
         console.log('formData id:')
-        console.log(formData.get('id'))
+        console.log(formData.get('manager-page-id'))
 
         let cloudinary_assigned_url = ''
         let cloudinary_assigned_public_id = ''
@@ -87,7 +87,21 @@ export default function ManagerPageForm(props){
         
         
         
-        await fetch(`${BASE_URL}/api/dinner/${formData.get('id')}`)
+        await fetch(`${BASE_URL}/api/dinner/${formData.get('manager-page-id')}`,{method:'PUT',
+                                                                    headers:{'Content-type':'application/json'},
+                                                                    body: JSON.stringify({
+                                                                        section: formData.get('section'),
+                                                                        name: formData.get('name'),
+                                                                        allergies: formData.get('allergies'),
+                                                                        preDescription: formData.get('pre-description'),
+                                                                        description: formData.get('description'),
+                                                                        price: formData.get('price'),
+                                                                        cloudinary_url: formData.get('cloudinary_assigned_url'),
+                                                                        cloudinary_public_id: formData.get('cloudinary_assigned_url')
+                                                                    })
+        }).then(async()=>await props.getDinnerItems())
+          .then(alert(`Updated: ${formData.get('name')}`))
+          .catch(err=>console.log(err))
         
         }
 
@@ -143,7 +157,7 @@ export default function ManagerPageForm(props){
                 <h2>{props.editForm ? 'Edit' : 'Create New'} Item</h2><br/>
 
                 <input  type='hidden' 
-                        name='id' 
+                        name='manager-page-id' 
                         id='manager-page-id-input' 
                         value='' />
                 <input  type='hidden' 

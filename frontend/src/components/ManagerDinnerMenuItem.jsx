@@ -63,35 +63,32 @@ export default function ManagerDinnerMenuItem(props){
               .catch(err=>console.log(err))
     }
 
-    function editButtonClick(   id,
-                                cloudinary_url,
-                                cloudinary_public_id,
-                                section,
-                                name,
-                                allergies,
-                                preDescription,
-                                description,
-                                price
-    ){
+    async function editButtonClick(id){
+        let target
         props.setEditForm(true)
         props.setOldPic(false)
         props.showForm()
-        document.querySelector('#manager-page-id-input').value = id
-        document.querySelector('#manager-page-existing-cloudinary-url').value = cloudinary_url
-        document.querySelector('#manager-page-existing-cloudinary-url').value && 
-            props.setOldPic(true)
-        document.querySelector('#manager-page-existing-cloudinary-url').value && 
-            props.setOldPicURL(document.querySelector('#manager-page-existing-cloudinary-url').value)
-        document.querySelector('#manager-page-existing-cloudinary-public-id').value = cloudinary_public_id
-        document.querySelector('#manager-page-existing-cloudinary-public-id').value &&
-            props.setOldPicID(cloudinary_public_id)
-        document.querySelector('#manager-page-section-input').value = section
-        document.querySelector('#manager-page-name-input').value = name
-        document.querySelector('#manager-page-allergies-input').value = allergies
-        document.querySelector('#manager-page-mini-description-input').value = preDescription
-        document.querySelector('#manager-page-description-input').value = description
-        document.querySelector('#manager-page-description-input').value = description
-        document.querySelector('#manager-page-price-input').value = price
+        await fetch(`${BASE_URL}/api/dinner/${id}`)
+            .then(res=>res.json())
+            .then(json=> target = json)
+            .catch(err=>console.log(err))
+
+        
+        document.querySelector('#manager-page-id-input').value = target._id
+        document.querySelector('#manager-page-existing-cloudinary-url').value = target.cloudinary_url
+        target.cloudinary_url && 
+        props.setOldPic(true)
+        target.cloudinary_url && 
+        props.setOldPicURL(target.cloudinary_url)
+        document.querySelector('#manager-page-existing-cloudinary-public-id').value = target.cloudinary_public_id
+        target.cloudinary_public_id &&
+        props.setOldPicID(target.cloudinary_public_id)
+        document.querySelector('#manager-page-section-input').value = target.section
+        document.querySelector('#manager-page-name-input').value = target.name
+        document.querySelector('#manager-page-allergies-input').value = target.allergies
+        document.querySelector('#manager-page-mini-description-input').value = target.preDescription
+        document.querySelector('#manager-page-description-input').value = target.description
+        document.querySelector('#manager-page-price-input').value = target.price
     }
 
     return(
