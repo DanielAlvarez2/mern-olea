@@ -70,9 +70,27 @@ export default function ManagerPageForm(props){
         // React19 automatically clears forms when submitted, but previewImage still needs to be reset
     }
 
-    function editDinnerItem(formData){
+    async function editDinnerItem(formData){
         alert('editDinnerItem()')
         console.log(...formData)
+        console.log('formData id:')
+        console.log(formData.get('id'))
+
+        let cloudinary_assigned_url = ''
+        let cloudinary_assigned_public_id = ''
+
+        // NO PIC --> NO PIC  
+        if(!previewImage && !formData.get('manager-page-existing-cloudinary-url')){
+            cloudinary_assigned_url = formData.get('manager-page-existing-cloudinary-url')
+            cloudinary_assigned_public_id = formData.get('manager-page-existing-cloudinary-public-id')
+        
+        
+        
+        
+        await fetch(`${BASE_URL}/api/dinner/${formData.get('id')}`)
+        
+        }
+
     }
 
     function clearForm(){
