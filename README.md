@@ -462,6 +462,7 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
    
+check file size of olea slideshow pics     
 style figcaption description for jamon 
 limit uploads to only 1 file     
 useContext() for BASE_URL  
@@ -500,3 +501,4 @@ show bug fix on top nav transition sizes from desktop to mobile WAS poorly desig
 show improvement of open table section position:sticky fixes awkward EMPTY right half of screen  
 Andrea: "Japanese" scallops  
 everyone can proof-read online without printing paper copies  
+common occurence: asians look on yelp at old photos, scroll up and down trying to match old pics with today's paper menu  
