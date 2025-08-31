@@ -10,7 +10,7 @@ export default function ManagerPageForm(props){
                         'http://localhost:1435'
 
     const [previewImage, setPreviewImage] = useState('')
-    const [oldPicID, setOldPicID] = useState('')
+    // const [oldPicID, setOldPicID] = useState('')
     const [isChecked, setIsChecked] = useState(false)
 
 
@@ -82,7 +82,7 @@ export default function ManagerPageForm(props){
         // NO PIC --> NO PIC              
      
         // NO PIC --> ADD PIC
-        if(previewImage && !oldPicID){
+        if(previewImage && !props.oldPicID){
             await fetch(`${BASE_URL}/api/upload-cloudinary`,{   method:'POST',
                                                                 body: JSON.stringify({data:previewImage}),
                                                                 headers: {'Content-type':'application/json'}
@@ -95,8 +95,8 @@ export default function ManagerPageForm(props){
         }
 
         // OLD PIC --> NEW PIC
-        if(previewImage && oldPicID){
-            await fetch(`${BASE_URL}/api/old-pic/${oldPicID}`,{method:'DELETE'})
+        if(previewImage && props.oldPicID){
+            await fetch(`${BASE_URL}/api/old-pic/${props.oldPicID}`,{method:'DELETE'})
 
             await fetch(`${BASE_URL}/api/upload-cloudinary`,{   method:'POST',
                                                                 body: JSON.stringify({data:previewImage}),
@@ -157,7 +157,11 @@ export default function ManagerPageForm(props){
         document.querySelector('#manager-page-form-submit-button').style.cursor = 'pointer'
         document.querySelector('#manager-page-form-submit-button').style.background = 'lightgreen'
         props.setOldPic(false)
+        setIsChecked(false)
         props.setEditForm(false)
+        if(document.querySelector('#do-not')) document.querySelector('#do-not').style.color = 'transparent'
+        document.querySelector('#main-photo').style.visibility = 'visible'
+
     }
 
     function toggleCheckbox(){
