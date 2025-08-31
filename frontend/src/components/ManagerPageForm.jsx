@@ -10,8 +10,6 @@ export default function ManagerPageForm(props){
                         'http://localhost:1435'
 
     const [previewImage, setPreviewImage] = useState('')
-    const [oldPic,setOldPic] = useState(false)
-    const [oldPicURL, setOldPicURL] = useState('')
     const [oldPicID, setOldPicID] = useState('')
     const [isChecked, setIsChecked] = useState(false)
 
@@ -115,7 +113,13 @@ export default function ManagerPageForm(props){
               .catch(err=>console.log(err))
         }
 
-
+        // OLD PIC --> NO PIC
+        if(formData.get('no-photo') == 'on'){
+            console.log('oldPicID: ' + props.oldPicID)
+            await fetch(`${BASE_URL}/api/old-pic/${props.oldPicID}`,{method:'DELETE'})
+            cloudinary_assigned_url = ''
+            cloudinary_assigned_public_id = ''
+        }
 
 
         
@@ -129,7 +133,7 @@ export default function ManagerPageForm(props){
                                                                         description: formData.get('description'),
                                                                         price: formData.get('price'),
                                                                         cloudinary_url: cloudinary_assigned_url,
-                                                                        cloudinary_public_id: cloudinary_assigned_url
+                                                                        cloudinary_public_id: cloudinary_assigned_public_id
                                                                     })
         }).then(async()=>await props.getDinnerItems())
           .then(alert(`Updated: ${formData.get('name')}`))

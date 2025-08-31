@@ -77,12 +77,12 @@ export default function ManagerDinnerMenuItem(props){
         document.querySelector('#manager-page-id-input').value = target._id
         document.querySelector('#manager-page-existing-cloudinary-url').value = target.cloudinary_url
         target.cloudinary_url && 
-        props.setOldPic(true)
+            props.setOldPic(true)
         target.cloudinary_url && 
-        props.setOldPicURL(target.cloudinary_url)
+            props.setOldPicURL(target.cloudinary_url)
         document.querySelector('#manager-page-existing-cloudinary-public-id').value = target.cloudinary_public_id
         target.cloudinary_public_id &&
-        props.setOldPicID(target.cloudinary_public_id)
+            props.setOldPicID(target.cloudinary_public_id)
         document.querySelector('#manager-page-section-input').value = target.section
         document.querySelector('#manager-page-name-input').value = target.name
         document.querySelector('#manager-page-allergies-input').value = target.allergies
