@@ -87,21 +87,33 @@ export default function ManagerPageForm(props){
             
      
         // NO PIC --> ADD PIC
-        if(previewImage && !formData.get('old-pic-cloudinary-public-id')){
+        if(previewImage && !oldPicID){
             alert('working')
             await fetch(`${BASE_URL}/api/upload-cloudinary`,{   method:'POST',
                                                                 body: JSON.stringify({data:previewImage}),
                                                                 headers: {'Content-type':'application/json'}
             }).then(async(res)=>await res.json())
               .then(async(json)=>{
-                console.log(json.secure_url)
-                console.log(json.public_id)
                 cloudinary_assigned_url = json.secure_url
                 cloudinary_assigned_public_id = json.public_id
               })
               .catch(err=>console.log(err))
-            }
+        }
 
+        // OLD PIC --> NEW PIC
+        if(previewImage && oldPicID){
+            await fetch(`${BASE_URL}/api/old-pic/${oldPicID}`,{method:'DELETE'})
+
+            await fetch(`${BASE_URL}/api/upload-cloudinary`,{   method:'POST',
+                                                                body: JSON.stringify({data:previewImage}),
+                                                                headers: {'Content-type':'application/json'}
+            }).then(async(res)=>await res.json())
+              .then(async(json)=>{
+                cloudinary_assigned_url = json.secure_url
+                cloudinary_assigned_public_id = json.public_id
+              })
+              .catch(err=>console.log(err))
+        }
 
 
 
@@ -183,11 +195,11 @@ export default function ManagerPageForm(props){
                 <input  type='hidden' 
                         name='manager-page-existing-cloudinary-url' 
                         id='manager-page-existing-cloudinary-url'
-                        value='' />
+                />
                 <input  type='hidden' 
                         name='manager-page-existing-cloudinary-public-id' 
                         id='manager-page-existing-cloudinary-public-id'
-                        value='' />
+                />
 
                 <label>
                     Section:&nbsp; 
