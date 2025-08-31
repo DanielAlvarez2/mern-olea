@@ -69,24 +69,20 @@ export default function ManagerPageForm(props){
     }
 
     async function editDinnerItem(formData){
-        alert('editDinnerItem()')
-        console.log(...formData)
-        console.log('formData id:')
-        console.log(formData.get('manager-page-id'))
+        document.querySelector('#manager-page-form-submit-button').style.color = 'white'
+        document.querySelector('#manager-page-form-submit-button').textContent = 'Uploading...'
+        document.querySelector('#manager-page-form-submit-button').disabled = true
+        document.querySelector('#manager-page-form-submit-button').style.cursor = 'wait'
+        document.querySelector('#manager-page-form-submit-button').style.background = 'black'
+
 
         let cloudinary_assigned_url = ''
         let cloudinary_assigned_public_id = ''
 
-        // NO PIC --> NO PIC  
-        // if(!previewImage && !formData.get('manager-page-existing-cloudinary-url')){
-        //     cloudinary_assigned_url = formData.get('manager-page-existing-cloudinary-url')
-        //     cloudinary_assigned_public_id = formData.get('manager-page-existing-cloudinary-public-id')
-        // }
-            
+        // NO PIC --> NO PIC              
      
         // NO PIC --> ADD PIC
         if(previewImage && !oldPicID){
-            alert('working')
             await fetch(`${BASE_URL}/api/upload-cloudinary`,{   method:'POST',
                                                                 body: JSON.stringify({data:previewImage}),
                                                                 headers: {'Content-type':'application/json'}
@@ -115,7 +111,6 @@ export default function ManagerPageForm(props){
 
         // OLD PIC --> NO PIC
         if(formData.get('no-photo') == 'on'){
-            console.log('oldPicID: ' + props.oldPicID)
             await fetch(`${BASE_URL}/api/old-pic/${props.oldPicID}`,{method:'DELETE'})
             cloudinary_assigned_url = ''
             cloudinary_assigned_public_id = ''
@@ -139,6 +134,7 @@ export default function ManagerPageForm(props){
           .then(alert(`Updated: ${formData.get('name')}`))
           .catch(err=>console.log(err))
         
+        clearForm()
     }    
 
     
