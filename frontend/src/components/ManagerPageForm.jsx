@@ -80,12 +80,32 @@ export default function ManagerPageForm(props){
         let cloudinary_assigned_public_id = ''
 
         // NO PIC --> NO PIC  
-        if(!previewImage && !formData.get('manager-page-existing-cloudinary-url')){
-            cloudinary_assigned_url = formData.get('manager-page-existing-cloudinary-url')
-            cloudinary_assigned_public_id = formData.get('manager-page-existing-cloudinary-public-id')
-        
-        
-        
+        // if(!previewImage && !formData.get('manager-page-existing-cloudinary-url')){
+        //     cloudinary_assigned_url = formData.get('manager-page-existing-cloudinary-url')
+        //     cloudinary_assigned_public_id = formData.get('manager-page-existing-cloudinary-public-id')
+        // }
+            
+     
+        // NO PIC --> ADD PIC
+        if(previewImage && !formData.get('old-pic-cloudinary-public-id')){
+            alert('working')
+            await fetch(`${BASE_URL}/api/upload-cloudinary`,{   method:'POST',
+                                                                body: JSON.stringify({data:previewImage}),
+                                                                headers: {'Content-type':'application/json'}
+            }).then(async(res)=>await res.json())
+              .then(async(json)=>{
+                console.log(json.secure_url)
+                console.log(json.public_id)
+                cloudinary_assigned_url = json.secure_url
+                cloudinary_assigned_public_id = json.public_id
+              })
+              .catch(err=>console.log(err))
+            }
+
+
+
+
+
         
         await fetch(`${BASE_URL}/api/dinner/${formData.get('manager-page-id')}`,{method:'PUT',
                                                                     headers:{'Content-type':'application/json'},
@@ -96,16 +116,16 @@ export default function ManagerPageForm(props){
                                                                         preDescription: formData.get('pre-description'),
                                                                         description: formData.get('description'),
                                                                         price: formData.get('price'),
-                                                                        cloudinary_url: formData.get('cloudinary_assigned_url'),
-                                                                        cloudinary_public_id: formData.get('cloudinary_assigned_url')
+                                                                        cloudinary_url: cloudinary_assigned_url,
+                                                                        cloudinary_public_id: cloudinary_assigned_url
                                                                     })
         }).then(async()=>await props.getDinnerItems())
           .then(alert(`Updated: ${formData.get('name')}`))
           .catch(err=>console.log(err))
         
-        }
+    }    
 
-    }
+    
 
     function clearForm(){
         document.querySelector('#manager-page-section-input').value = ''
@@ -159,7 +179,7 @@ export default function ManagerPageForm(props){
                 <input  type='hidden' 
                         name='manager-page-id' 
                         id='manager-page-id-input' 
-                        value='' />
+                />
                 <input  type='hidden' 
                         name='manager-page-existing-cloudinary-url' 
                         id='manager-page-existing-cloudinary-url'
