@@ -321,7 +321,7 @@ WILL NOT WORK UNTIL NETLIFY IS CONNECTED!!!!
 ```
 export default function App() {
   const BASE_URL =  (process.env.NODE_ENV == 'production') ? 
-                    'https://mern-template-restaurant.onrender.com' : 
+                    'https://mern-template-restaurant.onrender.com' : //NO TRAILING FORWARD-SLASH!!!
                     'http://localhost:1435'
   const getDinnerItems = ()=>{
     fetch(`${BASE_URL}/api/dinner`)
@@ -340,7 +340,7 @@ Build command: npm run build
 Publish directory: frontend/dist  
 Add environment variables > Add key/value pairs  
 Key: REACT_APP_BACKEND_URL  
-Value: copy url from Render (ex: https://olea-iwpz.onrender.com/)  
+Value: copy url from Render (ex: https://olea-iwpz.onrender.com) NO TRAILING FORWARD-SLASH!!!    
 Click Deploy  
 Wait for: "Your project is deployed" (less than 1 minute)  
 Click on URL  
