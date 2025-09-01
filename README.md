@@ -373,7 +373,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>
 ```
-/frontend/public/ \+CREATE NEW FILE: _redirects `/* /index.html 200`  
+/frontend/public/ \+CREATE NEW FILE NAMED: _redirects  
+/frontend/public/_redirects :  
+/* /index.html 200  
     
 $ git add .  
 $ git commit -m 'configure react-router'  
