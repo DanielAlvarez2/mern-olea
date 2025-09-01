@@ -315,6 +315,7 @@ DEPLOY WEB SERVICE
 Maximize Logs  
 Wait for: "Your service is live"  
 Less than 1 minute  
+WILL NOT WORK UNTIL NETLIFY IS CONNECTED!!!!  
   
 /frontend/src/App.jsx  
 ```
