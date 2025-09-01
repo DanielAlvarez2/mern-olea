@@ -314,6 +314,7 @@ Environment Variables: MONGODB_URI copy from .env file
 DEPLOY WEB SERVICE  
 Maximize Logs  
 Wait for: "Your service is live"  
+Less than 1 minute  
   
 /frontend/src/App.jsx  
 ```
