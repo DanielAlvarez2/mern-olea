@@ -65,7 +65,7 @@ MONGODB_URI=mongodb+srv://danielalvarez:<db_password>@cluster0.4bkm3yq.mongodb.n
 Replace <db_password> with actual password  
 Between / ?  write in the name of GitHub Repo  
 /backend $ node --watch --env-file=../.env server.js  
-Control + C 
+Control + C  
 $ cd ..   
 $ git add  
 $ git commit -m 'server listening, database connected'  
