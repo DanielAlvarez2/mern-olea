@@ -1,6 +1,12 @@
 import { FaToggleOff } from "react-icons/fa6"
 
 export default function ManagerPagePrint(props){
+
+    const BASE_URL =    (process.env.NODE_ENV == 'production') ?
+                        'https://mern-olea.onrender.com' : 
+                        'http://localhost:1435'
+
+ 
     return(
         <>
             <header className='manager-page-header'>                        
@@ -22,6 +28,9 @@ export default function ManagerPagePrint(props){
                 </span>
             </header>
 
+            <div id='manager-print-dinner-menu' style={{width:'8.5in',height:'in',background:'purple'}}>
+
+            </div>{/* #manager-print-dinner-menu */}
             <h1>Manager Page Print</h1>
         </>
     )
