@@ -67,7 +67,7 @@ Between / ?  write in the name of GitHub Repo
 /backend $ node --watch --env-file=../.env server.js  
 Control + C  
 $ cd ..   
-$ git add  
+$ git add .    
 $ git commit -m 'server listening, database connected'  
 $ git push  
 $ cd backend  
