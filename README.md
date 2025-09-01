@@ -342,7 +342,7 @@ Add environment variables > Add key/value pairs
 Key: REACT_APP_BACKEND_URL  
 Value: copy url from Render (ex: https://olea-iwpz.onrender.com/)  
 Click Deploy  
-Wait for: "Your project is deployed"  
+Wait for: "Your project is deployed" (less than 1 minute)  
 Click on URL  
 Confirm Netlify is displaying Database from Render.com  
   
