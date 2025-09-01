@@ -340,7 +340,7 @@ Build command: npm run build
 Publish directory: frontend/dist  
 Add environment variables > Add key/value pairs  
 Key: REACT_APP_BACKEND_URL  
-Value: copy url from Render  
+Value: copy url from Render (ex: https://olea-iwpz.onrender.com/)  
 Click Deploy  
 Wait for: "Your project is deployed"  
 Click on URL  
