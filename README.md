@@ -289,7 +289,7 @@ export default function App() {
     <>  
       {dinnerItems.map(data=>{  
         return(  
-          <div>  
+          <div key={data._id}>  
             {data.name}  
           </div>  
         )  
