@@ -92,7 +92,7 @@ module.exports = mongoose.model('DinnerMenuItem', DinnerMenuItemSchema)
 ```
 const DinnerMenuItem = require('./models/DinnerMenuItem.js')
  
-app.post('/api/dinner', async(requestAnimationFrame,res)=>{
+app.post('/api/dinner', async(req,res)=>{
     try{
         const maxSequence = await DinnerMenuItem.findOne({section:requestAnimationFrame.body.section}).sort({sequence:-1})
         await DinnerMenuItem.create({
