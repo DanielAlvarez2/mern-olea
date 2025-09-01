@@ -15,10 +15,8 @@ $ git clone Command + V to paste new GitHub Repo URL
 Open Folder Icon  
 Open Folder of New GitHub Repo  
 $ touch .gitignore  
-.gitignore:  
-    .env  
-    /node_modules  
-        
+.gitignore: .env AND /node_modules  
+  
 $ git config user.name 'Daniel Alvarez'  
 $ git config user.email 'daniel.yllanes@hotmail.com'  
 $ git add .  
