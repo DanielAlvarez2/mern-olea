@@ -347,8 +347,8 @@ Click on URL
 Confirm Netlify is displaying Database from Render.com  
   
 /frontend $ npm i react-router  
-/frontend/src \+CREATE NEW FILE: touch Test.jsx   
-/frontend/src/Test.jsx  
+/frontend/src $ touch Test.jsx   
+/frontend/src/Test.jsx:    
 ```. 
 export default function Test(){
     return <h1>TEST PAGE</h1>
