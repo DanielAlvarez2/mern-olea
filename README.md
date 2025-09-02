@@ -28,7 +28,7 @@ Control + `
 $ cd backend  
 /backend $ npm init -y  
 /backend/package.json created  
-/backend $ npm i cloudinary???? cors express mongoose  
+/backend $ npm i cloudinary???? cors express mongoose react-icons  
 /backend $ touch server.js  
   
 /backend/server.js:  
