@@ -464,6 +464,7 @@ may take 48 hours for "oleademo.com" to work glitch-free
 OPTIMIZATIONS  
 *******************************************  
    
+change Uploading... button to render conditionally using a state variable  
 check file size of olea slideshow pics     
 style figcaption description for jamon 
 limit uploads to only 1 file     
