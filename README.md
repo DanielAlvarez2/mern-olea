@@ -277,7 +277,7 @@ export default function App() {
   const [dinnerItems, setDinnerItems] = useState([]) 
 
   const getDinnerItems = ()=>{  
-    fetch('api/dinner')  
+    fetch('api/dinner')  //need leading slash? /api/dinner ?
       .then(res=>res.json())  
       .then(json=>setDinnerItems(json))  
       .catch(err=>console.log(err))  
