@@ -504,4 +504,5 @@ show bug fix on top nav transition sizes from desktop to mobile WAS poorly desig
 show improvement of open table section position:sticky fixes awkward EMPTY right half of screen  
 Andrea: "Japanese" scallops  
 everyone can proof-read online without printing paper copies  
+pricing: no need to update ALL menu prices at once. can raise price 1 item at a time.  
 common occurence: asians look on yelp at old photos, scroll up and down trying to match old pics with today's paper menu  
