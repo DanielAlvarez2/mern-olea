@@ -406,6 +406,11 @@ webutility.io/favicon-extractor
 96x96px  
 256x256px  
   
+OR:  
+favicon.svg  
+should scale up or down without loss of resolution  
+
+  
 
 
 
