@@ -462,7 +462,8 @@ Save
 Works immediately  
 HTTPS takes a few minutes to kick in  
 may take 48 hours for "oleademo.com" to work glitch-free  
-
+  
+ngrok.com share localhost:port# to all machines on local network  
 
   
 *******************************************  
